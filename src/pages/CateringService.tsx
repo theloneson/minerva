@@ -3,10 +3,7 @@ import { useScale } from '../hooks/useScale';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { InstagramStrip } from '../components/InstagramStrip';
-import img1 from '../assets/figma/catering/assets/1.jpeg';
-import img2 from '../assets/figma/catering/assets/2.jpeg';
-import img3 from '../assets/figma/catering/assets/3.jpeg';
-import img4 from '../assets/figma/catering/assets/4.jpeg';
+// Removed image imports
 
 export default function CateringService() {
   const { scaleTransform, scaledHeight } = useScale(7415);
@@ -195,10 +192,10 @@ const timelineImgs = [
 ];
 
 const caterCards = [
-  { image: img1, title: "Private Celebrations", desc: "Your special moments deserve exceptional food. We bring warmth, flavour, and a spread that makes your guests talk long after the event." },
-  { image: img2, title: "Corporate Events", desc: "Professional, punctual, and perfectly presented. We handle the food so your team can focus on what matters — with great energy and full stomachs." },
-  { image: img3, title: "Church & Community", desc: "Serving community means serving with heart. We cater for fellowships and gatherings where community and good food come together beautifully." },
-  { image: img4, title: "Weddings & Showers", desc: "Intimate doesn't mean less special. Whether it's ten people or thirty, every gathering deserves food that brings people together and keeps them there." }
+  { image: "/catering/assets/1.jpeg", title: "Private Celebrations", desc: "Your special moments deserve exceptional food. We bring warmth, flavour, and a spread that makes your guests talk long after the event." },
+  { image: "/catering/assets/2.jpeg", title: "Corporate Events", desc: "Professional, punctual, and perfectly presented. We handle the food so your team can focus on what matters — with great energy and full stomachs." },
+  { image: "/catering/assets/3.jpeg", title: "Church & Community", desc: "Serving community means serving with heart. We cater for fellowships and gatherings where community and good food come together beautifully." },
+  { image: "/catering/assets/4.jpeg", title: "Weddings & Showers", desc: "Intimate doesn't mean less special. Whether it's ten people or thirty, every gathering deserves food that brings people together and keeps them there." }
 ];
 
 const offerings = [
