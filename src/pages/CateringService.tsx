@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useScale } from '../hooks/useScale';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { InstagramStrip } from '../components/InstagramStrip';
+import { MobileFollow } from '../components/Shared';
+import { Header, MobileHeader } from '../components/Header';
+import { Footer, MobileFooter } from '../components/Footer';
+import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 // Removed image imports
 
 export default function CateringService() {
@@ -13,8 +14,9 @@ export default function CateringService() {
   const prevImg = () => setImgIdx((prev) => (prev + timelineImgs.length - 1) % timelineImgs.length);
 
   return (
-    <div className="w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
-      <div 
+    <>
+    <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
+      <div
         className="relative mx-auto bg-white font-nunito w-[1920px] h-[7415px] origin-top"
         style={{ transform: scaleTransform }}
       >
@@ -175,6 +177,157 @@ export default function CateringService() {
         <Footer top={6481} />
       </div>
     </div>
+
+    {/* ================= MOBILE / TABLET (below lg) ================= */}
+    <div className="lg:hidden w-full overflow-x-hidden bg-white font-nunito">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/figma/catering/assets/11263f48ece5dacf.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/70" />
+        <MobileHeader activePage="catering" />
+        <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-start gap-5">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[50px] h-[3px] rounded-[30px] bg-brand-yellow" />
+            <span className="font-oswald font-bold text-[16px] md:text-[20px] tracking-[2px] text-brand-yellow">Catering &amp; Events</span>
+          </div>
+          <h1 className="font-black text-[52px] md:text-[80px] leading-[1.05]">
+            <span className="block text-brand-yellow">The Food</span>
+            <span className="block text-brand-red">You Own</span>
+          </h1>
+          <p className="max-w-xl font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
+            From intimate gatherings to large celebrations, TheLiquidSpot creates thoughtfully curated food and drink experiences tailored to your guests, preferences, and occasion.
+          </p>
+          <a href="/find-us#consultation-m" className="relative mt-2 rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
+            <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+            <span className="font-black text-[18px] text-white">Book a Consultation</span>
+          </a>
+        </div>
+      </section>
+
+      {/* EVERY MOMENT */}
+      <section className="relative overflow-hidden px-6 md:px-12 py-14">
+        <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-center" />
+        <div className="relative flex flex-col gap-4">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+            <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT WE CATER TO</span>
+          </div>
+          <h2 className="font-extrabold text-[38px] md:text-[56px] leading-[1.05] text-[#222]">Every Moment, Every Ocasion.</h2>
+          <p className="max-w-2xl font-medium text-[15px] md:text-[17px] leading-[26px] text-body-gray">
+            Whether it's a birthday for twenty or a corporate lunch for a hundred — we show up fresh, prepared, and ready to make your event memorable.
+          </p>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {caterCards.map((card, idx) => (
+              <div key={idx} className="rounded-[48px_0_48px_0] bg-white shadow-[inset_0_0_0_2px_#F2F2F2] flex flex-col gap-6 px-6 py-9 items-center text-center hover:-translate-y-[6px] hover:shadow-[inset_0_0_0_2px_#F3274C,0_18px_36px_rgba(0,0,0,0.12)] transition-all duration-300">
+                <div
+                  className="w-[84px] h-[84px] bg-center bg-contain bg-no-repeat"
+                  style={{ backgroundImage: `url('${card.image}')` }}
+                />
+                <div className="flex flex-col gap-3 items-center">
+                  <span className="font-extrabold text-[24px] md:text-[28px] leading-none text-brand-red">{card.title}</span>
+                  <span className="font-semibold text-[15px] md:text-[17px] leading-snug text-[#222]">{card.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* THREE SIGNATURE OFFERINGS */}
+      <section className="px-6 md:px-12 py-14 bg-white flex flex-col gap-4">
+        <div className="flex flex-row items-center gap-3">
+          <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+          <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT WE BRING</span>
+        </div>
+        <h2 className="font-extrabold text-[34px] md:text-[48px] leading-[1.05] text-[#212121]">Three Signature Offerings.</h2>
+        <p className="max-w-2xl font-medium text-[15px] md:text-[17px] leading-[26px] text-[#222]">
+          Every catering package is built from our three core collections — mixed and matched to suit your event, your guests, and your occasion.
+        </p>
+        <div className="mt-6 grid gap-8 md:grid-cols-2">
+          {offerings.map((card, idx) => (
+            <div key={idx} className="rounded-[18px] overflow-hidden bg-white shadow-[inset_0_0_0_1px_#E5E7EB,10px_11px_20px_0px_rgba(0,0,0,0.15)] hover:-translate-y-[6px] transition-all duration-300">
+              <div className="relative h-56 md:h-64" style={{ background: card.bg }}>
+                <div className="absolute left-4 top-4 h-[28px] rounded-[26px] bg-brand-yellow flex items-center gap-[6px] px-[12px]">
+                  <i className="fas fa-utensils text-[11px] text-[#222]" />
+                  <span className="font-semibold text-[13px] text-[#222]">{card.label}</span>
+                </div>
+                <i className="far fa-heart absolute right-4 top-4 text-[16px] text-white/80" />
+              </div>
+              <div className="p-6 flex flex-col gap-3 text-center items-center">
+                <span className="font-extrabold text-[24px] leading-[28px] text-brand-red">{card.title}</span>
+                <span className="max-w-xs font-normal text-[15px] leading-[23px] text-[#222]">{card.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOOD PROCESSING STEPS */}
+      <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-red">FOOD PROCESSING</span>
+          <h2 className="max-w-lg font-semibold text-[38px] md:text-[56px] leading-[1.05] text-[#212121]">Simple Ordering, Great Food.</h2>
+        </div>
+        <div className="w-full rounded-[14px] bg-[#EE284B] px-6 py-10 md:px-10 grid gap-10 md:grid-cols-2">
+          {steps.map((step, idx) => (
+            <div key={idx} className="flex flex-col gap-3 items-center text-center">
+              <span className="font-oswald font-semibold text-[56px] leading-[64px] tracking-[5px] text-transparent" style={{ WebkitTextStroke: '2px #FFF200' }}>{step.num}</span>
+              <span className="font-bold text-[22px] leading-tight text-white">{step.title}</span>
+              <span className="max-w-sm font-normal text-[15px] leading-[25px] text-white">{step.desc}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* BOOKING & PLANNING TIMELINE */}
+      <section className="flex flex-col">
+        <div className="relative h-[320px] md:h-[440px] overflow-hidden">
+          <div className="absolute inset-0 transition-all duration-300 bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${timelineImgs[imgIdx]}')` }} />
+          <div className="absolute right-4 bottom-4 flex flex-row">
+            <button type="button" onClick={prevImg} aria-label="Previous photo" className="w-[52px] h-[52px] bg-white flex items-center justify-center hover:bg-[#F5F5F5] transition-all">
+              <i className="fas fa-arrow-left text-[16px] text-[#212121]" />
+            </button>
+            <button type="button" onClick={nextImg} aria-label="Next photo" className="w-[52px] h-[52px] bg-brand-red flex items-center justify-center hover:brightness-110 transition-all">
+              <i className="fas fa-arrow-right text-[16px] text-[#212121]" />
+            </button>
+          </div>
+        </div>
+        <div className="bg-[#FFFEFA] px-6 md:px-12 py-12 flex flex-col gap-6">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+            <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT WE CATER</span>
+          </div>
+          <h2 className="font-semibold text-[34px] md:text-[44px] leading-[1.05] text-[#212121]">Booking &amp; Planning Timeline.</h2>
+          <p className="max-w-2xl font-medium text-[15px] md:text-[17px] leading-[26px] text-[#222]">
+            To ensure the highest level of service and a menu truly curated for your event, we recommend booking at least 8 weeks in advance.
+          </p>
+          <div className="rounded-[30px] bg-white shadow-[0_0_50px_-13px_rgba(0,0,0,0.2)] flex flex-col gap-[16px] p-6 md:p-8">
+            {timeline.map((row, idx) => (
+              <div key={idx} className="border border-[#DEDEDE] px-5 py-4 flex flex-col gap-[8px]">
+                <span className="font-bold text-[17px] md:text-[19px] leading-[23px] text-black">{row.title}</span>
+                <span className="font-normal text-[14px] md:text-[15px] leading-[22px] text-body-gray">{row.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* READY TO START PLANNING */}
+      <section className="relative overflow-hidden px-6 py-20 flex flex-col items-center gap-8 text-center">
+        <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/60" />
+        <h2 className="relative max-w-md font-extrabold text-[38px] md:text-[56px] leading-[1.05] text-white">Ready to start planning?</h2>
+        <a href="/find-us#consultation-m" className="relative rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
+          <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+          <span className="font-black text-[18px] text-white">Book a Consultation</span>
+        </a>
+      </section>
+
+      <MobileFollow />
+      <MobileInstagramStrip />
+      <MobileFooter />
+    </div>
+    </>
   );
 }
 

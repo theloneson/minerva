@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useScale } from '../hooks/useScale';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { InstagramStrip } from '../components/InstagramStrip';
+import { MobileFollow } from '../components/Shared';
+import { Header, MobileHeader } from '../components/Header';
+import { Footer, MobileFooter } from '../components/Footer';
+import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function FindUs() {
   const { scaleTransform, scaledHeight } = useScale(4461);
@@ -13,8 +14,9 @@ export default function FindUs() {
   const submitHref = `https://wa.me/447810007544?text=${waBody}`;
 
   return (
-    <div className="w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
-      <div 
+    <>
+    <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
+      <div
         className="relative mx-auto bg-white font-nunito w-[1920px] h-[4461px] origin-top"
         style={{ transform: scaleTransform }}
       >
@@ -227,6 +229,193 @@ export default function FindUs() {
         <Footer top={3528} />
       </div>
     </div>
+
+    {/* ================= MOBILE / TABLET (below lg) ================= */}
+    <div className="lg:hidden w-full overflow-x-hidden bg-white font-nunito">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/figma/findus/assets/fc783f160442afe0.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/60" />
+        <MobileHeader activePage="find-us" />
+        <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-start gap-4">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[50px] h-[3px] rounded-[30px] bg-brand-yellow" />
+            <span className="font-extrabold text-[18px] md:text-[22px] text-brand-yellow">Get In Touch</span>
+          </div>
+          <h1 className="font-black text-[48px] md:text-[72px] leading-[1.05]">
+            <span className="block text-white">Find Us.</span>
+            <span className="block text-brand-red">Order Fresh.</span>
+          </h1>
+          <p className="max-w-xl font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
+            Daily orders go through us directly. Catering and event bookings go through the form below. We're easy to reach and quick to respond.
+          </p>
+        </div>
+      </section>
+
+      {/* CONTACT US */}
+      <section className="px-6 md:px-12 py-14 bg-gradient-to-b from-white from-90% to-[#E7F5F5]">
+        <h2 className="font-semibold text-[40px] md:text-[56px] leading-tight text-center text-[#222]">Contact Us</h2>
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 max-w-xl mx-auto">
+          {contacts.map((c, idx) => (
+            <a key={idx} href={c.href} target="_blank" rel="noopener noreferrer" className="relative flex flex-col items-center gap-3 pt-2 pb-8 group">
+              <div className="w-[48px] h-[48px] rounded-full flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: c.bg }}>
+                <i className={`${c.icon} text-[24px] text-white`} />
+              </div>
+              <span className="font-extrabold text-[13px] text-center text-[#222] break-all px-3">{c.label}</span>
+              <div className="absolute bottom-0 left-0 right-0 h-[18px] rounded-[4px] bg-brand-red" />
+              <div className="absolute bottom-[3px] left-1/2 -translate-x-1/2 w-[28px] h-[28px] rounded-full bg-white shadow-[inset_0_0_0_1px_#F3274C] flex items-center justify-center transition-transform group-hover:scale-110">
+                <div className="w-[14px] h-[14px] rounded-full bg-brand-red" />
+              </div>
+            </a>
+          ))}
+        </div>
+        <p className="mt-8 font-bold italic text-[15px] text-center text-[#222]">Next day delivery to every part of the UK.</p>
+      </section>
+
+      {/* READY TO ORDER BANNER */}
+      <section className="relative overflow-hidden bg-brand-redBanner px-6 md:px-12 py-12">
+        <div className="absolute inset-0 opacity-10 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
+        <div className="relative flex flex-col items-start gap-5">
+          <h2 className="font-bold text-[32px] md:text-[44px] leading-[1.1] text-white">Ready To Order? We're One Message Away.</h2>
+          <p className="font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">We deliver nationwide. Please see our FAQ section for notice windows on regular and catering orders.</p>
+          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[240px] h-[68px] rounded-[12px] bg-white flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
+            <div className="absolute -inset-y-[6px] inset-x-[12px] rounded-[12px] shadow-[inset_0_0_0_3px_#FFF] pointer-events-none" />
+            <span className="font-semibold text-[19px] text-brand-red">Place Your Order</span>
+          </a>
+        </div>
+      </section>
+
+      {/* BOOK A CONSULTATION */}
+      <section id="consultation-m">
+        {/* Intro / image panel */}
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/figma/catering/assets/bf7b0e683dc63017.jpg')] bg-cover bg-center" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative px-6 md:px-12 py-14 flex flex-col gap-5">
+            <div className="flex flex-row items-center gap-3">
+              <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellow" />
+              <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-redAlt">Catering Enquiries</span>
+            </div>
+            <h2 className="font-extrabold text-[36px] md:text-[52px] leading-[1.05] text-white">Book a Consultation.</h2>
+            <p className="font-medium text-[15px] md:text-[17px] leading-[26px] text-white">Fill this in and we'll be in touch within 2 working days to arrange your consultation.</p>
+            <div className="mt-2 flex flex-col items-center gap-3 text-center">
+              <div className="w-[120px] h-[120px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
+              <span className="font-extrabold text-[24px] md:text-[30px] leading-tight text-white">Book at least 8 weeks ahead</span>
+              <span className="max-w-md font-semibold text-[15px] md:text-[17px] leading-[25px] text-white">Early bookings get the widest menu selection and the most time for proper planning.</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Form */}
+        <div className="px-6 md:px-12 py-12 flex flex-col gap-6 max-w-2xl mx-auto">
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Contact Information</span>
+            <input type="text" placeholder="Full Name" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+            <input type="email" placeholder="Email address" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+            <input type="tel" placeholder="Phone Number" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Event Information</span>
+            <div className="relative">
+              <select title="Event Type" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <option value="">Event Type</option>
+                <option>Birthday</option>
+                <option>Wedding</option>
+                <option>Corporate Event</option>
+                <option>Church / Community</option>
+                <option>Baby Shower</option>
+                <option>Private Party</option>
+                <option>Other</option>
+              </select>
+              <i className="fas fa-caret-down absolute right-5 top-[20px] text-[16px] text-[#737879] pointer-events-none" />
+            </div>
+            <input type="text" placeholder="Event Date *" onFocus={(e) => e.target.type = "date"} className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+            <input type="text" placeholder="Event Location" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+            <div className="relative">
+              <select title="Start Time" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <option value="">Start Time</option>
+                <option>Morning (8am – 12pm)</option>
+                <option>Afternoon (12pm – 4pm)</option>
+                <option>Evening (4pm – 8pm)</option>
+              </select>
+              <i className="fas fa-caret-down absolute right-5 top-[20px] text-[16px] text-[#737879] pointer-events-none" />
+            </div>
+            <input type="text" placeholder="End Time *" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Guess Information</span>
+            <div className="relative">
+              <select title="Estimated Guest Count" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <option value="">Estimated Guest Count</option>
+                <option>Under 20</option>
+                <option>20 – 50</option>
+                <option>50 – 100</option>
+                <option>100+</option>
+              </select>
+              <i className="fas fa-caret-down absolute right-5 top-[20px] text-[16px] text-[#737879] pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Catering Requirements</span>
+            <div className="relative">
+              <select title="Catering interests" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <option value="">What are you interested in? Select all that apply.</option>
+                <option>Signature Feasts</option>
+                <option>Artisan Bites</option>
+                <option>LiquidSpot Blends</option>
+                <option>Full Package</option>
+              </select>
+              <i className="fas fa-caret-down absolute right-5 top-[20px] text-[16px] text-[#737879] pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Budget</span>
+            <div className="relative">
+              <select title="Estimated Catering Budget" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <option value="">Estimated Catering Budget</option>
+                <option>Under £250</option>
+                <option>£250 – £500</option>
+                <option>£500 – £1,000</option>
+                <option>£1,000+</option>
+              </select>
+              <i className="fas fa-caret-down absolute right-5 top-[20px] text-[16px] text-[#737879] pointer-events-none" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Tell Us More</span>
+            <input type="text" placeholder="About your event" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+          </div>
+
+          <div className="flex flex-col gap-5">
+            <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Consultation Preference</span>
+            <div className="flex flex-col gap-3">
+              {prefLabels.map((label, idx) => (
+                <label key={idx} onClick={() => setPrefIdx(idx)} className="flex flex-row gap-[10px] items-center cursor-pointer">
+                  <span className="w-[20px] h-[20px] rounded-full border-[2px] border-brand-red flex items-center justify-center">
+                    {prefIdx === idx && <span className="w-[10px] h-[10px] rounded-full bg-brand-red" />}
+                  </span>
+                  <span className="font-epilogue font-semibold text-[15px] text-[#555]">{label}</span>
+                </label>
+              ))}
+            </div>
+            <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[170px] h-[58px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+              <div className="absolute -inset-y-[6px] inset-x-[8px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+              <span className="font-fredoka font-normal text-[17px] text-white">Submit Enquiry</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <MobileFollow />
+      <MobileInstagramStrip />
+      <MobileFooter />
+    </div>
+    </>
   );
 }
 

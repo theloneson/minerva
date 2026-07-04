@@ -1,3 +1,4 @@
+// src/hooks/useScale.ts
 import { useState, useEffect, useCallback } from 'react';
 
 export function useScale(originalHeight: number) {
@@ -17,7 +18,6 @@ export function useScale(originalHeight: number) {
     };
 
     handleResize();
-
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
 
@@ -35,6 +35,7 @@ export function useScale(originalHeight: number) {
   }, [getScale]);
 
   return {
+    scale, // raw number now, not just a CSS string
     scaleTransform: `scale(${scale})`,
     scaledHeight: `${Math.round(originalHeight * scale)}px`,
   };

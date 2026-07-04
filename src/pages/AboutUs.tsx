@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useScale } from '../hooks/useScale';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { InstagramStrip } from '../components/InstagramStrip';
+import { MobileFollow } from '../components/Shared';
+import { Header, MobileHeader } from '../components/Header';
+import { Footer, MobileFooter } from '../components/Footer';
+import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function AboutUs() {
   const { scaleTransform, scaledHeight } = useScale(6383);
@@ -14,8 +15,9 @@ export default function AboutUs() {
   const currentQuote = quotes[quoteIdx];
 
   return (
-    <div className="w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
-      <div 
+    <>
+    <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
+      <div
         className="relative mx-auto bg-white font-nunito w-[1920px] h-[6383px] origin-top"
         style={{ transform: scaleTransform }}
       >
@@ -185,6 +187,151 @@ export default function AboutUs() {
         <Footer top={5451} />
       </div>
     </div>
+
+    {/* ================= MOBILE / TABLET (below lg) ================= */}
+    <div className="lg:hidden w-full overflow-x-hidden bg-white font-nunito">
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-black">
+        <div className="absolute inset-0 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black opacity-90" />
+        <MobileHeader activePage="about-us" />
+        <div className="relative px-6 md:px-12 pt-40 pb-20 flex flex-col items-center gap-5 text-center">
+          <h1 className="font-black text-[52px] md:text-[72px] leading-none">
+            <span className="text-[#FFE600]">Our</span>{' '}
+            <span className="text-[#FF3B5C]">Story</span>
+          </h1>
+          <p className="max-w-xl font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
+            The LiquidSpot is a food and beverage brand built on freshly prepared handmade food and specialty drinks — made with quality ingredients, crafted with intention.
+          </p>
+        </div>
+      </section>
+
+      {/* WHO WE ARE */}
+      <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-8">
+        <div className="w-full max-w-xl grid grid-cols-2 gap-4">
+          <div className="row-span-2 rounded-[16px] bg-[url('/figma/about/assets/1.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
+          <div className="h-40 md:h-56 rounded-[16px] bg-[url('/figma/about/assets/2.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
+          <div className="h-40 md:h-56 rounded-[16px] bg-[url('/figma/about/assets/3.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
+        </div>
+        <div className="flex flex-col items-center gap-4 text-center">
+          <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHO WE ARE</span>
+          <h2 className="font-extrabold text-[40px] md:text-[52px] leading-none text-[#212121]">The LiquidSpot.</h2>
+          <p className="max-w-xl font-medium text-[15px] md:text-[17px] leading-[26px] text-body-gray whitespace-pre-line">
+            From handcrafted shawarmas and freshly baked pastries to refreshing specialty drinks, every item is prepared with attention to flavour, freshness, and consistency.
+            {"\n\n"}
+            At The LiquidSpot, we believe good food and drinks create moments of enjoyment and connection. Whether you're grabbing a quick bite, enjoying a refreshing drink, or sharing food with friends and family, we aim to provide an experience that is simple, satisfying, and memorable.
+          </p>
+        </div>
+      </section>
+
+      {/* HYGIENE RATING BAR */}
+      <section className="relative overflow-hidden bg-[#121212] px-6 md:px-12 py-12">
+        <div className="absolute inset-0 opacity-10 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
+        <div className="relative flex flex-col items-start gap-5">
+          <div className="flex flex-row gap-[8px]">
+            {[1, 2, 3, 4].map(i => <i key={i} className="fas fa-star text-[20px] text-brand-yellowAccent" />)}
+            <i className="fas fa-star text-[20px] text-white" />
+          </div>
+          <span className="font-bold text-[30px] md:text-[44px] leading-tight text-white underline">4-Star Food Hygiene Rating</span>
+          <span className="font-semibold italic text-[17px] md:text-[22px] leading-[28px] text-[#F4F1F1]">Registered UK food business. Verified by the Food Standards Agency — tap to view.</span>
+          <a href="https://ratings.food.gov.uk" target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[220px] h-[64px] rounded-[12px] bg-white flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
+            <div className="absolute -inset-y-[6px] inset-x-[12px] rounded-[12px] shadow-[inset_0_0_0_3px_#FFF] pointer-events-none" />
+            <span className="font-black text-[20px] text-brand-red">View More</span>
+          </a>
+        </div>
+      </section>
+
+      {/* VISION & MISSION */}
+      <section className="px-6 md:px-12 py-14 flex flex-col gap-8">
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+            <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT DRIVES US</span>
+          </div>
+          <h2 className="font-extrabold text-[40px] md:text-[56px] leading-none text-[#212121]">Vision &amp; Mission.</h2>
+        </div>
+        <div className="grid gap-8 md:grid-cols-2 items-stretch">
+          <div className="rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
+            <span className="font-bold text-[22px] text-[#222]">Our Vision</span>
+            <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
+            <div className="flex flex-row gap-[10px]">
+              {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-[8px] h-[8px] border border-brand-yellowAccent" />)}
+            </div>
+          </div>
+          <div className="rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
+            <span className="font-bold text-[22px] text-[#222]">Our Mission</span>
+            <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
+          </div>
+        </div>
+      </section>
+
+      {/* OUR OFFERINGS */}
+      <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-8">
+        <span className="font-oswald font-semibold text-[44px] md:text-[64px] leading-none tracking-[3px] text-center text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our Offerings</span>
+        <div className="w-full max-w-xl grid gap-5 md:grid-cols-2">
+          {offerings.map((tile, idx) => (
+            <div key={idx} className="relative h-[210px] rounded-[30px] overflow-hidden" style={{ background: tile.bg }}>
+              <div className="absolute inset-0 bg-[#0C0C0C]/70" />
+              <div className="relative h-full flex flex-col items-center justify-center gap-4 px-6 text-center">
+                <span className="font-extrabold text-[24px] md:text-[28px] leading-[1.05] text-white">{tile.title}</span>
+                <span className="font-light text-[13px] md:text-[14px] leading-[17px] text-white">{tile.desc}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SUSTAINABILITY */}
+      <section className="relative overflow-hidden px-6 md:px-12 py-16">
+        <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/80" />
+        <div className="relative flex flex-col gap-8">
+          <div className="flex flex-col gap-3">
+            <div className="flex flex-row items-center gap-3">
+              <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellow" />
+              <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-yellow">SUSTAINABILITY</span>
+            </div>
+            <h2 className="font-extrabold text-[36px] md:text-[56px] leading-[1.05] text-white">Food With Purpose.</h2>
+          </div>
+          <p className="font-medium italic text-[17px] md:text-[24px] leading-[30px] md:leading-[40px] text-center text-white whitespace-pre-line">
+            "We are also mindful of the role small businesses play in building a more responsible food system. As part of our commitment to sustainability, we make conscious efforts to minimise food waste, manage resources responsibly, and adopt practices that support more sustainable production in line with the principles of SDG 12."
+            {"\n\n"}
+            "Through thoughtful preparation and responsible food handling, we aim to operate in a way that respects both our customers and the environment."
+          </p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="relative overflow-hidden bg-black px-6 md:px-12 py-16">
+        <div className="absolute inset-0 opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-cover bg-top" />
+        <div className="relative flex flex-col items-center gap-7 text-center">
+          <div className="flex flex-row items-center gap-3 border-b border-dashed border-brand-yellow pb-4">
+            <i className="fas fa-quote-left text-[22px] text-brand-yellow" />
+            <span className="font-oswald font-normal text-[24px] md:text-[30px] leading-tight text-white">What Client Says?</span>
+          </div>
+          <p className="max-w-2xl min-h-[120px] font-medium italic text-[17px] md:text-[22px] leading-[30px] md:leading-[38px] text-footer-gray">
+            {currentQuote.text}
+          </p>
+          <span className="font-oswald font-semibold text-[18px] tracking-[2px] text-white">{currentQuote.name}</span>
+          <div className="flex flex-row gap-[8px]">
+            {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star text-[18px] text-brand-yellowAccent" />)}
+          </div>
+          <div className="flex flex-row gap-5">
+            <button type="button" onClick={prevQuote} aria-label="Previous testimonial" className="w-[50px] h-[50px] rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i className="fas fa-arrow-left text-[16px] text-white" />
+            </button>
+            <button type="button" onClick={nextQuote} aria-label="Next testimonial" className="w-[50px] h-[50px] rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center hover:bg-white/10 transition-colors">
+              <i className="fas fa-arrow-right text-[16px] text-white" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <MobileFollow />
+      <MobileInstagramStrip />
+      <MobileFooter />
+    </div>
+    </>
   );
 }
 

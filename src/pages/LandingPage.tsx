@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useScale } from '../hooks/useScale';
-import { RedButton, YellowButton } from '../components/Shared';
-import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
-import { InstagramStrip } from '../components/InstagramStrip';
+import { RedButton, YellowButton, MobileFollow } from '../components/Shared';
+import { Header, MobileHeader } from '../components/Header';
+import { Footer, MobileFooter } from '../components/Footer';
+import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function LandingPage() {
   const { scaleTransform, scaledHeight } = useScale(8719);
@@ -12,15 +12,20 @@ export default function LandingPage() {
 
   const handleMenuScroll = (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.getElementById("menu");
-    if (el) {
+    const isDesktop = window.innerWidth >= 1024;
+    const el = document.getElementById(isDesktop ? "menu" : "menu-m");
+    if (!el) return;
+    if (isDesktop) {
       const scale = Math.min(1, window.innerWidth / 1920);
       window.scrollTo({ top: el.offsetTop * scale, behavior: "smooth" });
+    } else {
+      el.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
+    <>
+    <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div 
         className="relative mx-auto bg-white font-nunito w-[1920px] h-[8719px] origin-top"
         style={{ transform: scaleTransform }}
@@ -349,6 +354,278 @@ export default function LandingPage() {
 
         <InstagramStrip top={7393} />
         <Footer top={7785} />
+      </div>
+    </div>
+
+    {/* ================= MOBILE / TABLET (below lg) ================= */}
+    <div className="lg:hidden w-full overflow-x-hidden bg-white font-nunito">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/45" />
+        <MobileHeader activePage="home" />
+        <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-start gap-5">
+          <span className="font-bold text-[15px] md:text-[18px] leading-[22px] text-brand-red">
+            Freshly Made Daily • Served With Flavor
+          </span>
+          <h1 className="font-black text-[54px] md:text-[84px] leading-[0.92]">
+            <span className="block text-brand-red">You’ll</span>
+            <span className="block text-brand-yellow">Crave Again</span>
+          </h1>
+          <p className="max-w-md font-light italic text-[15px] md:text-[17px] leading-relaxed text-[#F4F1F1]">
+            From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
+          </p>
+          <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px]">
+            View Menu
+          </RedButton>
+        </div>
+      </section>
+
+      {/* BITES & BLENDS INTRO */}
+      <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-4 text-center">
+        <div className="grid grid-cols-2 gap-4 w-full max-w-md md:max-w-xl">
+          <div className="h-64 md:h-80 rounded-[110px] bg-[url('/figma/landing/assets/ded90afec8a34908.png')] bg-center bg-cover bg-no-repeat" />
+          <div className="h-64 md:h-80 rounded-[110px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-cover bg-no-repeat" />
+        </div>
+        <span className="mt-6 font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">THE LIQUID SPOT</span>
+        <h2 className="font-semibold text-[44px] md:text-[64px] leading-none text-black">Bites &amp; Blends</h2>
+        <p className="max-w-xl font-medium text-[15px] md:text-[17px] leading-relaxed text-body-gray">
+          The Liquid Spot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
+        </p>
+        <span className="font-black text-[13px] md:text-[15px] text-body-gray">Monday to Saturday – 07:00am TO 06:00pm</span>
+        <span className="font-black text-[22px] md:text-[24px] text-brand-red">+44 7810 007 544</span>
+        <RedButton href="/about-us" className="mt-2 w-[180px]">Learn More</RedButton>
+      </section>
+
+      {/* MENU */}
+      <section id="menu-m" className="py-12 bg-white">
+        <div className="px-6 md:px-12 flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-row items-center gap-3">
+            <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+            <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">CRAVINGS START HERE.</span>
+          </div>
+          <h2 className="font-extrabold text-[44px] md:text-[64px] leading-none text-black">View Our Menu</h2>
+        </div>
+
+        {/* TABS */}
+        <div className="mt-8 px-6 md:px-12 flex flex-row gap-7 overflow-x-auto no-scrollbar">
+          <button type="button" onClick={() => setActiveTab('quick')} className="flex-shrink-0 text-center">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Quick Bites &amp; Meals</div>
+            <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Yummy Choi</div>
+            {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+          </button>
+          <button type="button" onClick={() => setActiveTab('drinks')} className="flex-shrink-0 text-center">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Fresh Blends &amp; Drinks</div>
+            <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Tropical and Traditional</div>
+            {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+          </button>
+          <button type="button" onClick={() => setActiveTab('pastries')} className="flex-shrink-0 text-center">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Pastries</div>
+            <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
+            {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+          </button>
+          <div title="Salads menu coming soon" className="flex-shrink-0 text-center opacity-55 cursor-default">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Salads</div>
+            <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
+          </div>
+        </div>
+
+        {/* TAB 1: QUICK BITES */}
+        {activeTab === 'quick' && (
+          <div className="mt-8 px-6 md:px-12 flex flex-col gap-10">
+            {menuGroups.map((group, idx) => (
+              <div key={idx} className="flex flex-col gap-5">
+                <div className="flex flex-row items-center gap-3">
+                  <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+                  <span className="font-extrabold text-[20px] leading-[23px] text-black">{group.name}</span>
+                </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                  {group.cards.map((card, cIdx) => (
+                    <div key={cIdx} className="rounded-[18px] bg-white shadow-card overflow-hidden">
+                      <div className="relative h-44 md:h-52" style={{ background: card.bg }}>
+                        <span className="absolute left-3 top-3 rounded-[26px] bg-brand-yellow px-3 py-[4px] font-semibold text-[12px] text-[#222]">{card.label}</span>
+                      </div>
+                      <div className="p-4 flex flex-col gap-1.5">
+                        <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
+                        <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
+                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
+                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+                        <div className="mt-2 flex flex-row items-center justify-between">
+                          <span className="font-extrabold text-[16px] text-brand-red">{card.price}</span>
+                          {card.spice && (
+                            <span className="text-[10px] tracking-[2px] whitespace-nowrap">
+                              <span className="font-oswald text-brand-redAlt mr-1">Spice Lvl:</span>🌶️ 🌶️🌶️
+                            </span>
+                          )}
+                          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="rounded-[4px] bg-brand-yellow px-3 py-1.5 hover:brightness-95 transition-all">
+                            <span className="font-oswald text-[12px] text-black">Order Now</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* TAB 2: DRINKS */}
+        {activeTab === 'drinks' && (
+          <div className="mt-8 px-6 md:px-12 grid gap-6 md:grid-cols-2">
+            {drinkRows.flatMap((row) => row.cards).map((card, idx) => (
+              <div key={idx} className="rounded-[18px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB] overflow-hidden flex flex-row">
+                <div className="w-[130px] md:w-[150px] flex-shrink-0 rounded-r-[80px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-cover bg-no-repeat" />
+                <div className="flex-grow p-4 flex flex-col gap-1.5">
+                  <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
+                  <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
+                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
+                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+                  <div className="mt-2 flex flex-row items-center justify-between">
+                    <span className="font-extrabold text-[16px] text-brand-red">{card.price}</span>
+                    <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="rounded-[4px] bg-brand-yellow px-3 py-1.5 hover:brightness-95 transition-all">
+                      <span className="font-oswald text-[12px] text-black">Order Now</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* TAB 3: PASTRIES */}
+        {activeTab === 'pastries' && (
+          <div className="mt-8 px-6 md:px-12 flex flex-col gap-8">
+            <div className="grid gap-6 md:grid-cols-2">
+              {pies.map((card, idx) => (
+                <MobilePastryCard key={idx} card={card} />
+              ))}
+            </div>
+            <span className="font-bold text-[22px] leading-tight text-black">Banana Bread Range</span>
+            <div className="grid gap-6 md:grid-cols-2">
+              {bananas.map((card, idx) => (
+                <MobilePastryCard key={idx} card={card} />
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* CATERING BANNER */}
+      <section className="relative overflow-hidden px-6 py-16 flex flex-col items-center gap-6">
+        <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
+        <a href="/catering" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+          <span className="font-bold text-[20px] leading-[25px] text-white">Catering Services</span>
+        </a>
+      </section>
+
+      {/* SIMPLE ORDERING */}
+      <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-4 text-center">
+        <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[1px] text-brand-red">FOOD PROCESSING</span>
+        <h2 className="max-w-lg font-semibold text-[38px] md:text-[56px] leading-[1.05] text-[#212121]">Simple Ordering, Great Food.</h2>
+        <div className="mt-6 w-full grid gap-6 md:grid-cols-3 items-stretch">
+          <div className="flex flex-col items-center justify-center gap-2 px-6 py-8">
+            <span className="font-semibold text-[24px] leading-tight text-[#212121]">Freshly Made</span>
+            <span className="max-w-xs font-medium text-[15px] leading-[26px] text-body-gray2">Every meal and drink is prepared fresh with care, flavor, and quality ingredients.</span>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-5 rounded-[17px] outline outline-1 outline-dashed outline-[#5C5C5B] outline-offset-[-1px] px-6 py-8">
+            <span className="max-w-xs font-medium text-[15px] leading-[26px] text-body-gray2">Hit the Order Now button and a member of our team will respond quickly to guide you through your order.</span>
+            <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="w-[158px] h-[48px] rounded-[9px] bg-brand-yellow flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
+              <span className="font-oswald font-bold text-[16px] tracking-[0.8px] text-black uppercase">order now</span>
+            </a>
+          </div>
+          <div className="flex flex-col items-center justify-center gap-2 px-6 py-8">
+            <span className="font-semibold text-[24px] leading-tight text-[#212121]">Fast &amp; Reliable Delivery</span>
+            <span className="max-w-xs font-medium text-[15px] leading-[26px] text-body-gray2">We work with trusted delivery services to get your order to you fresh and on time.</span>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-4 md:mx-10 my-10 rounded-[30px] border-solid border-[#222] border-[10px] md:border-[14px] px-4 py-10 md:px-8">
+        <div className="flex flex-col items-center gap-5 text-center">
+          <span className="font-oswald font-bold text-[36px] md:text-[48px] leading-none text-brand-redAlt">FAQS</span>
+          <h2 className="max-w-xl font-bold text-[30px] md:text-[44px] leading-[1.1] text-[#212121]">Everything You Need To Know Before You Order</h2>
+          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="w-[190px] h-[56px] rounded-[9px] bg-brand-yellow flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
+            <span className="font-oswald font-bold text-[16px] tracking-[0.8px] text-black uppercase">order now</span>
+          </a>
+        </div>
+        <div className="mt-8 flex flex-col gap-4 max-w-2xl mx-auto">
+          {faqData.map((faq, i) => {
+            const isOpen = openFaqIdx === i;
+            return (
+              <div key={i} className="flex flex-col">
+                <div
+                  onClick={() => setOpenFaqIdx(isOpen ? -1 : i)}
+                  className={`bg-white border border-[#565656]/30 cursor-pointer flex flex-row justify-between items-center gap-3 px-5 py-4 hover:bg-[#FAFAFA] transition-colors ${isOpen ? 'rounded-t-[16px]' : 'rounded-[16px]'}`}
+                >
+                  <span className="font-lexend font-semibold text-[15px] md:text-[17px] text-[#080809]">{faq.q}</span>
+                  <i className="far fa-eye text-[15px] text-[#080809] flex-shrink-0" />
+                </div>
+                {isOpen && (
+                  <div className="rounded-b-[16px] bg-white px-5 py-4 border border-t-0 border-[#565656]/30">
+                    <span className="font-dmsans font-normal text-[14px] md:text-[16px] leading-[24px] text-[#54595F]">{faq.a}</span>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* EVERY BITE BANNER */}
+      <section className="relative overflow-hidden px-6 py-16 text-center">
+        <div className="absolute inset-0 bg-[url('/figma/landing/assets/24f90eccd0b63e35.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-white/85" />
+        <div className="relative flex flex-col items-center gap-5">
+          <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-redAlt">Crispy, Every Bite Taste</span>
+          <h2 className="max-w-xl font-bold text-[34px] md:text-[52px] leading-[1.05] text-[#212121]">Every Bite Deserves A Refreshing Blend.</h2>
+          <p className="max-w-sm font-medium text-[15px] md:text-[17px] leading-[26px] text-body-gray2">Fresh drinks made to complement every craving.</p>
+          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="w-[190px] h-[56px] rounded-[9px] bg-brand-yellow flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
+            <span className="font-oswald font-bold text-[16px] tracking-[0.8px] text-black uppercase">order now</span>
+          </a>
+        </div>
+      </section>
+
+      <MobileFollow />
+      <MobileInstagramStrip />
+      <MobileFooter />
+
+      {/* Floating WhatsApp bubble */}
+      <a
+        href="https://wa.me/447810007544"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-gradient-to-tl from-[#00D95F] to-[#07FF74] flex items-center justify-center shadow-[0_10px_24px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform"
+      >
+        <i className="fab fa-whatsapp text-white text-[30px]" />
+      </a>
+    </div>
+    </>
+  );
+}
+
+// Mobile card used for pies and banana bread (pastries tab)
+function MobilePastryCard({ card }: { card: { title: string; price: string; bg: string; desc: string; ingr: string; allergen: string } }) {
+  return (
+    <div className="rounded-[24px] bg-white shadow-pastry overflow-hidden">
+      <div className="h-44 md:h-52 rounded-b-[30px]" style={{ background: card.bg }} />
+      <div className="p-5 flex flex-col gap-1.5">
+        <span className="font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
+        <span className="font-normal text-[22px] leading-[27px] text-black">{card.title}</span>
+        <span className="mt-1 font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
+        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
+        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+        <div className="mt-3 flex flex-row items-center gap-4">
+          <i className="fas fa-arrow-right text-[15px] text-black" />
+          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 transition-all">
+            <span className="font-oswald text-[15px] text-black">Order Now</span>
+          </a>
+        </div>
       </div>
     </div>
   );

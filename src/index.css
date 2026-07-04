@@ -6,4 +6,14 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* hide scrollbars on horizontally-scrollable rows (mobile tabs, strips) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
