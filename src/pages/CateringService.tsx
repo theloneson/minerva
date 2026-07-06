@@ -4,7 +4,6 @@ import { MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
 import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
-// Removed image imports
 
 export default function CateringService() {
   const { scaleTransform, scaledHeight } = useScale(7415);
@@ -17,7 +16,7 @@ export default function CateringService() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[7415px] origin-top"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[7415px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -50,7 +49,7 @@ export default function CateringService() {
             <div className="absolute left-[23px] top-[15px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
             <span className="absolute left-[66px] top-[5px] font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">WHAT WE CATER TO</span>
           </div>
-          <span className="absolute left-[138px] top-[92px] w-[1195px] font-nunito font-extrabold text-[80px] leading-[72px] text-center whitespace-nowrap text-[#222]">Every Moment, Every Ocasion.</span>
+          <span className="absolute left-[138px] top-[92px] w-[1195px] font-nunito font-extrabold text-[80px] leading-[72px] text-center whitespace-nowrap text-[#222]">Every Moment, Every Occasion.</span>
           <span className="absolute left-[173px] top-[184px] w-[776px] font-nunito font-medium text-[17px] leading-[28px] text-body-gray">
             Whether it's a birthday for twenty or a corporate lunch for a hundred — we show up fresh, prepared, and ready to make your event memorable.
           </span>
@@ -58,7 +57,7 @@ export default function CateringService() {
             {caterCards.map((card, idx) => (
               <div key={idx} className="relative w-[430px] h-[390px] flex-shrink-0 rounded-[48px_0_48px_0] bg-white shadow-[inset_0_0_0_2px_#F2F2F2] flex flex-col gap-[32px] px-[22px] py-[40px] items-center justify-center hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_2px_#F3274C,0_18px_36px_rgba(0,0,0,0.12)] transition-all duration-300">
                 <div
-                  className="w-[96px] h-[96px] bg-center bg-contain bg-no-repeat"
+                  className="w-[96px] h-[96px] rounded-full bg-center bg-cover bg-no-repeat"
                   style={{ backgroundImage: `url('${card.image}')` }}
                 />
                 <div className="flex flex-col gap-[16px] items-center">
@@ -212,7 +211,7 @@ export default function CateringService() {
             <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
             <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT WE CATER TO</span>
           </div>
-          <h2 className="font-extrabold text-[38px] md:text-[56px] leading-[1.05] text-[#222]">Every Moment, Every Ocasion.</h2>
+          <h2 className="font-extrabold text-[38px] md:text-[56px] leading-[1.05] text-[#222]">Every Moment, Every Occasion.</h2>
           <p className="max-w-2xl font-medium text-[15px] md:text-[17px] leading-[26px] text-body-gray">
             Whether it's a birthday for twenty or a corporate lunch for a hundred — we show up fresh, prepared, and ready to make your event memorable.
           </p>
@@ -220,7 +219,7 @@ export default function CateringService() {
             {caterCards.map((card, idx) => (
               <div key={idx} className="rounded-[48px_0_48px_0] bg-white shadow-[inset_0_0_0_2px_#F2F2F2] flex flex-col gap-6 px-6 py-9 items-center text-center hover:-translate-y-[6px] hover:shadow-[inset_0_0_0_2px_#F3274C,0_18px_36px_rgba(0,0,0,0.12)] transition-all duration-300">
                 <div
-                  className="w-[84px] h-[84px] bg-center bg-contain bg-no-repeat"
+                  className="w-[84px] h-[84px] rounded-full bg-center bg-cover bg-no-repeat"
                   style={{ backgroundImage: `url('${card.image}')` }}
                 />
                 <div className="flex flex-col gap-3 items-center">
@@ -345,10 +344,10 @@ const timelineImgs = [
 ];
 
 const caterCards = [
-  { image: "/catering/assets/1.jpeg", title: "Private Celebrations", desc: "Your special moments deserve exceptional food. We bring warmth, flavour, and a spread that makes your guests talk long after the event." },
-  { image: "/catering/assets/2.jpeg", title: "Corporate Events", desc: "Professional, punctual, and perfectly presented. We handle the food so your team can focus on what matters — with great energy and full stomachs." },
-  { image: "/catering/assets/3.jpeg", title: "Church & Community", desc: "Serving community means serving with heart. We cater for fellowships and gatherings where community and good food come together beautifully." },
-  { image: "/catering/assets/4.jpeg", title: "Weddings & Showers", desc: "Intimate doesn't mean less special. Whether it's ten people or thirty, every gathering deserves food that brings people together and keeps them there." }
+  { image: "/figma/catering/assets/1.jpeg", title: "Private Celebrations", desc: "Your special moments deserve exceptional food. We bring warmth, flavour, and a spread that makes your guests talk long after the event." },
+  { image: "/figma/catering/assets/2.jpeg", title: "Corporate Events", desc: "Professional, punctual, and perfectly presented. We handle the food so your team can focus on what matters — with great energy and full stomachs." },
+  { image: "/figma/catering/assets/3.jpeg", title: "Church & Community", desc: "Serving community means serving with heart. We cater for fellowships and gatherings where community and good food come together beautifully." },
+  { image: "/figma/catering/assets/4.jpeg", title: "Weddings & Showers", desc: "Intimate doesn't mean less special. Whether it's ten people or thirty, every gathering deserves food that brings people together and keeps them there." }
 ];
 
 const offerings = [

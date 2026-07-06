@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
 import { RedButton, YellowButton, MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -27,7 +28,7 @@ export default function LandingPage() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div 
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[8719px] origin-top"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[8719px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -43,6 +44,8 @@ export default function LandingPage() {
             <div className="absolute left-[72px] top-[-123px] w-[1166.911px] h-[1150.454px] overflow-hidden pointer-events-none">
               <div className="absolute left-0 top-0 w-[794.477px] h-[993.54px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ backgroundPosition: '50% 0', transform: 'matrix(-0.117,-0.993,-0.993,0.117,1167.7,869.2)' }} />
             </div>
+            {/* Dark blend layer so the drink & shawarma imagery sits into the background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 mix-blend-multiply pointer-events-none" />
             {/* WhatsApp Bubble */}
             <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[934px] top-[626px] w-[125px] h-[125px] hover:scale-105 transition-transform">
               <div className="absolute inset-0 rounded-[37.5px] bg-gradient-to-br from-[#FBFBFC] to-[#DBDDE8]" />
@@ -54,10 +57,6 @@ export default function LandingPage() {
           </div>
 
           <Header activePage="home" />
-
-          <span className="absolute left-[15px] top-[12px] w-[420px] font-nunito font-light italic text-[20px] leading-[25px] text-[#F4F1F1]">
-            From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
-          </span>
 
           <span className="absolute left-[152px] top-[300px] font-nunito font-bold text-[20px] leading-[25px] whitespace-nowrap text-brand-red">
             Freshly Made Daily • Served With Flavor
@@ -119,11 +118,12 @@ export default function LandingPage() {
 
           {/* TABS */}
           <div className="absolute left-[290px] top-[316px] flex flex-row gap-[30px] items-start">
-            <div onClick={() => setActiveTab('quick')} className="relative w-[303px] h-[69px] cursor-pointer text-center">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Quick Bites &amp; Meals</div>
+            <div onClick={() => setActiveTab('quick')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Yummy Choi</div>
               {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
+            {/* Drinks & Pastries tabs hidden until those menus are ready
             <div onClick={() => setActiveTab('drinks')} className="relative w-[303px] h-[69px] cursor-pointer text-center">
               <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Fresh Blends &amp; Drinks</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Tropical and Traditional</div>
@@ -134,6 +134,7 @@ export default function LandingPage() {
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
               {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
+            */}
             <div title="Salads menu coming soon" className="relative w-[303px] h-[69px] cursor-default text-center opacity-55">
               <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Salads</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
@@ -266,10 +267,10 @@ export default function LandingPage() {
           <div className="absolute left-[960px] top-[480px] w-[963px] h-[480px] bg-[url('/figma/landing/assets/0df3bfdfbfaf75d0.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
           <div className="absolute inset-0 bg-black/55" />
           <div className="absolute left-[661px] top-0 w-[672px] h-[672px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-          <a href="/catering" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <Link to="/catering" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
             <span className="font-nunito font-bold text-[25px] leading-[25px] text-white">Catering Services</span>
-          </a>
+          </Link>
         </section>
 
         {/* ============ SIMPLE ORDERING ============ */}
@@ -372,9 +373,6 @@ export default function LandingPage() {
             <span className="block text-brand-red">You’ll</span>
             <span className="block text-brand-yellow">Crave Again</span>
           </h1>
-          <p className="max-w-md font-light italic text-[15px] md:text-[17px] leading-relaxed text-[#F4F1F1]">
-            From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
-          </p>
           <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px]">
             View Menu
           </RedButton>
@@ -409,11 +407,12 @@ export default function LandingPage() {
 
         {/* TABS */}
         <div className="mt-8 px-6 md:px-12 flex flex-row gap-7 overflow-x-auto no-scrollbar">
-          <button type="button" onClick={() => setActiveTab('quick')} className="flex-shrink-0 text-center">
-            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Quick Bites &amp; Meals</div>
+          <button type="button" onClick={() => setActiveTab('quick')} className="flex-shrink-0 text-center group">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Yummy Choi</div>
             {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
           </button>
+          {/* Drinks & Pastries tabs hidden until those menus are ready
           <button type="button" onClick={() => setActiveTab('drinks')} className="flex-shrink-0 text-center">
             <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Fresh Blends &amp; Drinks</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Tropical and Traditional</div>
@@ -424,6 +423,7 @@ export default function LandingPage() {
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
             {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
           </button>
+          */}
           <div title="Salads menu coming soon" className="flex-shrink-0 text-center opacity-55 cursor-default">
             <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Salads</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
@@ -516,10 +516,10 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-        <a href="/catering" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+        <Link to="/catering" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
           <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
           <span className="font-bold text-[20px] leading-[25px] text-white">Catering Services</span>
-        </a>
+        </Link>
       </section>
 
       {/* SIMPLE ORDERING */}

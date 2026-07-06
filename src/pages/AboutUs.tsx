@@ -18,7 +18,7 @@ export default function AboutUs() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[6383px] origin-top"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[6383px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}

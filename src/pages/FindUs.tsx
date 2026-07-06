@@ -17,7 +17,7 @@ export default function FindUs() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4461px] origin-top"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4461px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -198,11 +198,11 @@ export default function FindUs() {
                 <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Consultation Preference</span>
                 <div className="flex flex-row gap-[40px] items-center">
                   {prefLabels.map((label, idx) => (
-                    <label key={idx} onClick={() => setPrefIdx(idx)} className="flex flex-row gap-[10px] items-center cursor-pointer">
-                      <span className="w-[20px] h-[20px] rounded-[20px] border-[2px] border-brand-red flex items-center justify-center">
+                    <label key={idx} onClick={() => setPrefIdx(idx)} className="group flex flex-row gap-[10px] items-center cursor-pointer">
+                      <span className="w-[20px] h-[20px] rounded-[20px] border-[2px] border-brand-red flex items-center justify-center transition-transform group-hover:scale-110">
                         {prefIdx === idx && <span className="w-[10px] h-[10px] rounded-[10px] bg-brand-red" />}
                       </span>
-                      <span className="font-epilogue font-semibold text-[16px] whitespace-nowrap text-[#555]">{label}</span>
+                      <span className="font-epilogue font-semibold text-[16px] whitespace-nowrap text-[#555] group-hover:text-[#222] transition-colors">{label}</span>
                     </label>
                   ))}
                 </div>
@@ -395,11 +395,11 @@ export default function FindUs() {
             <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Consultation Preference</span>
             <div className="flex flex-col gap-3">
               {prefLabels.map((label, idx) => (
-                <label key={idx} onClick={() => setPrefIdx(idx)} className="flex flex-row gap-[10px] items-center cursor-pointer">
-                  <span className="w-[20px] h-[20px] rounded-full border-[2px] border-brand-red flex items-center justify-center">
+                <label key={idx} onClick={() => setPrefIdx(idx)} className="group flex flex-row gap-[10px] items-center cursor-pointer">
+                  <span className="w-[20px] h-[20px] rounded-full border-[2px] border-brand-red flex items-center justify-center transition-transform group-hover:scale-110">
                     {prefIdx === idx && <span className="w-[10px] h-[10px] rounded-full bg-brand-red" />}
                   </span>
-                  <span className="font-epilogue font-semibold text-[15px] text-[#555]">{label}</span>
+                  <span className="font-epilogue font-semibold text-[15px] text-[#555] group-hover:text-[#222] transition-colors">{label}</span>
                 </label>
               ))}
             </div>
