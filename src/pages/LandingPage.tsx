@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
-import { RedButton, YellowButton, MobileFollow } from '../components/Shared';
+import { RedButton, MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
 import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function LandingPage() {
   const { scaleTransform, scaledHeight } = useScale(8719);
-  const [activeTab, setActiveTab] = useState<'quick' | 'drinks' | 'pastries'>('quick');
+  const [activeTab, setActiveTab] = useState<'quick' | 'drinks' | 'pastries' | 'salads'>('quick');
   const [openFaqIdx, setOpenFaqIdx] = useState<number>(0);
 
   const handleMenuScroll = (e: React.MouseEvent) => {
@@ -35,26 +35,29 @@ export default function LandingPage() {
         <section className="absolute left-0 top-0 w-[1920px] h-[900px] overflow-hidden">
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
 
-          {/* Decorative Right Cluster */}
+          {/* Decorative Right Cluster (photos only) */}
           <div className="absolute left-[775px] top-[121px] w-[1172px] h-[889px]">
             <div className="absolute left-0 top-0 w-[163px] h-[127px] rounded-[4px] bg-[url('/figma/landing/assets/374a955a0b7cc45c.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0,-1,1,0,72,255)' }} />
             <div className="absolute left-0 top-0 w-[150.083px] h-[501.769px] bg-[url('/figma/landing/assets/9a2b60982818b63b.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.519,0.855,-0.855,0.519,1051.891,432)' }} />
             <div className="absolute left-0 top-0 w-[458.303px] h-[687.455px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-cover bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.925,-0.380,0.380,0.925,-62,214.061)' }} />
-            <div className="absolute left-[207px] top-[444px] w-[248px] h-[248px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
             <div className="absolute left-[72px] top-[-123px] w-[1166.911px] h-[1150.454px] overflow-hidden pointer-events-none">
               <div className="absolute left-0 top-0 w-[794.477px] h-[993.54px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ backgroundPosition: '50% 0', transform: 'matrix(-0.117,-0.993,-0.993,0.117,1167.7,869.2)' }} />
             </div>
-            {/* Dark blend layer so the drink & shawarma imagery sits into the background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 mix-blend-multiply pointer-events-none" />
-            {/* WhatsApp Bubble */}
-            <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[934px] top-[626px] w-[125px] h-[125px] hover:scale-105 transition-transform">
-              <div className="absolute inset-0 rounded-[37.5px] bg-gradient-to-br from-[#FBFBFC] to-[#DBDDE8]" />
-              <div className="absolute left-[18.8px] top-[62.5px] w-[85.2px] h-[53.2px] opacity-25 rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74]" />
-              <div className="absolute left-[16.3px] top-[16.3px] w-[92.2px] h-[92.2px] rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74] flex items-center justify-center">
-                <i className="fab fa-whatsapp text-white text-[58px]" />
-              </div>
-            </a>
           </div>
+
+          {/* Dark veil over the WHOLE section — same trick as the Catering Services banner. Because it spans edge-to-edge there's no visible box, and everything rendered after it (logo, bubble, header, copy) stays crisp on top */}
+          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+
+          <div className="absolute left-[982px] top-[565px] w-[248px] h-[248px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
+
+          {/* WhatsApp Bubble */}
+          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform">
+            <div className="absolute inset-0 rounded-[37.5px] bg-gradient-to-br from-[#FBFBFC] to-[#DBDDE8]" />
+            <div className="absolute left-[18.8px] top-[62.5px] w-[85.2px] h-[53.2px] opacity-25 rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74]" />
+            <div className="absolute left-[16.3px] top-[16.3px] w-[92.2px] h-[92.2px] rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74] flex items-center justify-center">
+              <i className="fab fa-whatsapp text-white text-[58px]" />
+            </div>
+          </a>
 
           <Header activePage="home" />
 
@@ -123,21 +126,20 @@ export default function LandingPage() {
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Yummy Choi</div>
               {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            {/* Drinks & Pastries tabs hidden until those menus are ready
-            <div onClick={() => setActiveTab('drinks')} className="relative w-[303px] h-[69px] cursor-pointer text-center">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Fresh Blends &amp; Drinks</div>
+            <div onClick={() => setActiveTab('drinks')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Tropical and Traditional</div>
               {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            <div onClick={() => setActiveTab('pastries')} className="relative w-[303px] h-[69px] cursor-pointer text-center">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Pastries</div>
+            <div onClick={() => setActiveTab('pastries')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Pastries</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
               {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            */}
-            <div title="Salads menu coming soon" className="relative w-[303px] h-[69px] cursor-default text-center opacity-55">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black">Salads</div>
+            <div onClick={() => setActiveTab('salads')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Salads</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
+              {activeTab === 'salads' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
           </div>
 
@@ -189,7 +191,7 @@ export default function LandingPage() {
                   {row.cards.map((card, cIdx) => (
                     <div key={cIdx} className="relative w-[374px] h-[182px] flex-shrink-0 mt-[27px] hover:-translate-y-[7px] transition-transform duration-300">
                       <div className="absolute left-0 top-0 w-[374px] h-[182px] rounded-[18px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB]" />
-                      <div className="absolute left-0 top-[-27px] w-[165px] h-[234px] rounded-[100px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-[length:100%_114.8%] bg-no-repeat" />
+                      <div className="absolute left-0 top-[-27px] w-[165px] h-[234px] rounded-[100px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
                       <div className="absolute left-[187px] top-[29px] w-[186px]">
                         <div className="font-nunito font-bold text-[14px] leading-[24px] text-[#222]">{card.title}</div>
                         <div className="mt-1 flex flex-col gap-1">
@@ -255,6 +257,29 @@ export default function LandingPage() {
                   ))}
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* TAB 4: SALADS */}
+          {activeTab === 'salads' && (
+            <div className="absolute left-[262px] top-[440px] w-[1416px] flex flex-row flex-wrap gap-[45px]">
+              {salads.map((card, idx) => (
+                <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
+                  <div className="absolute left-0 top-[135.77px] w-[302.5px] h-[316.78px] rounded-[30px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
+                  <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
+                  <span className="absolute left-[35px] top-[252px] font-nunito font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
+                  <span className="absolute left-[35px] top-[275px] w-[236px] font-nunito font-normal text-[24px] leading-[28.8px] text-black">{card.title}</span>
+                  <div className="absolute left-[35px] top-[315px] w-[235px] flex flex-col gap-[6px]">
+                    <span className="font-nunito font-light text-[8px] leading-[13px] text-[#222]">{card.desc}</span>
+                    <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.ingr}</span>
+                    <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.allergen}</span>
+                  </div>
+                  <i className="fas fa-arrow-right absolute left-[40px] top-[410px] text-[15px] text-black" />
+                  <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[90px] top-[403px] w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                    <span className="font-oswald font-normal text-[15px] text-black">Order Now</span>
+                  </a>
+                </div>
+              ))}
             </div>
           )}
         </section>
@@ -412,22 +437,21 @@ export default function LandingPage() {
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Yummy Choi</div>
             {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
           </button>
-          {/* Drinks & Pastries tabs hidden until those menus are ready
-          <button type="button" onClick={() => setActiveTab('drinks')} className="flex-shrink-0 text-center">
-            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Fresh Blends &amp; Drinks</div>
+          <button type="button" onClick={() => setActiveTab('drinks')} className="flex-shrink-0 text-center group">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Tropical and Traditional</div>
             {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
           </button>
-          <button type="button" onClick={() => setActiveTab('pastries')} className="flex-shrink-0 text-center">
-            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Pastries</div>
+          <button type="button" onClick={() => setActiveTab('pastries')} className="flex-shrink-0 text-center group">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Pastries</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
             {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
           </button>
-          */}
-          <div title="Salads menu coming soon" className="flex-shrink-0 text-center opacity-55 cursor-default">
-            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap">Salads</div>
+          <button type="button" onClick={() => setActiveTab('salads')} className="flex-shrink-0 text-center group">
+            <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Salads</div>
             <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
-          </div>
+            {activeTab === 'salads' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+          </button>
         </div>
 
         {/* TAB 1: QUICK BITES */}
@@ -475,7 +499,7 @@ export default function LandingPage() {
           <div className="mt-8 px-6 md:px-12 grid gap-6 md:grid-cols-2">
             {drinkRows.flatMap((row) => row.cards).map((card, idx) => (
               <div key={idx} className="rounded-[18px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB] overflow-hidden flex flex-row">
-                <div className="w-[130px] md:w-[150px] flex-shrink-0 rounded-r-[80px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-cover bg-no-repeat" />
+                <div className="w-[130px] md:w-[150px] flex-shrink-0 rounded-r-[80px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
                 <div className="flex-grow p-4 flex flex-col gap-1.5">
                   <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
                   <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
@@ -507,6 +531,15 @@ export default function LandingPage() {
                 <MobilePastryCard key={idx} card={card} />
               ))}
             </div>
+          </div>
+        )}
+
+        {/* TAB 4: SALADS */}
+        {activeTab === 'salads' && (
+          <div className="mt-8 px-6 md:px-12 grid gap-6 md:grid-cols-2">
+            {salads.map((card, idx) => (
+              <MobilePastryCard key={idx} card={card} />
+            ))}
           </div>
         )}
       </section>
@@ -647,7 +680,7 @@ const menuGroups = [
   {
     name: "Loaded & Cheesy",
     cards: [
-      { label: "Extra Loaded", title: "Loaded Shawarma", price: "£13", spice: true, bg: "url('/figma/landing/assets/ded90afec8a34908.png') center / cover no-repeat", desc: "Extremely filling and boldly flavoured. Made with 100% seasoned chicken or beef, topped with frankfurters and our in-house dressing. Perfect for when you want a break from veggies.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." },
+      { label: "Extra Loaded", title: "Loaded Shawarma", price: "£13", spice: true, bg: "url('https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=800&q=80') center / cover no-repeat", desc: "Extremely filling and boldly flavoured. Made with 100% seasoned chicken or beef, topped with frankfurters and our in-house dressing. Perfect for when you want a break from veggies.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." },
       { label: "Cheesy", title: "Cheesy Shawarma", price: "£15", spice: false, bg: "url('/figma/landing/assets/1f1e9a7e0b59896e.jpg') center / cover no-repeat", desc: "For cheesy lovers. Flavourful chicken or beef topped with a generous pull of creamy mozzarella and our signature dressing.", ingr: "Ingredients: Chicken or beef, mozzarella cheese, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." }
     ]
   },
@@ -663,28 +696,35 @@ const menuGroups = [
 
 const drinkRows = [
   { cards: [
-    { title: "Creamy Tigernut Drink", price: "£5.00", desc: "Smooth, naturally sweet tigernut drink.", ingr: "Ingredients: Tigernuts, water, spices", allergen: "Allergen advice: May contain traces of nuts" },
-    { title: "Blended Banana", price: "£6.99", desc: "Fresh bananas blended into a smooth, refreshing drink.", ingr: "Ingredients: Bananas, milk, sweetener", allergen: "Allergen advice: Contains milk; may contain traces of nuts" },
-    { title: "Nosy Cinnamon", price: "£6.99", desc: "Lightly spiced cinnamon drink with warm, comforting taste.", ingr: "Ingredients: Cinnamon, milk, sweetener", allergen: "Allergen advice: Contain traces of nuts" }
+    { title: "Creamy Tigernut Drink", price: "£5.00", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Horchata%2C_my_drink_of_choice_in_Mexico_-_Merida_Yucatan_21_March_2021.jpg/960px-Horchata%2C_my_drink_of_choice_in_Mexico_-_Merida_Yucatan_21_March_2021.jpg", desc: "Smooth, naturally sweet tigernut drink.", ingr: "Ingredients: Tigernuts, water, spices", allergen: "Allergen advice: May contain traces of nuts" },
+    { title: "Blended Banana", price: "£6.99", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Fresh_fruit_smoothie_being_poured_into_a_glass.jpg/960px-Fresh_fruit_smoothie_being_poured_into_a_glass.jpg", desc: "Fresh bananas blended into a smooth, refreshing drink.", ingr: "Ingredients: Bananas, milk, sweetener", allergen: "Allergen advice: Contains milk; may contain traces of nuts" },
+    { title: "Nosy Cinnamon", price: "£6.99", bg: "https://upload.wikimedia.org/wikipedia/commons/2/28/Boza_from_Vefa_in_Ankara.jpg", desc: "Lightly spiced cinnamon drink with warm, comforting taste.", ingr: "Ingredients: Cinnamon, milk, sweetener", allergen: "Allergen advice: Contain traces of nuts" }
   ] },
   { cards: [
-    { title: "Zesty Zobo", price: "£3.99", desc: "Bold and refreshing hibiscus drink with a tangy finish.", ingr: "Ingredients: Hibiscus leaves, ginger, spices", allergen: "Allergen advice: May contain traces of nuts" }
+    { title: "Zesty Zobo", price: "£3.99", bg: "https://upload.wikimedia.org/wikipedia/commons/3/36/Zobo_%28local_drink_in_northern_Nigeria%29.jpg", desc: "Bold and refreshing hibiscus drink with a tangy finish.", ingr: "Ingredients: Hibiscus leaves, ginger, spices", allergen: "Allergen advice: May contain traces of nuts" }
   ] }
 ];
 
 const pies = [
   { title: "Meat Pie", price: "£2.50", bg: "url('/figma/landing/assets/0fe094edc96a1173.jpg') center / cover no-repeat", desc: "Golden, flaky pastry filled with rich, savoury minced beef.", ingr: "Ingredients: Minced beef, onions, seasoning, pastry", allergen: "Allergen advice: Contains wheat (gluten); may contain traces of eggs, milk" },
   { title: "Chicken Pie", price: "£2.00", bg: "url('/figma/landing/assets/29cfbef857f273ea.jpg') center / cover no-repeat", desc: "Flaky pastry packed with tender, well-seasoned chicken for a hearty bite.", ingr: "Ingredients: Chicken, onions, seasoning, pastry", allergen: "Allergen advice: Contains wheat (gluten); may contain traces of eggs, milk" },
-  { title: "Suya Chicken Pie", price: "£2.50", bg: "#F5F5F5", desc: "A bold twist on a classic. Tender chicken seasoned with suya spices, baked to perfection.", ingr: "Ingredients: Chicken, suya spice, onions, seasoning, pastry", allergen: "Allergen advice: Contains peanuts, wheat (gluten); may contain traces of eggs, milk" },
+  { title: "Suya Chicken Pie", price: "£2.50", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Meat_pie_in_Northern_Nigeria.jpg/960px-Meat_pie_in_Northern_Nigeria.jpg') center / cover no-repeat", desc: "A bold twist on a classic. Tender chicken seasoned with suya spices, baked to perfection.", ingr: "Ingredients: Chicken, suya spice, onions, seasoning, pastry", allergen: "Allergen advice: Contains peanuts, wheat (gluten); may contain traces of eggs, milk" },
   { title: "Sausage Roll", price: "£2.80", bg: "url('/figma/landing/assets/584a90c450f4e32d.jpg') center / cover no-repeat", desc: "Freshly baked pastry with juicy, seasoned sausage filling.", ingr: "Ingredients: Sausage meat, seasoning, pastry", allergen: "Allergen advice: Contains wheat (gluten); may contain traces of eggs, milk" }
 ];
 
 const bananas = [
-  { title: "Classic Banana Bread", price: "£10.00", bg: "url('/figma/landing/assets/4993cda576f284c1.jpg') center / cover no-repeat", desc: "Soft, moist banana bread with natural sweetness.", ingr: "Ingredients: Banana, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk" },
-  { title: "Nutty Banana Bread", price: "£13.00", bg: "url('/figma/landing/assets/4993cda576f284c1.jpg') center / cover no-repeat", desc: "Classic banana bread with added crunch from mixed nuts.", ingr: "Ingredients: Banana mixed nuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
-  { title: "Chocolatey Banana Bread", price: "£15.00", bg: "url('/figma/landing/assets/4993cda576f284c1.jpg') center / cover no-repeat", desc: "Moist banana bread blended with rich chocolate.", ingr: "Ingredients: Banana chocolate, flour, sugar, eggs, butter.", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk." },
-  { title: "Nutty + Choc Banana Bread", price: "£15.00", bg: "url('/figma/landing/assets/03752743e003c37b.jpg') center / cover no-repeat", desc: "Bananas, crunchy nuts, and chocolate in one loaf.", ingr: "Ingredients: Banana mixed nuts, chocolate, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
-  { title: "Peanut Banana Bread", price: "£13.00", bg: "url('/figma/landing/assets/2d9ca0dd06ca04a5.jpg') center / cover no-repeat", desc: "Banana bread with a rich peanut twist.", ingr: "Ingredients: Banana, peanuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains peanuts, wheat (gluten), eggs, milk" }
+  { title: "Classic Banana Bread", price: "£10.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Banana_bread_loaf_on_a_plate.jpg/960px-Banana_bread_loaf_on_a_plate.jpg') center / cover no-repeat", desc: "Soft, moist banana bread with natural sweetness.", ingr: "Ingredients: Banana, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk" },
+  { title: "Nutty Banana Bread", price: "£13.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Walnut-Bourbon_Banana_Bread_loaves..jpg/960px-Walnut-Bourbon_Banana_Bread_loaves..jpg') center / cover no-repeat", desc: "Classic banana bread with added crunch from mixed nuts.", ingr: "Ingredients: Banana mixed nuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
+  { title: "Chocolatey Banana Bread", price: "£15.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chocolate_Chip_Banana_Bread.jpg/960px-Chocolate_Chip_Banana_Bread.jpg') center / cover no-repeat", desc: "Moist banana bread blended with rich chocolate.", ingr: "Ingredients: Banana chocolate, flour, sugar, eggs, butter.", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk." },
+  { title: "Nutty + Choc Banana Bread", price: "£15.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Banana_bread_with_a_slice_on_tinfoil.jpg/960px-Banana_bread_with_a_slice_on_tinfoil.jpg') center / cover no-repeat", desc: "Bananas, crunchy nuts, and chocolate in one loaf.", ingr: "Ingredients: Banana mixed nuts, chocolate, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
+  { title: "Peanut Banana Bread", price: "£13.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Peanut_Butter_Swirl_Banana_Bread_from_the_side.jpg/960px-Peanut_Butter_Swirl_Banana_Bread_from_the_side.jpg') center / cover no-repeat", desc: "Banana bread with a rich peanut twist.", ingr: "Ingredients: Banana, peanuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains peanuts, wheat (gluten), eggs, milk" }
+];
+
+const salads = [
+  { title: "Grilled Chicken Caesar", price: "£7.50", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Caesar_Salad_%26_Grilled_Chicken_%2830548011308%29.jpg/960px-Caesar_Salad_%26_Grilled_Chicken_%2830548011308%29.jpg", desc: "Crisp romaine lettuce tossed in creamy Caesar dressing, topped with grilled chicken, parmesan, and crunchy croutons.", ingr: "Ingredients: Romaine lettuce, grilled chicken, parmesan, croutons, Caesar dressing", allergen: "Allergen advice: Contains milk, wheat (gluten), eggs; may contain traces of fish" },
+  { title: "Garden Coleslaw", price: "£4.50", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Readily_made_Coleslaw_salad_01.jpg/960px-Readily_made_Coleslaw_salad_01.jpg", desc: "A crunchy mix of finely shredded cabbage, carrots, and peppers tossed in a light, tangy dressing.", ingr: "Ingredients: Cabbage, carrots, peppers, mayonnaise", allergen: "Allergen advice: Contains egg (mayonnaise); may contain traces of mustard" },
+  { title: "Classic Greek Salad", price: "£6.00", bg: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Greek_Salad_Choriatiki.jpg", desc: "Juicy tomatoes, cucumber, red onion, and Kalamata olives topped with a generous slab of feta and oregano.", ingr: "Ingredients: Tomatoes, cucumber, red onion, olives, feta cheese, olive oil", allergen: "Allergen advice: Contains milk" },
+  { title: "Fresh Fruit Salad", price: "£5.00", bg: "https://upload.wikimedia.org/wikipedia/commons/f/f5/A_bowl_of_fruits_salad_with_avocado.jpg", desc: "A refreshing bowl of seasonal fruits — banana, strawberry, grape, watermelon, and avocado — cut fresh daily.", ingr: "Ingredients: Seasonal mixed fruits", allergen: "Allergen advice: None known" }
 ];
 
 const faqData = [

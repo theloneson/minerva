@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useScale } from '../hooks/useScale';
 import { MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -8,9 +8,17 @@ import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStr
 export default function AboutUs() {
   const { scaleTransform, scaledHeight } = useScale(6383);
   const [quoteIdx, setQuoteIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const nextQuote = () => setQuoteIdx((prev) => (prev + 1) % quotes.length);
   const prevQuote = () => setQuoteIdx((prev) => (prev + quotes.length - 1) % quotes.length);
+
+  // Auto-advance the testimonial carousel; pause while a visitor is hovering it.
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(() => setQuoteIdx((prev) => (prev + 1) % quotes.length), 6000);
+    return () => clearInterval(id);
+  }, [isPaused]);
 
   const currentQuote = quotes[quoteIdx];
 
@@ -149,14 +157,18 @@ export default function AboutUs() {
         </section>
 
         {/* ============ TESTIMONIALS ============ */}
-        <section className="absolute left-0 top-[4054px] w-[1920px] h-[730px] overflow-hidden bg-black">
+        <section
+          className="absolute left-0 top-[4054px] w-[1920px] h-[730px] overflow-hidden bg-black"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="absolute left-[-76px] top-[-133px] w-[2036px] h-[805px] opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-[position:50%_0%] bg-[length:100.023%_142.857%] bg-no-repeat" />
           <div className="absolute left-[365px] top-[180px] w-[1320px] h-[393px]">
             <div className="absolute left-[444px] top-0 w-[432px] h-[69.39px] border-b border-dashed border-brand-yellow">
               <i className="fas fa-quote-left absolute left-[76px] top-[4px] text-[28px] text-brand-yellow" />
               <span className="absolute left-[143.55px] top-[-5px] w-[212px] font-oswald font-normal text-[32px] leading-[38.4px] text-center whitespace-nowrap text-white">What Client Says?</span>
             </div>
-            <div className="absolute left-[12px] top-[109px] w-[1296px] flex flex-col items-center gap-[22px]">
+            <div key={quoteIdx} className="animate-quote-fade absolute left-[12px] top-[109px] w-[1296px] flex flex-col items-center gap-[22px]">
               <span className="w-[1000px] min-h-[100px] font-nunito font-medium italic text-[26px] leading-[45px] text-center text-footer-gray text-balance">
                 {currentQuote.text}
               </span>
@@ -170,6 +182,17 @@ export default function AboutUs() {
             </div>
             <div onClick={nextQuote} className="absolute left-[1241px] top-[108px] w-[55px] h-[55px] rounded-[27.5px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors">
               <i className="fas fa-arrow-right text-[18px] text-white" />
+            </div>
+            <div className="absolute left-0 top-[366px] w-[1296px] flex flex-row justify-center gap-[10px]">
+              {quotes.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setQuoteIdx(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`h-[8px] rounded-full transition-all ${i === quoteIdx ? 'w-[24px] bg-brand-yellow' : 'w-[8px] bg-white/30 hover:bg-white/50'}`}
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -302,19 +325,24 @@ export default function AboutUs() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="relative overflow-hidden bg-black px-6 md:px-12 py-16">
+      <section
+        className="relative overflow-hidden bg-black px-6 md:px-12 py-16"
+        onTouchStart={() => setIsPaused(true)}
+      >
         <div className="absolute inset-0 opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-cover bg-top" />
         <div className="relative flex flex-col items-center gap-7 text-center">
           <div className="flex flex-row items-center gap-3 border-b border-dashed border-brand-yellow pb-4">
             <i className="fas fa-quote-left text-[22px] text-brand-yellow" />
             <span className="font-oswald font-normal text-[24px] md:text-[30px] leading-tight text-white">What Client Says?</span>
           </div>
-          <p className="max-w-2xl min-h-[120px] font-medium italic text-[17px] md:text-[22px] leading-[30px] md:leading-[38px] text-footer-gray">
-            {currentQuote.text}
-          </p>
-          <span className="font-oswald font-semibold text-[18px] tracking-[2px] text-white">{currentQuote.name}</span>
-          <div className="flex flex-row gap-[8px]">
-            {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star text-[18px] text-brand-yellowAccent" />)}
+          <div key={quoteIdx} className="animate-quote-fade flex flex-col items-center gap-5">
+            <p className="max-w-2xl min-h-[120px] font-medium italic text-[17px] md:text-[22px] leading-[30px] md:leading-[38px] text-footer-gray">
+              {currentQuote.text}
+            </p>
+            <span className="font-oswald font-semibold text-[18px] tracking-[2px] text-white">{currentQuote.name}</span>
+            <div className="flex flex-row gap-[8px]">
+              {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star text-[18px] text-brand-yellowAccent" />)}
+            </div>
           </div>
           <div className="flex flex-row gap-5">
             <button type="button" onClick={prevQuote} aria-label="Previous testimonial" className="w-[50px] h-[50px] rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center hover:bg-white/10 transition-colors">
@@ -323,6 +351,17 @@ export default function AboutUs() {
             <button type="button" onClick={nextQuote} aria-label="Next testimonial" className="w-[50px] h-[50px] rounded-full shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center hover:bg-white/10 transition-colors">
               <i className="fas fa-arrow-right text-[16px] text-white" />
             </button>
+          </div>
+          <div className="flex flex-row gap-[10px]">
+            {quotes.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setQuoteIdx(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`h-[8px] rounded-full transition-all ${i === quoteIdx ? 'w-[24px] bg-brand-yellow' : 'w-[8px] bg-white/30 hover:bg-white/50'}`}
+              />
+            ))}
           </div>
         </div>
       </section>

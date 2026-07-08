@@ -19,7 +19,7 @@ export function Footer({ top }: FooterProps) {
       </div>
 
       {/* Top Links Row */}
-      <div className="absolute left-[217px] top-[155px] w-[1608px] flex flex-row gap-[205px] items-start">
+      <div className="absolute left-[156px] top-[155px] w-[1608px] flex flex-row gap-[205px] items-start">
         
         {/* Working Hours */}
         <div className="w-[172px] flex flex-col gap-[30px] flex-shrink-0">
@@ -71,7 +71,7 @@ export function Footer({ top }: FooterProps) {
       </div>
 
       {/* Middle Newsletter Row */}
-      <div className="absolute left-[179px] top-[467px] w-[1579px] flex flex-row gap-[286px] items-center">
+      <div className="absolute left-[171px] top-[467px] w-[1579px] flex flex-row gap-[286px] items-center">
         <div className="w-[252px] h-[252px] flex-shrink-0 bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
         <span className="w-[420px] flex-shrink-0 font-nunito font-normal text-[16px] leading-[27.2px] text-center text-footer-gray">
           The Liquid Spot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.

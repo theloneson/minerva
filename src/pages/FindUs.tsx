@@ -6,7 +6,7 @@ import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function FindUs() {
-  const { scaleTransform, scaledHeight } = useScale(4461);
+  const { scaleTransform, scaledHeight } = useScale(4848);
   const [prefIdx, setPrefIdx] = useState<number>(0);
 
   const prefLabels = ["Virtual Meeting", "Phone Call", "In-Person Meeting"];
@@ -17,7 +17,7 @@ export default function FindUs() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4461px] origin-top-left"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4848px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -75,10 +75,10 @@ export default function FindUs() {
         </section>
 
         {/* ============ BOOK A CONSULTATION ============ */}
-        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1163px] overflow-hidden">
-          
+        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1550px] overflow-hidden">
+
           {/* Left Image Panel */}
-          <div className="absolute left-0 top-0 w-[1013px] h-[1163px] overflow-hidden">
+          <div className="absolute left-0 top-0 w-[1013px] h-[1550px] overflow-hidden">
             <div className="absolute inset-0 bg-[url('/figma/catering/assets/bf7b0e683dc63017.jpg')] bg-center bg-cover bg-no-repeat" />
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute left-[86px] top-[88px] w-[722px] flex flex-col gap-[21px] items-start">
@@ -94,25 +94,25 @@ export default function FindUs() {
             <span className="absolute left-[323px] top-[734px] w-[469px] font-nunito font-semibold text-[20px] leading-[30px] text-center text-white">Early bookings get the widest menu selection and the most time for proper planning.</span>
           </div>
 
-          {/* Form */}
-          <div className="absolute left-[1061px] top-[36px] w-[858.66px] flex flex-col gap-[20px] items-start">
-            
+          {/* Form Card */}
+          <div className="absolute left-[1053px] top-[40px] w-[827px] rounded-[24px] bg-[#FAFAFA] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-[40px] flex flex-col gap-[20px] items-start">
+
             {/* Contact Info */}
             <div className="flex flex-col gap-[24px] w-full">
               <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Contact Information</span>
-              <div className="flex flex-row gap-[30px]">
-                <input type="text" placeholder="Full Name" className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
-                <input type="email" placeholder="Email address" className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+              <div className="flex flex-row gap-[24px]">
+                <input type="text" placeholder="Full Name" className="flex-1 min-w-0 h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+                <input type="email" placeholder="Email address" className="flex-1 min-w-0 h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
               </div>
-              <input type="tel" placeholder="Phone Number" className="w-[858.66px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+              <input type="tel" placeholder="Phone Number" className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
             </div>
 
             {/* Event Info */}
             <div className="flex flex-col gap-[24px] w-full">
               <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Event Information</span>
-              <div className="flex flex-row gap-[30px]">
-                <div className="relative w-[413.33px]">
-                  <select className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[28px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+              <div className="flex flex-row gap-[24px]">
+                <div className="relative flex-1 min-w-0">
+                  <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
                     <option value="">Event Type</option>
                     <option>Birthday</option>
                     <option>Wedding</option>
@@ -122,22 +122,22 @@ export default function FindUs() {
                     <option>Private Party</option>
                     <option>Other</option>
                   </select>
-                  <i className="fas fa-caret-down absolute right-[24px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
+                  <i className="fas fa-caret-down absolute right-[20px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
                 </div>
-                <input type="text" placeholder="Event Date *" onFocus={(e) => e.target.type = "date"} className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+                <input type="text" placeholder="Event Date *" onFocus={(e) => e.target.type = "date"} className="flex-1 min-w-0 h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
               </div>
-              <input type="text" placeholder="Event Location" className="w-[858.66px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
-              <div className="flex flex-row gap-[30px]">
-                <div className="relative w-[413.33px]">
-                  <select className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[28px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+              <input type="text" placeholder="Event Location" className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+              <div className="flex flex-row gap-[24px]">
+                <div className="relative flex-1 min-w-0">
+                  <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
                     <option value="">Start Time</option>
                     <option>Morning (8am – 12pm)</option>
                     <option>Afternoon (12pm – 4pm)</option>
                     <option>Evening (4pm – 8pm)</option>
                   </select>
-                  <i className="fas fa-caret-down absolute right-[24px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
+                  <i className="fas fa-caret-down absolute right-[20px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
                 </div>
-                <input type="text" placeholder="End Time *" className="w-[413.33px] h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[33px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
+                <input type="text" placeholder="End Time *" className="flex-1 min-w-0 h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />
               </div>
             </div>
 
@@ -145,14 +145,14 @@ export default function FindUs() {
             <div className="flex flex-col gap-[24px] w-full">
               <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Guess Information</span>
               <div className="relative w-full">
-                <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[28px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
                   <option value="">Estimated Guest Count</option>
                   <option>Under 20</option>
                   <option>20 – 50</option>
                   <option>50 – 100</option>
                   <option>100+</option>
                 </select>
-                <i className="fas fa-caret-down absolute right-[24px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
+                <i className="fas fa-caret-down absolute right-[20px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
               </div>
             </div>
 
@@ -160,14 +160,14 @@ export default function FindUs() {
             <div className="flex flex-col gap-[24px] w-full">
               <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Catering Requirements</span>
               <div className="relative w-full">
-                <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[28px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
+                <select className="w-full h-[60px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-[24px] font-epilogue font-semibold text-[16px] text-[#555] appearance-none outline-none">
                   <option value="">What are you interested in? Select all that apply.</option>
                   <option>Signature Feasts</option>
                   <option>Artisan Bites</option>
                   <option>LiquidSpot Blends</option>
                   <option>Full Package</option>
                 </select>
-                <i className="fas fa-caret-down absolute right-[24px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
+                <i className="fas fa-caret-down absolute right-[20px] top-[22px] text-[16px] text-[#737879] pointer-events-none" />
               </div>
             </div>
 
@@ -217,7 +217,7 @@ export default function FindUs() {
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[2842px] w-[1920px] h-[314.3px]">
+        <section className="absolute left-0 top-[3229px] w-[1920px] h-[314.3px]">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
@@ -225,8 +225,8 @@ export default function FindUs() {
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={3157} />
-        <Footer top={3528} />
+        <InstagramStrip top={3544} />
+        <Footer top={3915} />
       </div>
     </div>
 
