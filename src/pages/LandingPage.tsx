@@ -65,12 +65,17 @@ export default function LandingPage() {
             Freshly Made Daily • Served With Flavor
           </span>
           
-          <div className="absolute left-[149px] top-[420px] font-nunito font-black text-[120px] leading-[96px]">
+          <div className="absolute left-[149px] top-[345px] font-nunito font-black text-[120px] leading-[96px]">
+            <div className="text-white">Flavor</div>
             <div className="text-brand-red">You’ll</div>
             <div className="text-brand-yellow">Crave Again</div>
           </div>
-          
-          <div className="absolute left-[149px] top-[727px] w-[600px] h-[61px]">
+
+          <span className="absolute left-[149px] top-[650px] w-[560px] font-nunito font-light italic text-[20px] leading-[25px] text-[#F4F1F1]">
+            From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
+          </span>
+
+          <div className="absolute left-[149px] top-[750px] w-[600px] h-[61px]">
             <RedButton onClick={handleMenuScroll} className="absolute left-0 top-0 w-[192.27px]">
               View Menu
             </RedButton>
@@ -143,9 +148,12 @@ export default function LandingPage() {
             </div>
           </div>
 
+          {/* Scrollable tab content area — starts below the tabs row so it never intercepts clicks on the tabs themselves. Keeps the section a fixed height; a tab whose content runs long (e.g. Pastries) scrolls internally instead of stretching the whole section */}
+          <div className="absolute left-0 top-[406px] w-full h-[1150px] overflow-y-auto overflow-x-hidden">
+
           {/* TAB 1: QUICK BITES */}
           {activeTab === 'quick' && (
-            <div className="absolute left-[247px] top-[426px] w-[1416px] flex flex-col">
+            <div className="absolute left-[247px] top-[20px] w-[1416px] flex flex-col">
               {menuGroups.map((group, idx) => (
                 <div key={idx} className="relative h-[333px] w-[1416px]">
                   <div className="absolute left-[60px] top-[52px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
@@ -185,7 +193,7 @@ export default function LandingPage() {
 
           {/* TAB 2: DRINKS */}
           {activeTab === 'drinks' && (
-            <div className="absolute left-[291px] top-[500px] w-[1416px] flex flex-col gap-[69px]">
+            <div className="absolute left-[291px] top-[94px] w-[1416px] flex flex-col gap-[69px]">
               {drinkRows.map((row, rIdx) => (
                 <div key={rIdx} className="flex flex-row gap-[64px]">
                   {row.cards.map((card, cIdx) => (
@@ -215,7 +223,7 @@ export default function LandingPage() {
 
           {/* TAB 3: PASTRIES */}
           {activeTab === 'pastries' && (
-            <div className="absolute left-[262px] top-[440px] w-[1416px] flex flex-col gap-[40px]">
+            <div className="absolute left-[262px] top-[34px] w-[1416px] flex flex-col gap-[40px]">
               <div className="flex flex-row gap-[45px]">
                 {pies.map((card, idx) => (
                   <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
@@ -262,11 +270,11 @@ export default function LandingPage() {
 
           {/* TAB 4: SALADS */}
           {activeTab === 'salads' && (
-            <div className="absolute left-[262px] top-[440px] w-[1416px] flex flex-row flex-wrap gap-[45px]">
+            <div className="absolute left-[262px] top-[34px] w-[1416px] flex flex-row flex-wrap gap-[45px]">
               {salads.map((card, idx) => (
                 <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
                   <div className="absolute left-0 top-[135.77px] w-[302.5px] h-[316.78px] rounded-[30px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
-                  <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
+                  <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px]" style={{ background: card.bg }} />
                   <span className="absolute left-[35px] top-[252px] font-nunito font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
                   <span className="absolute left-[35px] top-[275px] w-[236px] font-nunito font-normal text-[24px] leading-[28.8px] text-black">{card.title}</span>
                   <div className="absolute left-[35px] top-[315px] w-[235px] flex flex-col gap-[6px]">
@@ -282,6 +290,7 @@ export default function LandingPage() {
               ))}
             </div>
           )}
+          </div>
         </section>
 
         {/* ============ CATERING BANNER ============ */}
@@ -395,9 +404,13 @@ export default function LandingPage() {
             Freshly Made Daily • Served With Flavor
           </span>
           <h1 className="font-black text-[54px] md:text-[84px] leading-[0.92]">
+            <span className="block text-white">Flavor</span>
             <span className="block text-brand-red">You’ll</span>
             <span className="block text-brand-yellow">Crave Again</span>
           </h1>
+          <p className="max-w-md font-light italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
+            From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
+          </p>
           <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px]">
             View Menu
           </RedButton>
@@ -713,18 +726,16 @@ const pies = [
 ];
 
 const bananas = [
-  { title: "Classic Banana Bread", price: "£10.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Banana_bread_loaf_on_a_plate.jpg/960px-Banana_bread_loaf_on_a_plate.jpg') center / cover no-repeat", desc: "Soft, moist banana bread with natural sweetness.", ingr: "Ingredients: Banana, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk" },
-  { title: "Nutty Banana Bread", price: "£13.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Walnut-Bourbon_Banana_Bread_loaves..jpg/960px-Walnut-Bourbon_Banana_Bread_loaves..jpg') center / cover no-repeat", desc: "Classic banana bread with added crunch from mixed nuts.", ingr: "Ingredients: Banana mixed nuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
-  { title: "Chocolatey Banana Bread", price: "£15.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chocolate_Chip_Banana_Bread.jpg/960px-Chocolate_Chip_Banana_Bread.jpg') center / cover no-repeat", desc: "Moist banana bread blended with rich chocolate.", ingr: "Ingredients: Banana chocolate, flour, sugar, eggs, butter.", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk." },
-  { title: "Nutty + Choc Banana Bread", price: "£15.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Banana_bread_with_a_slice_on_tinfoil.jpg/960px-Banana_bread_with_a_slice_on_tinfoil.jpg') center / cover no-repeat", desc: "Bananas, crunchy nuts, and chocolate in one loaf.", ingr: "Ingredients: Banana mixed nuts, chocolate, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
+  { title: "Classic Banana Bread", price: "£10.00", bg: "url('/figma/landing/assets/Clasis Banana Bread.jpg') center / cover no-repeat", desc: "Soft, moist banana bread with natural sweetness.", ingr: "Ingredients: Banana, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk" },
+  { title: "Nutty Banana Bread", price: "£13.00", bg: "url('/figma/landing/assets/Nutty Banana Bread.jpg') center / cover no-repeat", desc: "Classic banana bread with added crunch from mixed nuts.", ingr: "Ingredients: Banana mixed nuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
+  { title: "Chocolatey Banana Bread", price: "£15.00", bg: "url('/figma/landing/assets/chocolate banana bread.jpg') center / cover no-repeat", desc: "Moist banana bread blended with rich chocolate.", ingr: "Ingredients: Banana chocolate, flour, sugar, eggs, butter.", allergen: "Allergen advice: Contains wheat (gluten), eggs, milk." },
+  { title: "Nutty + Choc Banana Bread", price: "£15.00", bg: "url('/figma/landing/assets/nutt + chocolate banana bread.jpg') center / cover no-repeat", desc: "Bananas, crunchy nuts, and chocolate in one loaf.", ingr: "Ingredients: Banana mixed nuts, chocolate, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains nuts, wheat (gluten), eggs, milk" },
   { title: "Peanut Banana Bread", price: "£13.00", bg: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Peanut_Butter_Swirl_Banana_Bread_from_the_side.jpg/960px-Peanut_Butter_Swirl_Banana_Bread_from_the_side.jpg') center / cover no-repeat", desc: "Banana bread with a rich peanut twist.", ingr: "Ingredients: Banana, peanuts, flour, sugar, eggs, butter", allergen: "Allergen advice: Contains peanuts, wheat (gluten), eggs, milk" }
 ];
 
 const salads = [
-  { title: "Grilled Chicken Caesar", price: "£7.50", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Caesar_Salad_%26_Grilled_Chicken_%2830548011308%29.jpg/960px-Caesar_Salad_%26_Grilled_Chicken_%2830548011308%29.jpg", desc: "Crisp romaine lettuce tossed in creamy Caesar dressing, topped with grilled chicken, parmesan, and crunchy croutons.", ingr: "Ingredients: Romaine lettuce, grilled chicken, parmesan, croutons, Caesar dressing", allergen: "Allergen advice: Contains milk, wheat (gluten), eggs; may contain traces of fish" },
-  { title: "Garden Coleslaw", price: "£4.50", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Readily_made_Coleslaw_salad_01.jpg/960px-Readily_made_Coleslaw_salad_01.jpg", desc: "A crunchy mix of finely shredded cabbage, carrots, and peppers tossed in a light, tangy dressing.", ingr: "Ingredients: Cabbage, carrots, peppers, mayonnaise", allergen: "Allergen advice: Contains egg (mayonnaise); may contain traces of mustard" },
-  { title: "Classic Greek Salad", price: "£6.00", bg: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Greek_Salad_Choriatiki.jpg", desc: "Juicy tomatoes, cucumber, red onion, and Kalamata olives topped with a generous slab of feta and oregano.", ingr: "Ingredients: Tomatoes, cucumber, red onion, olives, feta cheese, olive oil", allergen: "Allergen advice: Contains milk" },
-  { title: "Fresh Fruit Salad", price: "£5.00", bg: "https://upload.wikimedia.org/wikipedia/commons/f/f5/A_bowl_of_fruits_salad_with_avocado.jpg", desc: "A refreshing bowl of seasonal fruits — banana, strawberry, grape, watermelon, and avocado — cut fresh daily.", ingr: "Ingredients: Seasonal mixed fruits", allergen: "Allergen advice: None known" }
+  { title: "Garden Salad", price: "£5.50", bg: "url('/figma/landing/assets/garden salad.jpg') center / cover no-repeat", desc: "A crisp bowl of baked beans, carrots, sweetcorn, and apple with a creamy house dressing.", ingr: "Ingredients: Baked beans, carrots, sweetcorn, apple, creamy dressing", allergen: "Allergen advice: Contains egg (dressing); may contain traces of mustard" },
+  { title: "Potato Salad", price: "£4.50", bg: "url('/figma/landing/assets/Potato salad.jpg') center / cover no-repeat", desc: "Creamy diced potatoes tossed with fresh herbs and a hint of smoked paprika.", ingr: "Ingredients: Potatoes, mayonnaise, herbs, paprika", allergen: "Allergen advice: Contains egg (mayonnaise); may contain traces of mustard" }
 ];
 
 const faqData = [

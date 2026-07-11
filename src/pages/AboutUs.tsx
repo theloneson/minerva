@@ -8,19 +8,15 @@ import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStr
 export default function AboutUs() {
   const { scaleTransform, scaledHeight } = useScale(6383);
   const [quoteIdx, setQuoteIdx] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   const nextQuote = () => setQuoteIdx((prev) => (prev + 1) % quotes.length);
   const prevQuote = () => setQuoteIdx((prev) => (prev + quotes.length - 1) % quotes.length);
 
-  // Auto-advance the testimonial carousel; pause while a visitor is hovering it.
+  // Auto-advance the testimonial carousel continuously.
   useEffect(() => {
-    if (isPaused) return;
-    const id = setInterval(() => setQuoteIdx((prev) => (prev + 1) % quotes.length), 6000);
+    const id = setInterval(() => setQuoteIdx((prev) => (prev + 1) % quotes.length), 3000);
     return () => clearInterval(id);
-  }, [isPaused]);
-
-  const currentQuote = quotes[quoteIdx];
+  }, []);
 
   return (
     <>
@@ -157,24 +153,29 @@ export default function AboutUs() {
         </section>
 
         {/* ============ TESTIMONIALS ============ */}
-        <section
-          className="absolute left-0 top-[4054px] w-[1920px] h-[730px] overflow-hidden bg-black"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
+        <section className="absolute left-0 top-[4054px] w-[1920px] h-[730px] overflow-hidden bg-black">
           <div className="absolute left-[-76px] top-[-133px] w-[2036px] h-[805px] opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-[position:50%_0%] bg-[length:100.023%_142.857%] bg-no-repeat" />
           <div className="absolute left-[365px] top-[180px] w-[1320px] h-[393px]">
             <div className="absolute left-[444px] top-0 w-[432px] h-[69.39px] border-b border-dashed border-brand-yellow">
               <i className="fas fa-quote-left absolute left-[76px] top-[4px] text-[28px] text-brand-yellow" />
               <span className="absolute left-[143.55px] top-[-5px] w-[212px] font-oswald font-normal text-[32px] leading-[38.4px] text-center whitespace-nowrap text-white">What Client Says?</span>
             </div>
-            <div key={quoteIdx} className="animate-quote-fade absolute left-[12px] top-[109px] w-[1296px] flex flex-col items-center gap-[22px]">
-              <span className="w-[1000px] min-h-[100px] font-nunito font-medium italic text-[26px] leading-[45px] text-center text-footer-gray text-balance">
-                {currentQuote.text}
-              </span>
-              <span className="font-oswald font-semibold text-[20px] tracking-[2px] text-center text-white">{currentQuote.name}</span>
-              <div className="flex flex-row gap-[8px]">
-                {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star text-[20px] text-brand-yellowAccent" />)}
+            <div className="absolute left-[12px] top-[109px] w-[1296px] overflow-hidden">
+              <div
+                className="flex flex-row transition-transform duration-500 ease-in-out"
+                style={{ width: `${quotes.length * 100}%`, transform: `translateX(-${quoteIdx * (100 / quotes.length)}%)` }}
+              >
+                {quotes.map((q, i) => (
+                  <div key={i} className="flex flex-col items-center gap-[22px] px-[148px] shrink-0" style={{ width: `${100 / quotes.length}%` }}>
+                    <span className="w-[1000px] min-h-[100px] font-nunito font-medium italic text-[26px] leading-[45px] text-center text-footer-gray text-balance">
+                      {q.text}
+                    </span>
+                    <span className="font-oswald font-semibold text-[20px] tracking-[2px] text-center text-white">{q.name}</span>
+                    <div className="flex flex-row gap-[8px]">
+                      {[1, 2, 3, 4, 5].map(s => <i key={s} className="fas fa-star text-[20px] text-brand-yellowAccent" />)}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
             <div onClick={prevQuote} className="absolute left-0 top-[108px] w-[55px] h-[55px] rounded-[27.5px] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.2)] flex items-center justify-center cursor-pointer hover:bg-white/10 transition-colors">
@@ -325,23 +326,29 @@ export default function AboutUs() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section
-        className="relative overflow-hidden bg-black px-6 md:px-12 py-16"
-        onTouchStart={() => setIsPaused(true)}
-      >
+      <section className="relative overflow-hidden bg-black px-6 md:px-12 py-16">
         <div className="absolute inset-0 opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-cover bg-top" />
         <div className="relative flex flex-col items-center gap-7 text-center">
           <div className="flex flex-row items-center gap-3 border-b border-dashed border-brand-yellow pb-4">
             <i className="fas fa-quote-left text-[22px] text-brand-yellow" />
             <span className="font-oswald font-normal text-[24px] md:text-[30px] leading-tight text-white">What Client Says?</span>
           </div>
-          <div key={quoteIdx} className="animate-quote-fade flex flex-col items-center gap-5">
-            <p className="max-w-2xl min-h-[120px] font-medium italic text-[17px] md:text-[22px] leading-[30px] md:leading-[38px] text-footer-gray">
-              {currentQuote.text}
-            </p>
-            <span className="font-oswald font-semibold text-[18px] tracking-[2px] text-white">{currentQuote.name}</span>
-            <div className="flex flex-row gap-[8px]">
-              {[1, 2, 3, 4, 5].map(i => <i key={i} className="fas fa-star text-[18px] text-brand-yellowAccent" />)}
+          <div className="w-full max-w-2xl overflow-hidden">
+            <div
+              className="flex flex-row transition-transform duration-500 ease-in-out"
+              style={{ width: `${quotes.length * 100}%`, transform: `translateX(-${quoteIdx * (100 / quotes.length)}%)` }}
+            >
+              {quotes.map((q, i) => (
+                <div key={i} className="flex flex-col items-center gap-5 px-4 shrink-0" style={{ width: `${100 / quotes.length}%` }}>
+                  <p className="min-h-[120px] font-medium italic text-[17px] md:text-[22px] leading-[30px] md:leading-[38px] text-footer-gray">
+                    {q.text}
+                  </p>
+                  <span className="font-oswald font-semibold text-[18px] tracking-[2px] text-white">{q.name}</span>
+                  <div className="flex flex-row gap-[8px]">
+                    {[1, 2, 3, 4, 5].map(s => <i key={s} className="fas fa-star text-[18px] text-brand-yellowAccent" />)}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
           <div className="flex flex-row gap-5">
