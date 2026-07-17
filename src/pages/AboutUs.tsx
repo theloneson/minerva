@@ -6,7 +6,7 @@ import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function AboutUs() {
-  const { scaleTransform, scaledHeight } = useScale(6383);
+  const { scaleTransform, scaledHeight } = useScale(6495);
   const [quoteIdx, setQuoteIdx] = useState(0);
 
   const nextQuote = () => setQuoteIdx((prev) => (prev + 1) % quotes.length);
@@ -22,7 +22,7 @@ export default function AboutUs() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[6383px] origin-top-left"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[6495px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -38,11 +38,11 @@ export default function AboutUs() {
   <Header activePage="about-us" />
 
   <h1 className="absolute left-[673px] top-[246px] w-[433px] font-nunito font-black text-[80px] leading-[60px] text-center">
-    <span className="text-[#FFE600]">Our</span>{' '}
-    <span className="text-[#FF3B5C]">Story</span>
+    <span className="text-[#FFE600]">About</span>{' '}
+    <span className="text-[#FF3B5C]">Us</span>
   </h1>
   <span className="absolute left-[574px] top-[326px] w-[622px] font-nunito font-semibold italic text-[20px] leading-[25px] text-center text-[#F4F1F1] text-balance">
-    The LiquidSpot is a food and beverage brand built on freshly prepared handmade food and specialty drinks — made with quality ingredients, crafted with intention.
+    The LiquidSpot is a food and beverage brand dedicated to serving freshly prepared handmade foods and specialty drinks. Our menu brings together a variety of well-loved snacks, pastries, meals, and refreshing drinks made with care and quality ingredients.
   </span>
 </section>
 
@@ -71,7 +71,7 @@ export default function AboutUs() {
         {/* ============ HYGIENE RATING BAR ============ */}
         <section className="absolute left-0 top-[1440px] w-[1920px] h-[285px] bg-[url('/figma/findus/assets/84b21635877fa5ff.png')] bg-[length:14.115%_35.411%] bg-[position:100%_0%] bg-no-repeat">
           <div className="absolute inset-0 overflow-hidden bg-[#121212]">
-            <div className="absolute left-0 top-0 w-[1920px] h-[353px] opacity-12 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-[position:50%_0%] bg-[length:100%_307.149%] bg-no-repeat" />
+            <div className="absolute left-0 top-0 w-[1920px] h-[353px] opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-[position:50%_0%] bg-[length:100%_307.149%] bg-no-repeat" />
           </div>
           <div className="absolute left-[1546px] top-[27px] flex flex-row gap-[10px]">
             {[1, 2, 3, 4].map(i => <i key={i} className="fas fa-star text-[26px] text-brand-yellowAccent" />)}
@@ -90,7 +90,7 @@ export default function AboutUs() {
         </section>
 
         {/* ============ VISION & MISSION ============ */}
-        <section className="absolute left-0 top-[1725px] w-[1920px] h-[828px] overflow-hidden bg-white">
+        <section className="absolute left-0 top-[1725px] w-[1920px] h-[940px] overflow-hidden bg-white">
           <div className="absolute left-[164px] top-[100px] flex flex-col gap-[21px] items-start">
             <div className="relative w-[281px] h-[30px]">
               <div className="absolute left-0 top-[15px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
@@ -99,9 +99,9 @@ export default function AboutUs() {
             <span className="font-nunito font-extrabold text-[80px] leading-[67.2px] whitespace-nowrap text-[#212121]">Vision &amp; Mission.</span>
           </div>
           <div className="absolute left-[208px] top-[364px] w-[1543px] flex flex-row gap-[76px] items-center">
-            <div className="relative w-[610px] h-[364px] flex-shrink-0 rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[40px] hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_5px_#F3274C,0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
-              <span className="font-nunito font-bold text-[24px] text-center text-[#222]">Our Vision</span>
-              <span className="font-nunito font-medium text-[18px] leading-[30px] text-center text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
+            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_5px_#F3274C,0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
+              <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Vision</span>
+              <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
               <div className="flex flex-row gap-[10px]">
                 {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-[8px] h-[8px] border border-brand-yellowAccent" />)}
               </div>
@@ -109,17 +109,17 @@ export default function AboutUs() {
             <div className="relative w-[171px] h-[171px] flex-shrink-0 rounded-[37.5px] bg-black">
               <div className="absolute left-[-7px] top-[-13.5px] w-[185px] h-[185px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
             </div>
-            <div className="relative w-[610px] h-[364px] flex-shrink-0 rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[40px] hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_5px_#F3274C,0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
-              <span className="font-nunito font-bold text-[24px] text-center text-[#222]">Our Mission</span>
-              <span className="font-nunito font-medium text-[18px] leading-[30px] text-center text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
+            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] shadow-[inset_0_0_0_5px_#F3274C] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_5px_#F3274C,0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
+              <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Mission</span>
+              <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
             </div>
           </div>
         </section>
 
         {/* ============ OUR OFFERINGS ============ */}
-        <section className="absolute left-[15px] top-[2510px] w-[1898px] h-[596px]">
-          <span className="absolute left-[16px] top-[178px] w-[590px] font-oswald font-semibold text-[150px] leading-[100px] tracking-[5px] text-center text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our Offerings</span>
-          <span className="absolute left-[1324px] top-[178px] w-[590px] font-oswald font-semibold text-[150px] leading-[100px] tracking-[5px] text-center text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our Offerings</span>
+        <section className="absolute left-[15px] top-[2622px] w-[1898px] h-[596px]">
+          <span className="absolute left-[16px] top-[178px] w-[590px] font-oswald font-semibold text-[150px] leading-[100px] tracking-[5px] text-center whitespace-nowrap text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our Offerings</span>
+          <span className="absolute left-[1324px] top-[178px] w-[590px] font-oswald font-semibold text-[150px] leading-[100px] tracking-[5px] text-center whitespace-nowrap text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our Offerings</span>
           <div className="absolute left-[635px] top-[98px] w-[660px] h-[423.32px]">
             {offerings.map((tile, idx) => (
               <div key={idx} className="absolute w-[310px] h-[206.66px] rounded-[30px] overflow-hidden hover:scale-105 hover:shadow-[0_18px_36px_rgba(0,0,0,0.4)] transition-all duration-300" style={{ left: tile.x, top: tile.y, background: tile.bg }}>
@@ -132,7 +132,7 @@ export default function AboutUs() {
         </section>
 
         {/* ============ SUSTAINABILITY ============ */}
-        <section className="absolute left-0 top-[3106px] w-[1920px] h-[948px] overflow-hidden">
+        <section className="absolute left-0 top-[3218px] w-[1920px] h-[948px] overflow-hidden">
           <div className="absolute left-0 top-0 w-[963px] h-[960px] bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[962px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/45f616fcb6e453e7.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[1442px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/6315e951f530162f.jpg')] bg-center bg-cover bg-no-repeat" />
@@ -153,7 +153,7 @@ export default function AboutUs() {
         </section>
 
         {/* ============ TESTIMONIALS ============ */}
-        <section className="absolute left-0 top-[4054px] w-[1920px] h-[730px] overflow-hidden bg-black">
+        <section className="absolute left-0 top-[4166px] w-[1920px] h-[730px] overflow-hidden bg-black">
           <div className="absolute left-[-76px] top-[-133px] w-[2036px] h-[805px] opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-[position:50%_0%] bg-[length:100.023%_142.857%] bg-no-repeat" />
           <div className="absolute left-[365px] top-[180px] w-[1320px] h-[393px]">
             <div className="absolute left-[444px] top-0 w-[432px] h-[69.39px] border-b border-dashed border-brand-yellow">
@@ -199,7 +199,7 @@ export default function AboutUs() {
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[4768px] w-[1920px] h-[314.3px]">
+        <section className="absolute left-0 top-[4880px] w-[1920px] h-[314.3px]">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
@@ -207,8 +207,8 @@ export default function AboutUs() {
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={5082} />
-        <Footer top={5451} />
+        <InstagramStrip top={5194} />
+        <Footer top={5563} />
       </div>
     </div>
 
@@ -250,7 +250,7 @@ export default function AboutUs() {
 
       {/* HYGIENE RATING BAR */}
       <section className="relative overflow-hidden bg-[#121212] px-6 md:px-12 py-12">
-        <div className="absolute inset-0 opacity-10 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
+        <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
         <div className="relative flex flex-col items-start gap-5">
           <div className="flex flex-row gap-[8px]">
             {[1, 2, 3, 4].map(i => <i key={i} className="fas fa-star text-[20px] text-brand-yellowAccent" />)}

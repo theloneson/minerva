@@ -1,25 +1,63 @@
+import { useRef } from 'react';
+
 interface StripProps {
   top: number;
 }
 
-const desktopImages = [
-  { src: '/figma/landing/assets/621641ae9e38dc57.jpg', alt: 'Instagram 1' },
-  { src: '/figma/landing/assets/steak.jpeg', alt: 'Instagram 2' },
-  { src: '/figma/landing/assets/grill.jpeg', alt: 'Instagram 3' },
-  { src: '/figma/landing/assets/coffee.jpeg', alt: 'Instagram 4' },
-  { src: '/figma/landing/assets/unicorn.jpeg', alt: 'Instagram 5' },
+interface StripItem {
+  src: string;
+  alt: string;
+  type: 'image' | 'video';
+}
+
+// Video clips are hosted outside the repo (too large for git) — swap these src values
+// for the hosted URLs once uploaded, then uncomment the entries below.
+const stripItems: StripItem[] = [
+  { src: '/shared/photo_5951761213043707647_y.jpg', alt: 'The Liquid Spot 1', type: 'image' },
+  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.01.09.mp4", alt: 'The Liquid Spot 2', type: 'video' },
+  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.15.44.mp4", alt: 'The Liquid Spot 3', type: 'video' },
+  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.16.31.mp4", alt: 'The Liquid Spot 4', type: 'video' },
+  // { src: 'https://.../IMG_2719.MOV', alt: 'The Liquid Spot 5', type: 'video' },
+  // { src: 'https://.../IMG_0023.mov', alt: 'The Liquid Spot 6', type: 'video' },
 ];
 
-function InstagramTile({ src, alt, className }: { src: string; alt: string; className: string }) {
+function InstagramTile({ item, className }: { item: StripItem; className: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   return (
-    <div className={`group relative overflow-hidden flex-shrink-0 ${className}`}>
-      <img
-        src={src}
-        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        alt={alt}
-      />
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-        <i className="fab fa-instagram text-white text-[36px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300" />
+    <div
+      className={`group relative overflow-hidden flex-shrink-0 ${className}`}
+      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+      onMouseLeave={() => {
+        if (videoRef.current) {
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        }
+      }}
+    >
+      {item.type === 'image' ? (
+        <img
+          src={item.src}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          alt={item.alt}
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          src={item.src}
+          muted
+          loop
+          playsInline
+          controls
+          preload="metadata"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          aria-label={item.alt}
+        />
+      )}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 flex items-center justify-center pointer-events-none">
+        {item.type === 'image' && (
+          <i className="fab fa-instagram text-white text-[36px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300" />
+        )}
       </div>
     </div>
   );
@@ -31,8 +69,8 @@ export function InstagramStrip({ top }: StripProps) {
       className="absolute left-0 w-[1920px] h-[367.05px] overflow-hidden flex flex-row"
       style={{ top: `${top}px` }}
     >
-      {desktopImages.map((img) => (
-        <InstagramTile key={img.src} src={img.src} alt={img.alt} className="w-[384px] h-[367px]" />
+      {stripItems.map((item) => (
+        <InstagramTile key={item.src} item={item} className="w-[320px] h-[367px]" />
       ))}
     </section>
   );
@@ -42,11 +80,10 @@ export function InstagramStrip({ top }: StripProps) {
 export function MobileInstagramStrip() {
   return (
     <section className="flex flex-row overflow-x-auto no-scrollbar snap-x snap-mandatory">
-      {desktopImages.map((img) => (
+      {stripItems.map((item) => (
         <InstagramTile
-          key={img.src}
-          src={img.src}
-          alt={img.alt}
+          key={item.src}
+          item={item}
           className="w-[60vw] h-[60vw] md:w-[34vw] md:h-[34vw] snap-start"
         />
       ))}

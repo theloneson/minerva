@@ -34,7 +34,7 @@ export default function CateringService() {
             <div className="text-brand-red">You Own</div>
           </div>
           <span className="absolute left-[160px] top-[679px] w-[622px] font-nunito font-semibold italic text-[20px] leading-[25px] text-[#F4F1F1] text-balance">
-            From intimate gatherings to large celebrations, TheLiquidSpot creates thoughtfully curated food and drink experiences tailored to your guests, preferences, and occasion.
+            At The LiquidSpot, we understand that every event is unique. Whether you are hosting a birthday celebration, wedding, corporate event, showers, church gathering, private party at home, or community event, we work closely with you to create a menu that perfectly suits your occasion and guests.
           </span>
           <a href="/find-us#consultation" className="absolute left-[1331px] top-[708px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
             <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
@@ -53,7 +53,7 @@ export default function CateringService() {
           <span className="absolute left-[173px] top-[184px] w-[776px] font-nunito font-medium text-[17px] leading-[28px] text-body-gray">
             Whether it's a birthday for twenty or a corporate lunch for a hundred — we show up fresh, prepared, and ready to make your event memorable.
           </span>
-          <div className="absolute left-[53px] top-[355px] w-[1816px] flex flex-row gap-[24px] items-center">
+          {/* <div className="absolute left-[53px] top-[355px] w-[1816px] flex flex-row gap-[24px] items-center">
             {caterCards.map((card, idx) => (
               <div key={idx} className="relative w-[430px] h-[390px] flex-shrink-0 rounded-[48px_0_48px_0] bg-white shadow-[inset_0_0_0_2px_#F2F2F2] flex flex-col gap-[32px] px-[22px] py-[40px] items-center justify-center hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_2px_#F3274C,0_18px_36px_rgba(0,0,0,0.12)] transition-all duration-300">
                 <div
@@ -66,7 +66,7 @@ export default function CateringService() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
 
         {/* ============ THREE SIGNATURE OFFERINGS ============ */}
@@ -351,9 +351,9 @@ const caterCards = [
 ];
 
 const offerings = [
-  { label: "Main Course", title: "Signature Feasts", bg: "url('/figma/catering/assets/a009410a210a1347.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Delicious, hearty main meals prepared with quality ingredients and authentic flavours. Designed to impress and satisfy every guest at the table." },
-  { label: "Finger Food", title: "Artisan Bites", bg: "url('/figma/catering/assets/094aea18f7394678.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Handcrafted pastries, snacks, and crowd-favourite finger foods. Perfect for sharing, grazing tables, and creating those memorable moments between the bigger bites" },
-  { label: "Drinks", title: "LiquidSpot Blends", bg: "url('/figma/catering/assets/3f7de7e3222ab905.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Our specialty drink range — refreshing, expertly crafted beverages that complement your menu and elevate the overall event experience from first sip to last." }
+  { label: "Main Course", title: "Signature Feasts", bg: "url('/figma/catering/assets/a009410a210a1347.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Delicious main meals and hearty dishes prepared with quality ingredients and authentic flavours to satisfy your guests.." },
+  { label: "Finger Food", title: "Artisan Bites", bg: "url('/figma/catering/assets/094aea18f7394678.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "A selection of handcrafted pastries, snacks, finger foods, and crowd favourites designed for sharing, grazing, and memorable moments." },
+  { label: "Drinks", title: "LiquidSpot Blends", bg: "url('/figma/catering/assets/3f7de7e3222ab905.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Our range of refreshing specialty drinks and beverages, carefully crafted to complement your menu and elevate your event experience.." }
 ];
 
 const steps = [

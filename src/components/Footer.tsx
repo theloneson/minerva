@@ -56,7 +56,8 @@ export function Footer({ top }: FooterProps) {
           <span className="font-oswald font-normal text-[20px] leading-[24px] text-brand-yellow">Social</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[16px] leading-[32px]">
             <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Facebook</a>
-            <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@theliquidspot" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
           </div>
         </div>
 
@@ -64,30 +65,18 @@ export function Footer({ top }: FooterProps) {
         <div className="flex flex-col gap-[45px] items-center text-center flex-shrink-0">
           <span className="font-oswald font-semibold text-[20px] leading-[24px] text-white">Contact</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[16px] leading-[32px]">
-            <a href="mailto:theliquidspotfoodanddriks@gmail.com" className="text-footer-gray hover:text-brand-yellow transition-colors whitespace-nowrap">theliquidspotfoodanddriks@gmail.com</a>
+            <a href="mailto:theliquidspotfoodanddrinks@gmail.com" className="text-footer-gray hover:text-brand-yellow transition-colors whitespace-nowrap">theliquidspotfoodanddrinks@gmail.com</a>
             <a href="tel:+447810007544" className="text-footer-gray hover:text-brand-yellow transition-colors">+447810007544</a>
           </div>
         </div>
       </div>
 
-      {/* Middle Newsletter Row */}
-      <div className="absolute left-[171px] top-[467px] w-[1579px] flex flex-row gap-[286px] items-center">
+      {/* Middle Row — logo + blurb */}
+      <div className="absolute left-[171px] top-[467px] w-[1579px] flex flex-row gap-[80px] items-center justify-center">
         <div className="w-[252px] h-[252px] flex-shrink-0 bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-        <span className="w-[420px] flex-shrink-0 font-nunito font-normal text-[16px] leading-[27.2px] text-center text-footer-gray">
+        <span className="w-[600px] flex-shrink-0 font-nunito font-normal text-[16px] leading-[27.2px] text-center text-footer-gray">
           The Liquid Spot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
         </span>
-        <div className="w-[360px] flex-shrink-0 flex flex-col gap-[15px] items-center text-center">
-          <span className="font-epilogue font-normal text-[16px] leading-[26.67px] text-white">Get recent news and updates.</span>
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="w-[360px] h-[63px] rounded-[10px] bg-white border border-[#DEDEDE] px-[36px] font-epilogue text-[16px] text-[#222] text-center outline-none"
-          />
-          <button className="relative mt-[11px] w-[158.63px] h-[60px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-            <div className="absolute left-[14.94px] top-[-6px] w-[150.69px] h-[72px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-            <span className="font-fredoka font-normal text-[16px] text-white">Subscribe</span>
-          </button>
-        </div>
       </div>
 
       {/* Bottom Copyright */}
@@ -107,7 +96,7 @@ export function MobileFooter() {
       <div className="flex flex-col items-center gap-4 text-center">
         <div className="w-[140px] h-[140px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
         <span className="max-w-md font-nunito font-normal text-[14px] leading-[24px] text-footer-gray">
-          The Liquid Spot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
+          To become the go-to brand for handmade foods and specialty drinks, known for quality, flavour, and a satisfying food experience.
         </span>
       </div>
 
@@ -141,7 +130,8 @@ export function MobileFooter() {
           <span className="font-oswald font-normal text-[18px] leading-[24px] text-brand-yellow">Social</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[14px] leading-[28px]">
             <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Facebook</a>
-            <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@theliquidspot" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
           </div>
         </div>
       </div>
@@ -150,23 +140,9 @@ export function MobileFooter() {
       <div className="flex flex-col gap-[14px] items-center text-center">
         <span className="font-oswald font-semibold text-[18px] leading-[24px] text-white">Contact</span>
         <div className="flex flex-col items-center font-nunito font-normal text-[14px] leading-[28px]">
-          <a href="mailto:theliquidspotfoodanddriks@gmail.com" className="text-footer-gray hover:text-brand-yellow transition-colors break-all">theliquidspotfoodanddriks@gmail.com</a>
+          <a href="mailto:theliquidspotfoodanddrinks@gmail.com" className="text-footer-gray hover:text-brand-yellow transition-colors break-all">theliquidspotfoodanddrinks@gmail.com</a>
           <a href="tel:+447810007544" className="text-footer-gray hover:text-brand-yellow transition-colors">+447810007544</a>
         </div>
-      </div>
-
-      {/* Newsletter */}
-      <div className="flex flex-col gap-[15px] w-full max-w-md mx-auto items-center text-center">
-        <span className="font-epilogue font-normal text-[15px] leading-[26px] text-white">Get recent news and updates.</span>
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="w-full h-[54px] rounded-[10px] bg-white border border-[#DEDEDE] px-[24px] font-epilogue text-[15px] text-[#222] text-center outline-none"
-        />
-        <button type="button" className="relative w-[158.63px] h-[56px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 transition-all duration-300">
-          <div className="absolute -inset-y-[6px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-          <span className="font-fredoka font-normal text-[15px] text-white">Subscribe</span>
-        </button>
       </div>
 
       {/* Copyright */}

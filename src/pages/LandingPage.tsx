@@ -1,15 +1,42 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
 import { RedButton, MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
 import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
+// Menu section height per tab — Pastries needs the tall/scrollable treatment, but Quick Bites,
+// Drinks, and Salads each get a section sized to their own content so short tabs don't leave a
+// dead white gap before the next section starts.
+const MENU_HEIGHTS: Record<'quick' | 'drinks' | 'pastries' | 'salads', number> = {
+  quick: 1650,
+  drinks: 1140,
+  pastries: 2010,
+  salads: 1080,
+};
+
 export default function LandingPage() {
-  const { scaleTransform, scaledHeight } = useScale(8719);
   const [activeTab, setActiveTab] = useState<'quick' | 'drinks' | 'pastries' | 'salads'>('quick');
   const [openFaqIdx, setOpenFaqIdx] = useState<number>(0);
+
+  const menuSectionHeight = MENU_HEIGHTS[activeTab];
+  const menuEnd = 1574 + menuSectionHeight;
+  const cateringTop = menuEnd + 52;
+  const cateringEnd = cateringTop + 912;
+  const simpleOrderingTop = cateringEnd + 131;
+  const simpleOrderingEnd = simpleOrderingTop + 535;
+  const faqTop = simpleOrderingEnd + 323;
+  const faqEnd = faqTop + 1077;
+  const everyBiteTop = faqEnd + 159;
+  const everyBiteEnd = everyBiteTop + 720.38;
+  const followTop = everyBiteEnd - 8.38;
+  const followEnd = followTop + 314.3;
+  const instagramTop = followEnd + 24.7;
+  const instagramEnd = instagramTop + 367.05;
+  const footerTop = instagramEnd + 24.95;
+  const totalHeight = footerTop + 933 + 1;
+
+  const { scaleTransform, scaledHeight } = useScale(totalHeight);
 
   const handleMenuScroll = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -27,9 +54,9 @@ export default function LandingPage() {
   return (
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
-      <div 
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[8719px] origin-top-left"
-        style={{ transform: scaleTransform }}
+      <div
+        className="relative mx-auto bg-white font-nunito w-[1920px] origin-top-left"
+        style={{ transform: scaleTransform, height: totalHeight }}
       >
         {/* ============ HERO ============ */}
         <section className="absolute left-0 top-0 w-[1920px] h-[900px] overflow-hidden">
@@ -113,7 +140,7 @@ export default function LandingPage() {
         </section>
 
         {/* ============ MENU ============ */}
-        <section id="menu" className="absolute left-0 top-[1574px] w-[1920px] h-[1579px] overflow-hidden bg-white">
+        <section id="menu" className="absolute left-0 top-[1574px] w-[1920px] overflow-hidden bg-white" style={{ height: menuSectionHeight }}>
           <div className="absolute left-[265px] top-[140px] w-[681px] h-[125px]">
             <div className="absolute left-[23px] top-[14px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
             <span className="absolute left-[66px] top-0 font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">
@@ -124,64 +151,65 @@ export default function LandingPage() {
             </span>
           </div>
 
-          {/* TABS */}
-          <div className="absolute left-[290px] top-[316px] flex flex-row gap-[30px] items-start">
-            <div onClick={() => setActiveTab('quick')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
-              <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Yummy Choi</div>
+          {/* TABS — whitespace-nowrap keeps every label on one line so all four sit on the same baseline instead of wrapping unevenly and looking crooked */}
+          <div className="absolute left-[290px] top-[316px] flex flex-row gap-[56px] items-start">
+            <div onClick={() => setActiveTab('quick')} className="relative h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
+              <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Yummy Choi</div>
               {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            <div onClick={() => setActiveTab('drinks')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
-              <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Tropical and Traditional</div>
+            <div onClick={() => setActiveTab('drinks')} className="relative h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
+              <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Tropical and Traditional</div>
               {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            <div onClick={() => setActiveTab('pastries')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Pastries</div>
-              <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
+            <div onClick={() => setActiveTab('pastries')} className="relative h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Pastries</div>
+              <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Cool Bites</div>
               {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
-            <div onClick={() => setActiveTab('salads')} className="relative w-[303px] h-[69px] cursor-pointer text-center group">
-              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] text-black group-hover:text-brand-red transition-colors">Salads</div>
-              <div className="font-oswald font-semibold text-[18px] leading-[25px] text-brand-red">Cool Bites</div>
+            <div onClick={() => setActiveTab('salads')} className="relative h-[69px] cursor-pointer text-center group">
+              <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Salads</div>
+              <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Cool Bites</div>
               {activeTab === 'salads' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </div>
           </div>
 
-          {/* Scrollable tab content area — starts below the tabs row so it never intercepts clicks on the tabs themselves. Keeps the section a fixed height; a tab whose content runs long (e.g. Pastries) scrolls internally instead of stretching the whole section */}
-          <div className="absolute left-0 top-[406px] w-full h-[1150px] overflow-y-auto overflow-x-hidden">
+          {/* Scrollable tab content area — starts below the tabs row so it never intercepts clicks on the tabs themselves. The section itself is sized per-tab (see MENU_HEIGHTS) so short tabs (Drinks, Salads) don't leave dead space; only Pastries — whose content is genuinely taller than the section — scrolls internally */}
+          <div
+            className="absolute left-0 top-[406px] w-full overflow-x-hidden"
+            style={{ height: menuSectionHeight - 406, overflowY: activeTab === 'pastries' ? 'auto' : 'visible' }}
+          >
 
           {/* TAB 1: QUICK BITES */}
           {activeTab === 'quick' && (
-            <div className="absolute left-[247px] top-[20px] w-[1416px] flex flex-col">
+            <div className="absolute left-[90px] top-[20px] w-[1800px] flex flex-col">
               {menuGroups.map((group, idx) => (
-                <div key={idx} className="relative h-[333px] w-[1416px]">
+                <div key={idx} className="relative h-[430px] w-[1800px]">
                   <div className="absolute left-[60px] top-[52px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
                   <span className="absolute left-[113px] top-[42px] font-nunito font-extrabold text-[20px] leading-[23px] whitespace-nowrap text-black">{group.name}</span>
-                  <div className="absolute left-[44px] top-[102px] flex flex-row gap-[63.34px]">
+                  <div className="absolute left-[51px] top-[117px] flex flex-row gap-[70px]">
                     {group.cards.map((card, cIdx) => (
-                      <div key={cIdx} className="relative w-[406.66px] h-[182px] flex-shrink-0 rounded-[18px] bg-white shadow-card hover:-translate-y-[7px] hover:shadow-[inset_0_0_0_1px_#E5E7EB,14px_20px_34px_0px_rgba(0,0,0,0.22)] transition-all duration-300">
-                        <div className="absolute left-[1px] top-[1px] w-[202.33px] h-[180px] overflow-hidden rounded-[18px]" style={{ background: card.bg }} />
-                        <div className="absolute left-[15px] top-[18px] h-[26px] rounded-[26px] bg-brand-yellow flex items-center justify-center px-[14px]">
-                          <span className="font-nunito font-semibold text-[11px] leading-[18px] text-[#222]">{card.label}</span>
+                      <div key={cIdx} className="relative w-[540px] h-[265px] flex-shrink-0 rounded-[22px] bg-white shadow-card hover:-translate-y-[7px] hover:shadow-[inset_0_0_0_1px_#E5E7EB,14px_20px_34px_0px_rgba(0,0,0,0.22)] transition-all duration-300">
+                        <div className="absolute left-[1px] top-[1px] w-[268px] h-[263px] overflow-hidden rounded-[22px]" style={{ background: card.bg }} />
+                        <div className="absolute left-[20px] top-[23px] h-[33px] rounded-[33px] bg-brand-yellow flex items-center justify-center px-[18px]">
+                          <span className="font-nunito font-semibold text-[14px] leading-[22px] text-[#222]">{card.label}</span>
                         </div>
-                        <div className="absolute left-[211.5px] top-[17px] w-[186px] flex flex-col gap-[3px] items-start">
-                          <span className="font-nunito font-bold text-[14px] leading-[24px] text-[#222]">{card.title}</span>
-                          <span className="font-nunito font-light text-[7px] leading-[12px] text-[#222] w-[180px]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[6px] leading-[10px] text-[#222] w-[180px]">{card.ingr}</span>
-                          <span className="font-nunito font-semibold text-[6px] leading-[10px] text-[#222] w-[180px]">{card.allergen}</span>
-                          <div className="relative w-[186px] h-[20px] mt-1">
-                            <span className="absolute left-0 top-0 font-nunito font-extrabold text-[10px] leading-[20px] text-brand-red">{card.price}</span>
-                            {card.spice && (
-                              <>
-                                <span className="absolute left-[102px] top-[5px] font-oswald font-normal text-[6px] leading-[10px] text-brand-redAlt">Spice Lvl:</span>
-                                <span className="absolute left-[132px] top-[4px] text-[6px] leading-[10px] tracking-[2px] whitespace-nowrap">🌶️ 🌶️🌶️</span>
-                              </>
-                            )}
+                        <div className="absolute left-[292px] top-[18px] w-[228px] h-[178px] overflow-hidden flex flex-col gap-[5px] items-start">
+                          <span className="font-nunito font-bold text-[22px] leading-[26px] line-clamp-2 text-[#222]">{card.title}</span>
+                          <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222] w-[226px]">{card.desc}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222] w-[226px]">{card.ingr}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222] w-[226px]">{card.allergen}</span>
+                        </div>
+                        <span className="absolute left-[292px] top-[203px] font-nunito font-extrabold text-[18px] leading-[26px] text-brand-red">{card.price}</span>
+                        {card.spice && (
+                          <div className="absolute left-[292px] top-[234px] flex flex-row items-center gap-[5px]">
+                            <span className="font-oswald font-normal text-[10px] leading-[13px] text-brand-redAlt">Spice Lvl:</span>
+                            <span className="text-[10px] leading-[13px] tracking-[2px] whitespace-nowrap">🌶️ 🌶️🌶️</span>
                           </div>
-                        </div>
-                        <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[334px] top-[151px] w-[57px] h-[18px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
-                          <span className="font-oswald font-normal text-[6px] text-black">Order Now</span>
+                        )}
+                        <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[434px] top-[201px] w-[86px] h-[28px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                          <span className="font-oswald font-normal text-[11px] text-black">Order Now</span>
                         </a>
                       </div>
                     ))}
@@ -193,24 +221,24 @@ export default function LandingPage() {
 
           {/* TAB 2: DRINKS */}
           {activeTab === 'drinks' && (
-            <div className="absolute left-[291px] top-[94px] w-[1416px] flex flex-col gap-[69px]">
+            <div className="absolute left-[190px] top-[100px] w-[1600px] flex flex-col gap-[86px]">
               {drinkRows.map((row, rIdx) => (
-                <div key={rIdx} className="flex flex-row gap-[64px]">
+                <div key={rIdx} className="flex flex-row gap-[80px]">
                   {row.cards.map((card, cIdx) => (
-                    <div key={cIdx} className="relative w-[374px] h-[182px] flex-shrink-0 mt-[27px] hover:-translate-y-[7px] transition-transform duration-300">
-                      <div className="absolute left-0 top-0 w-[374px] h-[182px] rounded-[18px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB]" />
-                      <div className="absolute left-0 top-[-27px] w-[165px] h-[234px] rounded-[100px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
-                      <div className="absolute left-[187px] top-[29px] w-[186px]">
-                        <div className="font-nunito font-bold text-[14px] leading-[24px] text-[#222]">{card.title}</div>
-                        <div className="mt-1 flex flex-col gap-1">
-                          <span className="font-nunito font-light text-[7px] leading-[12px] text-[#222]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[6px] leading-[10px] text-[#222]">{card.ingr}</span>
-                          <span className="font-nunito font-semibold text-[6px] leading-[10px] text-[#222]">{card.allergen}</span>
+                    <div key={cIdx} className="relative w-[500px] h-[250px] flex-shrink-0 mt-[36px] hover:-translate-y-[7px] transition-transform duration-300">
+                      <div className="absolute left-0 top-0 w-[500px] h-[250px] rounded-[24px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB]" />
+                      <div className="absolute left-0 top-[-36px] w-[221px] h-[313px] rounded-[110px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
+                      <div className="absolute left-[248px] top-[26px] w-[236px] h-[196px] overflow-hidden flex flex-col">
+                        <div className="font-nunito font-bold text-[22px] leading-[27px] line-clamp-2 text-[#222]">{card.title}</div>
+                        <div className="mt-2.5 flex flex-col gap-2">
+                          <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222]">{card.desc}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{card.ingr}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
                         </div>
-                        <div className="relative w-[168px] h-[20px] mt-[12px]">
-                          <span className="absolute left-0 top-0 font-nunito font-extrabold text-[10px] leading-[20px] text-brand-red">{card.price}</span>
-                          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[111px] top-[2px] w-[57px] h-[18px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
-                            <span className="font-oswald font-normal text-[6px] text-black">Order Now</span>
+                        <div className="relative w-[236px] h-[32px] mt-[14px]">
+                          <span className="absolute left-0 top-0 font-nunito font-extrabold text-[18px] leading-[32px] text-brand-red">{card.price}</span>
+                          <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[140px] top-[2px] w-[86px] h-[28px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                            <span className="font-oswald font-normal text-[11px] text-black">Order Now</span>
                           </a>
                         </div>
                       </div>
@@ -223,43 +251,43 @@ export default function LandingPage() {
 
           {/* TAB 3: PASTRIES */}
           {activeTab === 'pastries' && (
-            <div className="absolute left-[262px] top-[34px] w-[1416px] flex flex-col gap-[40px]">
-              <div className="flex flex-row gap-[45px]">
+            <div className="absolute left-[70px] top-[34px] w-[1780px] flex flex-col gap-[53px]">
+              <div className="flex flex-row gap-[60px]">
                 {pies.map((card, idx) => (
-                  <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
-                    <div className="absolute left-0 top-[135.77px] w-[302.5px] h-[316.78px] rounded-[30px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
-                    <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px]" style={{ background: card.bg }} />
-                    <span className="absolute left-[35px] top-[252px] font-nunito font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
-                    <span className="absolute left-[35px] top-[275px] font-nunito font-normal text-[24px] leading-[28.8px] whitespace-nowrap text-black">{card.title}</span>
-                    <div className="absolute left-[35px] top-[315px] w-[235px] flex flex-col gap-[6px]">
-                      <span className="font-nunito font-light text-[8px] leading-[13px] text-[#222]">{card.desc}</span>
-                      <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.ingr}</span>
-                      <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.allergen}</span>
+                  <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
+                    <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
+                    <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
+                    <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
+                    <span className="absolute left-[46px] top-[363px] font-nunito font-normal text-[32px] leading-[38px] whitespace-nowrap text-black">{card.title}</span>
+                    <div className="absolute left-[46px] top-[416px] w-[310px] h-[113px] overflow-hidden flex flex-col gap-[8px]">
+                      <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
+                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
+                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{card.allergen}</span>
                     </div>
-                    <i className="fas fa-arrow-right absolute left-[40px] top-[410px] text-[15px] text-black" />
-                    <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[90px] top-[403px] w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
-                      <span className="font-oswald font-normal text-[15px] text-black">Order Now</span>
+                    <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
+                    <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                      <span className="font-oswald font-normal text-[20px] text-black">Order Now</span>
                     </a>
                   </div>
                 ))}
               </div>
-              <div className="flex flex-col gap-[16px]">
-                <span className="font-nunito font-bold text-[24px] leading-[28.8px] text-black">Banana Bread Range</span>
-                <div className="flex flex-row flex-wrap gap-[45px]">
+              <div className="flex flex-col gap-[20px]">
+                <span className="font-nunito font-bold text-[31px] leading-[37px] text-black">Banana Bread Range</span>
+                <div className="flex flex-row flex-wrap gap-[60px] w-[1780px]">
                   {bananas.map((card, idx) => (
-                    <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
-                      <div className="absolute left-0 top-[135.77px] w-[302.5px] h-[316.78px] rounded-[30px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
-                      <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px]" style={{ background: card.bg }} />
-                      <span className="absolute left-[35px] top-[252px] font-nunito font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
-                      <span className="absolute left-[35px] top-[275px] w-[236px] font-nunito font-normal text-[24px] leading-[28.8px] text-black">{card.title}</span>
-                      <div className="absolute left-[35px] top-[335px] w-[235px] flex flex-col gap-[6px]">
-                        <span className="font-nunito font-light text-[8px] leading-[13px] text-[#222]">{card.desc}</span>
-                        <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.ingr}</span>
-                        <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.allergen}</span>
+                    <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
+                      <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
+                      <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
+                      <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
+                      <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
+                      <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
+                        <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
+                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
+                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
                       </div>
-                      <i className="fas fa-arrow-right absolute left-[40px] top-[410px] text-[15px] text-black" />
-                      <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[90px] top-[403px] w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
-                        <span className="font-oswald font-normal text-[15px] text-black">Order Now</span>
+                      <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
+                      <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                        <span className="font-oswald font-normal text-[20px] text-black">Order Now</span>
                       </a>
                     </div>
                   ))}
@@ -270,21 +298,21 @@ export default function LandingPage() {
 
           {/* TAB 4: SALADS */}
           {activeTab === 'salads' && (
-            <div className="absolute left-[262px] top-[34px] w-[1416px] flex flex-row flex-wrap gap-[45px]">
+            <div className="absolute left-[70px] top-[34px] w-[1780px] flex flex-row flex-wrap gap-[60px]">
               {salads.map((card, idx) => (
-                <div key={idx} className="relative w-[302.5px] h-[452.55px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
-                  <div className="absolute left-0 top-[135.77px] w-[302.5px] h-[316.78px] rounded-[30px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
-                  <div className="absolute left-0 top-[63px] w-[303px] h-[172px] rounded-[50px]" style={{ background: card.bg }} />
-                  <span className="absolute left-[35px] top-[252px] font-nunito font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
-                  <span className="absolute left-[35px] top-[275px] w-[236px] font-nunito font-normal text-[24px] leading-[28.8px] text-black">{card.title}</span>
-                  <div className="absolute left-[35px] top-[315px] w-[235px] flex flex-col gap-[6px]">
-                    <span className="font-nunito font-light text-[8px] leading-[13px] text-[#222]">{card.desc}</span>
-                    <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.ingr}</span>
-                    <span className="font-nunito font-semibold text-[8px] leading-[12px] text-[#222]">{card.allergen}</span>
+                <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
+                  <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
+                  <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
+                  <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
+                  <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
+                  <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
+                    <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
+                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
+                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
                   </div>
-                  <i className="fas fa-arrow-right absolute left-[40px] top-[410px] text-[15px] text-black" />
-                  <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[90px] top-[403px] w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
-                    <span className="font-oswald font-normal text-[15px] text-black">Order Now</span>
+                  <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
+                  <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
+                    <span className="font-oswald font-normal text-[20px] text-black">Order Now</span>
                   </a>
                 </div>
               ))}
@@ -294,21 +322,21 @@ export default function LandingPage() {
         </section>
 
         {/* ============ CATERING BANNER ============ */}
-        <section className="absolute left-0 top-[3205px] w-[1920px] h-[912px] overflow-hidden">
+        <section className="absolute left-0 w-[1920px] h-[912px] overflow-hidden" style={{ top: cateringTop }}>
           <div className="absolute left-0 top-0 w-[963px] h-[960px] bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[962px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/45f616fcb6e453e7.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[1442px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/6315e951f530162f.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[960px] top-[480px] w-[963px] h-[480px] bg-[url('/figma/landing/assets/0df3bfdfbfaf75d0.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
           <div className="absolute inset-0 bg-black/55" />
           <div className="absolute left-[661px] top-0 w-[672px] h-[672px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-          <Link to="/catering" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <a href="/find-us#consultation" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-            <span className="font-nunito font-bold text-[25px] leading-[25px] text-white">Catering Services</span>
-          </Link>
+            <span className="font-nunito font-bold text-[25px] leading-[25px] text-white">Book a Consultation</span>
+          </a>
         </section>
 
         {/* ============ SIMPLE ORDERING ============ */}
-        <section className="absolute left-[346px] top-[4248px] w-[1314px] h-[535px]">
+        <section className="absolute left-[346px] w-[1314px] h-[535px]" style={{ top: simpleOrderingTop }}>
           <span className="absolute left-[554px] top-[46px] font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">FOOD PROCESSING</span>
           <span className="absolute left-[341px] top-[113px] w-[631px] font-nunito font-semibold text-[80px] leading-[81px] text-center text-[#212121]">Simple Ordering, Great Food.</span>
           <div className="absolute left-[112px] top-[439px] w-[1032px] h-[1px] bg-[url('/figma/landing/assets/458b114f296b901e.png')] bg-left-top bg-repeat-x" style={{ backgroundSize: '978px 1px' }} />
@@ -332,7 +360,7 @@ export default function LandingPage() {
         </section>
 
         {/* ============ FAQ ============ */}
-        <section className="absolute left-[71px] top-[5106px] w-[1808px] h-[1077px]">
+        <section className="absolute left-[71px] w-[1808px] h-[1077px]" style={{ top: faqTop }}>
           <div className="absolute inset-0 rounded-[50px] border-solid border-[#222] border-y-[20px] border-x-[27px] pointer-events-none" />
           <div className="absolute left-[26px] top-[312px] w-[813px] flex flex-col gap-[67px] items-center">
             <span className="font-oswald font-bold text-[60px] leading-[28px] text-center text-brand-redAlt">FAQS</span>
@@ -365,7 +393,7 @@ export default function LandingPage() {
         </section>
 
         {/* ============ EVERY BITE BANNER ============ */}
-        <section className="absolute left-0 top-[6342px] w-[1920px] h-[720.38px] overflow-hidden bg-[url('/figma/landing/assets/24f90eccd0b63e35.jpg')] bg-center bg-no-repeat" style={{ backgroundSize: '100% 198.2%' }}>
+        <section className="absolute left-0 w-[1920px] h-[720.38px] overflow-hidden bg-[url('/figma/landing/assets/24f90eccd0b63e35.jpg')] bg-center bg-no-repeat" style={{ backgroundSize: '100% 198.2%', top: everyBiteTop }}>
           <div className="absolute left-0 top-0 w-[1017px] h-[730px] bg-[url('/figma/landing/assets/e9035b2b86b7fc28.png')] bg-center bg-[length:105%_100%] bg-no-repeat" />
           <div className="absolute left-0 top-0 w-[75px] h-[148px] bg-[url('/figma/landing/assets/5cdfcc8a47b72ae9.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(-1,0,0,1,1939,286)' }} />
           <div className="absolute left-[1103px] top-[120px] w-[761px] h-[397px]">
@@ -379,7 +407,7 @@ export default function LandingPage() {
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[7054px] w-[1920px] h-[314.3px]">
+        <section className="absolute left-0 w-[1920px] h-[314.3px]" style={{ top: followTop }}>
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
@@ -387,8 +415,8 @@ export default function LandingPage() {
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={7393} />
-        <Footer top={7785} />
+        <InstagramStrip top={instagramTop} />
+        <Footer top={footerTop} />
       </div>
     </div>
 
@@ -562,10 +590,10 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-        <Link to="/catering" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+        <a href="/find-us#consultation-m" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
           <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-          <span className="font-bold text-[20px] leading-[25px] text-white">Catering Services</span>
-        </Link>
+          <span className="font-bold text-[20px] leading-[25px] text-white">Book a Consultation</span>
+        </a>
       </section>
 
       {/* SIMPLE ORDERING */}
@@ -686,7 +714,7 @@ const menuGroups = [
     name: "Classic Wraps",
     cards: [
       { label: "Combo", title: "Chicken & Beef Shawarma", price: "£13.00", spice: true, bg: "url('/figma/landing/assets/ded90afec8a34908.png') 8% 50% / cover no-repeat", desc: "Handcrafted with well-grilled, flavourful chicken and beef, fresh carrots and cabbage, topped with frankfurters, and finished with our in-house shawarma dressing.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." },
-      { label: "Spices", title: "Chicken Shawarma", price: "£10.00", spice: true, bg: "url('/figma/landing/assets/381eb7712d94472d.png') center / cover no-repeat", desc: "Handcrafted with well-grilled, flavourful chicken and/or beef, fresh carrots and cabbage, topped with frankfurters, and finished with our in-house shawarma dressing.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." },
+      { label: "Spices", title: "Chicken Shawarma", price: "£10.00", spice: true, bg: "url('/shared/Chicken shawarma.jpg') center / cover no-repeat", desc: "Handcrafted with well-grilled, flavourful chicken and/or beef, fresh carrots and cabbage, topped with frankfurters, and finished with our in-house shawarma dressing.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." },
       { label: "Bold", title: "Beef Shawarma", price: "£10", spice: true, bg: "url('/figma/landing/assets/cf58835a97d9302d.jpg') center / cover no-repeat", desc: "Handcrafted with well-grilled, flavourful beef, fresh carrots and cabbage, topped with frankfurters, and finished with our in-house shawarma dressing.", ingr: "Ingredients: Carrots, cabbage, chicken and/or beef, frankfurter, in-house dressing", allergen: "Allergen advice: May contain traces of eggs, cheese, mustard." }
     ]
   },

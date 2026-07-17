@@ -39,7 +39,7 @@ export default function FindUs() {
 
         {/* ============ CONTACT US ============ */}
         <section className="absolute left-0 top-[930px] w-[1920px] h-[385px] overflow-hidden bg-gradient-to-b from-white from-96% to-[#E7F5F5]">
-          <span className="absolute left-[320px] top-[26px] w-[1280px] font-nunito font-semibold text-[69px] leading-[80px] text-center text-[#222]">Contact Us</span>
+          <span className="absolute left-[320px] top-[12px] w-[1280px] font-nunito font-semibold text-[69px] leading-[80px] text-center text-[#222]">Contact Us</span>
           <div className="absolute left-[320px] top-[112px] w-[1280px] flex flex-row">
             {contacts.map((c, idx) => (
               <a key={idx} href={c.href} target="_blank" rel="noopener noreferrer" className="relative w-[320px] h-[165px] flex-shrink-0 block group">
@@ -60,7 +60,7 @@ export default function FindUs() {
         {/* ============ READY TO ORDER BANNER ============ */}
         <section className="absolute left-0 top-[1315px] w-[1920px] h-[353px] bg-[url('/figma/findus/assets/84b21635877fa5ff.png')] bg-[length:14.115%_35.411%] bg-[position:100%_0%] bg-no-repeat">
           <div className="absolute inset-0 overflow-hidden bg-brand-redBanner">
-            <div className="absolute inset-0 opacity-12 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-[position:50%_0%] bg-[length:100%_307.149%] bg-no-repeat" />
+            <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-[position:50%_0%] bg-[length:100%_307.149%] bg-no-repeat" />
           </div>
           <div className="absolute left-[101px] top-[82px] w-[1636px] flex flex-row gap-[504px] items-center">
             <div className="w-[779px] flex-shrink-0 flex flex-col gap-[16px] items-start">
@@ -207,9 +207,9 @@ export default function FindUs() {
                   ))}
                 </div>
               </div>
-              <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative w-[155.11px] h-[60px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
-                <div className="absolute left-[14.76px] top-[-6px] w-[147.34px] h-[72px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-                <span className="font-fredoka font-normal text-[18px] text-white">Submit Enquiry</span>
+              <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative w-[220px] h-[60px] rounded-[12px] bg-brand-red flex items-center justify-center px-4 hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+                <div className="absolute -inset-y-1.5 -inset-x-1 rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+                <span className="font-fredoka font-normal text-[18px] whitespace-nowrap text-white">Submit Enquiry</span>
               </a>
             </div>
 
@@ -274,7 +274,7 @@ export default function FindUs() {
 
       {/* READY TO ORDER BANNER */}
       <section className="relative overflow-hidden bg-brand-redBanner px-6 md:px-12 py-12">
-        <div className="absolute inset-0 opacity-10 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
+        <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
         <div className="relative flex flex-col items-start gap-5">
           <h2 className="font-bold text-[32px] md:text-[44px] leading-[1.1] text-white">Ready To Order? We're One Message Away.</h2>
           <p className="font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">We deliver nationwide. Please see our FAQ section for notice windows on regular and catering orders.</p>
@@ -403,9 +403,9 @@ export default function FindUs() {
                 </label>
               ))}
             </div>
-            <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[170px] h-[58px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
-              <div className="absolute -inset-y-[6px] inset-x-[8px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-              <span className="font-fredoka font-normal text-[17px] text-white">Submit Enquiry</span>
+            <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[210px] h-[58px] rounded-[12px] bg-brand-red flex items-center justify-center px-4 hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+              <div className="absolute -inset-y-1.5 -inset-x-1 rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+              <span className="font-fredoka font-normal text-[17px] whitespace-nowrap text-white">Submit Enquiry</span>
             </a>
           </div>
         </div>
@@ -425,7 +425,7 @@ export default function FindUs() {
 
 const contacts = [
   { icon: "fab fa-whatsapp", bg: "#00E510", label: "+44 7810 007544", href: "https://wa.me/447810007544", barRadius: "4px 0px 0px 4px" },
-  { icon: "fas fa-envelope", bg: "#000000", label: "theliquidspotfoodanddrinks@gmail.com", href: "mailto:theliquidspotfoodanddriks@gmail.com", barRadius: "0" },
+  { icon: "fas fa-envelope", bg: "#000000", label: "theliquidspotfoodanddrinks@gmail.com", href: "mailto:theliquidspotfoodanddrinks@gmail.com", barRadius: "0" },
   { icon: "fab fa-tiktok", bg: "#000000", label: "@TheLiquidSpot", href: "https://www.tiktok.com/@theliquidspot", barRadius: "0" },
   { icon: "fab fa-instagram", bg: "radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)", label: "TheLiquidSpot", href: "https://www.instagram.com", barRadius: "0px 4px 4px 0px" }
 ];
