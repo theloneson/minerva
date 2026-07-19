@@ -9,8 +9,8 @@ import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStr
 // Drinks, and Salads each get a section sized to their own content so short tabs don't leave a
 // dead white gap before the next section starts.
 const MENU_HEIGHTS: Record<'quick' | 'drinks' | 'pastries' | 'salads', number> = {
-  quick: 1650,
-  drinks: 1140,
+  quick: 1740,
+  drinks: 1190,
   pastries: 2010,
   salads: 1080,
 };

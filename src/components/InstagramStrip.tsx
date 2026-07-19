@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 interface StripProps {
   top: number;
 }
@@ -22,19 +20,8 @@ const stripItems: StripItem[] = [
 ];
 
 function InstagramTile({ item, className }: { item: StripItem; className: string }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   return (
-    <div
-      className={`group relative overflow-hidden flex-shrink-0 ${className}`}
-      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
-      onMouseLeave={() => {
-        if (videoRef.current) {
-          videoRef.current.pause();
-          videoRef.current.currentTime = 0;
-        }
-      }}
-    >
+    <div className={`group relative overflow-hidden flex-shrink-0 ${className}`}>
       {item.type === 'image' ? (
         <img
           src={item.src}
@@ -43,14 +30,13 @@ function InstagramTile({ item, className }: { item: StripItem; className: string
         />
       ) : (
         <video
-          ref={videoRef}
           src={item.src}
           muted
           loop
           playsInline
-          controls
-          preload="metadata"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          autoPlay
+          preload="auto"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none"
           aria-label={item.alt}
         />
       )}
