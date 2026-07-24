@@ -31,8 +31,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
-
-# Large video assets — too big for git, host externally and reference by URL
-public/shared/*.mov
-public/shared/*.MOV
-public/shared/*.mp4

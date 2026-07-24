@@ -8,15 +8,13 @@ interface StripItem {
   type: 'image' | 'video';
 }
 
-// Video clips are hosted outside the repo (too large for git) — swap these src values
-// for the hosted URLs once uploaded, then uncomment the entries below.
 const stripItems: StripItem[] = [
   { src: '/shared/photo_5951761213043707647_y.jpg', alt: 'The Liquid Spot 1', type: 'image' },
-  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.01.09.mp4", alt: 'The Liquid Spot 2', type: 'video' },
-  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.15.44.mp4", alt: 'The Liquid Spot 3', type: 'video' },
-  // { src: "https://.../WhatsApp Video 2026-07-11 at 18.16.31.mp4", alt: 'The Liquid Spot 4', type: 'video' },
-  // { src: 'https://.../IMG_2719.MOV', alt: 'The Liquid Spot 5', type: 'video' },
-  // { src: 'https://.../IMG_0023.mov', alt: 'The Liquid Spot 6', type: 'video' },
+  { src: "/shared/WhatsApp Video 2026-07-11 at 18.01.09.mp4", alt: 'The Liquid Spot 2', type: 'video' },
+  { src: "/shared/WhatsApp Video 2026-07-11 at 18.15.44.mp4", alt: 'The Liquid Spot 3', type: 'video' },
+  { src: "/shared/WhatsApp Video 2026-07-11 at 18.16.31.mp4", alt: 'The Liquid Spot 4', type: 'video' },
+  { src: '/shared/IMG_2719.MOV', alt: 'The Liquid Spot 5', type: 'video' },
+  { src: '/shared/IMG_0023.mov', alt: 'The Liquid Spot 6', type: 'video' },
 ];
 
 function InstagramTile({ item, className }: { item: StripItem; className: string }) {
