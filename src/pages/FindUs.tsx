@@ -6,7 +6,7 @@ import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function FindUs() {
-  const { scaleTransform, scaledHeight } = useScale(4848);
+  const { scaleTransform, scaledHeight } = useScale(4550);
   const [prefIdx, setPrefIdx] = useState<number>(0);
 
   const prefLabels = ["Virtual Meeting", "Phone Call", "In-Person Meeting"];
@@ -17,7 +17,7 @@ export default function FindUs() {
     <>
     <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
       <div
-        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4848px] origin-top-left"
+        className="relative mx-auto bg-white font-nunito w-[1920px] h-[4550px] origin-top-left"
         style={{ transform: scaleTransform }}
       >
         {/* ============ HERO ============ */}
@@ -40,7 +40,7 @@ export default function FindUs() {
         {/* ============ CONTACT US ============ */}
         <section className="absolute left-0 top-[930px] w-[1920px] h-[385px] overflow-hidden bg-gradient-to-b from-white from-96% to-[#E7F5F5]">
           <span className="absolute left-[320px] top-[12px] w-[1280px] font-nunito font-semibold text-[69px] leading-[80px] text-center text-[#222]">Contact Us</span>
-          <div className="absolute left-[320px] top-[112px] w-[1280px] flex flex-row">
+          <div className="absolute left-[320px] top-[130px] w-[1280px] flex flex-row">
             {contacts.map((c, idx) => (
               <a key={idx} href={c.href} target="_blank" rel="noopener noreferrer" className="relative w-[320px] h-[165px] flex-shrink-0 block group">
                 <div className="absolute left-[138px] top-0 w-[44px] h-[44px] rounded-[22px] flex items-center justify-center transition-transform group-hover:scale-110" style={{ background: c.bg }}>
@@ -54,7 +54,7 @@ export default function FindUs() {
               </a>
             ))}
           </div>
-          <span className="absolute left-[320px] top-[300px] w-[1280px] font-nunito font-bold italic text-[16px] text-center text-[#222]">Next day delivery to every part of the UK.</span>
+          <span className="absolute left-[320px] top-[314px] w-[1280px] font-nunito font-bold italic text-[16px] text-center text-[#222]">Next day delivery to every part of the UK.</span>
         </section>
 
         {/* ============ READY TO ORDER BANNER ============ */}
@@ -75,10 +75,10 @@ export default function FindUs() {
         </section>
 
         {/* ============ BOOK A CONSULTATION ============ */}
-        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1550px] overflow-hidden">
+        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1252px] overflow-hidden">
 
-          {/* Left Image Panel */}
-          <div className="absolute left-0 top-0 w-[1013px] h-[1550px] overflow-hidden">
+          {/* Left Image Panel — height matches the form card's rendered height (40px top padding + form content + 40px bottom padding) so the two columns end flush together */}
+          <div className="absolute left-0 top-0 w-[1013px] h-[1252px] overflow-hidden">
             <div className="absolute inset-0 bg-[url('/figma/catering/assets/bf7b0e683dc63017.jpg')] bg-center bg-cover bg-no-repeat" />
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute left-[86px] top-[88px] w-[722px] flex flex-col gap-[21px] items-start">
@@ -217,7 +217,7 @@ export default function FindUs() {
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[3229px] w-[1920px] h-[314.3px]">
+        <section className="absolute left-0 top-[2931px] w-[1920px] h-[314.3px]">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
@@ -225,8 +225,8 @@ export default function FindUs() {
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={3544} />
-        <Footer top={3915} />
+        <InstagramStrip top={3246} />
+        <Footer top={3617} />
       </div>
     </div>
 

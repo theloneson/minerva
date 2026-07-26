@@ -62,6 +62,9 @@ export default function LandingPage() {
         <section className="absolute left-0 top-0 w-[1920px] h-[900px] overflow-hidden">
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
 
+          {/* Dark veil sits on the plain background only — placed before the shawarma cluster so the food photos render crisp and un-darkened on top, same trick as the Catering Services banner */}
+          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+
           {/* Decorative Right Cluster (photos only) */}
           <div className="absolute left-[775px] top-[121px] w-[1172px] h-[889px]">
             <div className="absolute left-0 top-0 w-[163px] h-[127px] rounded-[4px] bg-[url('/figma/landing/assets/374a955a0b7cc45c.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0,-1,1,0,72,255)' }} />
@@ -71,9 +74,6 @@ export default function LandingPage() {
               <div className="absolute left-0 top-0 w-[794.477px] h-[993.54px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ backgroundPosition: '50% 0', transform: 'matrix(-0.117,-0.993,-0.993,0.117,1167.7,869.2)' }} />
             </div>
           </div>
-
-          {/* Dark veil over the WHOLE section — same trick as the Catering Services banner. Because it spans edge-to-edge there's no visible box, and everything rendered after it (logo, bubble, header, copy) stays crisp on top */}
-          <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
           <div className="absolute left-[982px] top-[565px] w-[248px] h-[248px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
 
@@ -141,7 +141,7 @@ export default function LandingPage() {
 
         {/* ============ MENU ============ */}
         <section id="menu" className="absolute left-0 top-[1574px] w-[1920px] overflow-hidden bg-white" style={{ height: menuSectionHeight }}>
-          <div className="absolute left-[265px] top-[140px] w-[681px] h-[125px]">
+          <div className="absolute left-[147px] top-[140px] w-[681px] h-[125px]">
             <div className="absolute left-[23px] top-[14px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
             <span className="absolute left-[66px] top-0 font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">
               CRAVINGS START HERE.
@@ -151,8 +151,8 @@ export default function LandingPage() {
             </span>
           </div>
 
-          {/* TABS — whitespace-nowrap keeps every label on one line so all four sit on the same baseline instead of wrapping unevenly and looking crooked */}
-          <div className="absolute left-[290px] top-[316px] flex flex-row gap-[56px] items-start">
+          {/* TABS — whitespace-nowrap keeps every label on one line so all four sit on the same baseline instead of wrapping unevenly and looking crooked. Left-aligned to the same 170px margin as the group headings below (e.g. "Classic Wraps") so the whole menu block reads as one consistent column instead of drifting right */}
+          <div className="absolute left-[170px] top-[316px] flex flex-row gap-[56px] items-start">
             <div onClick={() => setActiveTab('quick')} className="relative h-[69px] cursor-pointer text-center group">
               <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Yummy Choi</div>
@@ -183,12 +183,12 @@ export default function LandingPage() {
 
           {/* TAB 1: QUICK BITES */}
           {activeTab === 'quick' && (
-            <div className="absolute left-[90px] top-[20px] w-[1800px] flex flex-col">
+            <div className="absolute left-[110px] top-[20px] w-[1800px] flex flex-col">
               {menuGroups.map((group, idx) => (
                 <div key={idx} className="relative h-[430px] w-[1800px]">
                   <div className="absolute left-[60px] top-[52px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
                   <span className="absolute left-[113px] top-[42px] font-nunito font-extrabold text-[20px] leading-[23px] whitespace-nowrap text-black">{group.name}</span>
-                  <div className="absolute left-[51px] top-[117px] flex flex-row gap-[70px]">
+                  <div className="absolute left-0 top-[117px] flex flex-row gap-[70px]">
                     {group.cards.map((card, cIdx) => (
                       <div key={cIdx} className="relative w-[540px] h-[265px] flex-shrink-0 rounded-[22px] bg-white shadow-card hover:-translate-y-[7px] hover:shadow-[inset_0_0_0_1px_#E5E7EB,14px_20px_34px_0px_rgba(0,0,0,0.22)] transition-all duration-300">
                         <div className="absolute left-[1px] top-[1px] w-[268px] h-[263px] overflow-hidden rounded-[22px]" style={{ background: card.bg }} />
@@ -221,7 +221,7 @@ export default function LandingPage() {
 
           {/* TAB 2: DRINKS */}
           {activeTab === 'drinks' && (
-            <div className="absolute left-[190px] top-[100px] w-[1600px] flex flex-col gap-[86px]">
+            <div className="absolute left-[110px] top-[100px] w-[1600px] flex flex-col gap-[86px]">
               {drinkRows.map((row, rIdx) => (
                 <div key={rIdx} className="flex flex-row gap-[80px]">
                   {row.cards.map((card, cIdx) => (
@@ -251,8 +251,8 @@ export default function LandingPage() {
 
           {/* TAB 3: PASTRIES */}
           {activeTab === 'pastries' && (
-            <div className="absolute left-[70px] top-[34px] w-[1780px] flex flex-col gap-[53px]">
-              <div className="flex flex-row gap-[60px]">
+            <div className="absolute left-[110px] top-[34px] w-[1750px] flex flex-col gap-[53px]">
+              <div className="flex flex-row gap-[50px]">
                 {pies.map((card, idx) => (
                   <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
                     <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
@@ -273,7 +273,7 @@ export default function LandingPage() {
               </div>
               <div className="flex flex-col gap-[20px]">
                 <span className="font-nunito font-bold text-[31px] leading-[37px] text-black">Banana Bread Range</span>
-                <div className="flex flex-row flex-wrap gap-[60px] w-[1780px]">
+                <div className="flex flex-row flex-wrap gap-[50px] w-[1750px]">
                   {bananas.map((card, idx) => (
                     <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
                       <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />
@@ -298,7 +298,7 @@ export default function LandingPage() {
 
           {/* TAB 4: SALADS */}
           {activeTab === 'salads' && (
-            <div className="absolute left-[70px] top-[34px] w-[1780px] flex flex-row flex-wrap gap-[60px]">
+            <div className="absolute left-[110px] top-[34px] w-[1750px] flex flex-row flex-wrap gap-[50px]">
               {salads.map((card, idx) => (
                 <div key={idx} className="relative w-[400px] h-[598px] flex-shrink-0 hover:-translate-y-[8px] transition-transform duration-300">
                   <div className="absolute left-0 top-[179px] w-[400px] h-[419px] rounded-[39px] bg-white shadow-[0_0_20px_0_rgba(0,0,0,0.1)]" />

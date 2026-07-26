@@ -6,7 +6,7 @@ import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function CateringService() {
-  const { scaleTransform, scaledHeight } = useScale(7415);
+  const { scaleTransform, scaledHeight } = useScale(6446);
   const [imgIdx, setImgIdx] = useState(0);
 
   const nextImg = () => setImgIdx((prev) => (prev + 1) % timelineImgs.length);
@@ -42,7 +42,7 @@ export default function CateringService() {
           </a>
         </section>
 
-        {/* ============ EVERY MOMENT ============ */}
+        {/* ============ EVERY MOMENT (hidden per client request — section removed from flow, everything below shifted up by 969px to close the gap) ============
         <section className="absolute left-0 top-[900px] w-[1920px] h-[969px] overflow-hidden">
           <div className="absolute left-0 top-0 w-[1920px] h-[1084px] opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[158px] top-[52px] w-[304px] h-[30px]">
@@ -53,7 +53,7 @@ export default function CateringService() {
           <span className="absolute left-[173px] top-[184px] w-[776px] font-nunito font-medium text-[17px] leading-[28px] text-body-gray">
             Whether it's a birthday for twenty or a corporate lunch for a hundred — we show up fresh, prepared, and ready to make your event memorable.
           </span>
-          {/* <div className="absolute left-[53px] top-[355px] w-[1816px] flex flex-row gap-[24px] items-center">
+          <div className="absolute left-[53px] top-[355px] w-[1816px] flex flex-row gap-[24px] items-center">
             {caterCards.map((card, idx) => (
               <div key={idx} className="relative w-[430px] h-[390px] flex-shrink-0 rounded-[48px_0_48px_0] bg-white shadow-[inset_0_0_0_2px_#F2F2F2] flex flex-col gap-[32px] px-[22px] py-[40px] items-center justify-center hover:-translate-y-[8px] hover:shadow-[inset_0_0_0_2px_#F3274C,0_18px_36px_rgba(0,0,0,0.12)] transition-all duration-300">
                 <div
@@ -66,11 +66,12 @@ export default function CateringService() {
                 </div>
               </div>
             ))}
-          </div> */}
+          </div>
         </section>
+        */}
 
         {/* ============ THREE SIGNATURE OFFERINGS ============ */}
-        <section className="absolute left-0 top-[1869px] w-[1920px] h-[1091px] overflow-hidden bg-white">
+        <section className="absolute left-0 top-[900px] w-[1920px] h-[1091px] overflow-hidden bg-white">
           <div className="absolute left-[164px] top-[100px] w-[776px] flex flex-col gap-[21px] items-start">
             <div className="relative w-[304px] h-[30px]">
               <div className="absolute left-[23px] top-[15px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
@@ -96,7 +97,7 @@ export default function CateringService() {
         </section>
 
         {/* ============ FOOD PROCESSING STEPS ============ */}
-        <section className="absolute left-[203px] top-[2968px] w-[1544px] flex flex-col gap-[94px] items-center">
+        <section className="absolute left-[203px] top-[1999px] w-[1544px] flex flex-col gap-[94px] items-center">
           <div className="w-[631px] flex flex-col gap-[39px] items-center">
             <span className="font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">FOOD PROCESSING</span>
             <span className="font-nunito font-semibold text-[80px] leading-[81px] text-center text-[#212121]">Simple Ordering, Great Food.</span>
@@ -117,7 +118,7 @@ export default function CateringService() {
         </section>
 
         {/* ============ BOOKING & PLANNING TIMELINE ============ */}
-        <section className="absolute left-0 top-[3763px] w-[1920px] h-[1109px] overflow-hidden">
+        <section className="absolute left-0 top-[2794px] w-[1920px] h-[1109px] overflow-hidden">
           <div className="absolute left-[-12px] top-[27px] w-[1182px] h-[1079px] overflow-hidden">
             <div className="absolute inset-0 transition-all duration-300 bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${timelineImgs[imgIdx]}')` }} />
             <div onClick={nextImg} className="absolute left-[1047px] top-[335px] w-[65px] h-[65px] bg-brand-red shadow-[0_10px_20px_0_rgba(0,0,0,0.06)] flex items-center justify-center cursor-pointer hover:brightness-110 transition-all">
@@ -149,7 +150,7 @@ export default function CateringService() {
         </section>
 
         {/* ============ READY TO START PLANNING ============ */}
-        <section className="absolute left-0 top-[4869px] w-[1920px] h-[912px] overflow-hidden">
+        <section className="absolute left-0 top-[3900px] w-[1920px] h-[912px] overflow-hidden">
           <div className="absolute left-0 top-0 w-[963px] h-[960px] bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[962px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/45f616fcb6e453e7.jpg')] bg-center bg-cover bg-no-repeat" />
           <div className="absolute left-[1442px] top-0 w-[480px] h-[480px] bg-[url('/figma/landing/assets/6315e951f530162f.jpg')] bg-center bg-cover bg-no-repeat" />
@@ -164,7 +165,7 @@ export default function CateringService() {
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[5765px] w-[1920px] h-[314.3px]">
+        <section className="absolute left-0 top-[4796px] w-[1920px] h-[314.3px]">
           <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
@@ -172,8 +173,8 @@ export default function CateringService() {
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={6114} />
-        <Footer top={6481} />
+        <InstagramStrip top={5145} />
+        <Footer top={5512} />
       </div>
     </div>
 
@@ -203,7 +204,7 @@ export default function CateringService() {
         </div>
       </section>
 
-      {/* EVERY MOMENT */}
+      {/* EVERY MOMENT (hidden per client request)
       <section className="relative overflow-hidden px-6 md:px-12 py-14">
         <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-center" />
         <div className="relative flex flex-col gap-4">
@@ -231,6 +232,7 @@ export default function CateringService() {
           </div>
         </div>
       </section>
+      */}
 
       {/* THREE SIGNATURE OFFERINGS */}
       <section className="px-6 md:px-12 py-14 bg-white flex flex-col gap-4">
