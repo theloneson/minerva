@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 interface StripProps {
   top: number;
@@ -21,15 +21,45 @@ const stripItems: StripItem[] = [
 
 function InstagramTile({ item, className }: { item: StripItem; className: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+  const [hovered, setHovered] = useState(false);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
+
+  const openFullscreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const vid = videoRef.current;
+    if (!vid) return;
+    if (vid.requestFullscreen) {
+      vid.requestFullscreen();
+    } else if ((vid as any).webkitRequestFullscreen) {
+      (vid as any).webkitRequestFullscreen();
+    } else if ((vid as any).mozRequestFullScreen) {
+      (vid as any).mozRequestFullScreen();
+    }
+  };
 
   return (
     <div
       className={`group relative overflow-hidden flex-shrink-0 ${className}`}
-      onMouseEnter={() => videoRef.current?.play().catch(() => {})}
+      onMouseEnter={() => {
+        setHovered(true);
+        videoRef.current?.play().catch(() => {});
+      }}
       onMouseLeave={() => {
+        setHovered(false);
         if (videoRef.current) {
           videoRef.current.pause();
           videoRef.current.currentTime = 0;
+          // Reset to muted when mouse leaves
+          videoRef.current.muted = true;
+          setMuted(true);
         }
       }}
     >
@@ -47,15 +77,49 @@ function InstagramTile({ item, className }: { item: StripItem; className: string
           loop
           playsInline
           preload="metadata"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           aria-label={item.alt}
         />
       )}
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 flex items-center justify-center pointer-events-none">
-        {item.type === 'image' && (
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 pointer-events-none" />
+
+      {/* Image hover icon */}
+      {item.type === 'image' && (
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <i className="fab fa-instagram text-white text-[36px] opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300" />
-        )}
-      </div>
+        </div>
+      )}
+
+      {/* Video controls — mute toggle + fullscreen */}
+      {item.type === 'video' && (
+        <div
+          className={`absolute bottom-0 left-0 right-0 flex flex-row items-center justify-between px-3 py-2.5 transition-all duration-300 ${
+            hovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+          }`}
+        >
+          {/* Mute / Unmute */}
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={muted ? 'Unmute video' : 'Mute video'}
+            className="w-8 h-8 rounded-full bg-black/55 backdrop-blur-sm flex items-center justify-center hover:bg-black/75 transition-colors"
+          >
+            <i className={`fas ${muted ? 'fa-volume-mute' : 'fa-volume-up'} text-white text-[13px]`} />
+          </button>
+
+          {/* Fullscreen */}
+          <button
+            type="button"
+            onClick={openFullscreen}
+            aria-label="Open video fullscreen"
+            className="w-8 h-8 rounded-full bg-black/55 backdrop-blur-sm flex items-center justify-center hover:bg-black/75 transition-colors"
+          >
+            <i className="fas fa-expand text-white text-[13px]" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
