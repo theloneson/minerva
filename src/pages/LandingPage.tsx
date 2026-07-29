@@ -75,7 +75,6 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="absolute left-[982px] top-[565px] w-[248px] h-[248px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
 
           {/* WhatsApp Bubble */}
           <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform">
@@ -102,11 +101,10 @@ export default function LandingPage() {
             From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
           </span>
 
-          <div className="absolute left-[149px] top-[750px] w-[600px] h-[61px]">
+          <div className="absolute left-[149px] top-[750px] w-[200px] h-[61px]">
             <RedButton onClick={handleMenuScroll} className="absolute left-0 top-0 w-[192.27px]">
               View Menu
             </RedButton>
-            <div className="absolute left-[252.27px] top-[20px] w-[107px] h-[15px] bg-[url('/figma/landing/assets/6073f9eb99d516d9.png')] bg-center bg-no-repeat bg-[length:100%_100%]" />
           </div>
         </section>
 
@@ -141,7 +139,7 @@ export default function LandingPage() {
 
         {/* ============ MENU ============ */}
         <section id="menu" className="absolute left-0 top-[1574px] w-[1920px] overflow-hidden bg-white" style={{ height: menuSectionHeight }}>
-          <div className="absolute left-[147px] top-[140px] w-[681px] h-[125px]">
+          <div className="absolute left-[88px] top-[140px] w-[681px] h-[125px]">
             <div className="absolute left-[23px] top-[14px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
             <span className="absolute left-[66px] top-0 font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">
               CRAVINGS START HERE.
@@ -152,7 +150,7 @@ export default function LandingPage() {
           </div>
 
           {/* TABS — whitespace-nowrap keeps every label on one line so all four sit on the same baseline instead of wrapping unevenly and looking crooked. Left-aligned to the same 170px margin as the group headings below (e.g. "Classic Wraps") so the whole menu block reads as one consistent column instead of drifting right */}
-          <div className="absolute left-[170px] top-[316px] flex flex-row gap-[56px] items-start">
+          <div className="absolute left-[154px] top-[316px] flex flex-row gap-[56px] items-start">
             <div onClick={() => setActiveTab('quick')} className="relative h-[69px] cursor-pointer text-center group">
               <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
               <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Yummy Choi</div>
@@ -186,8 +184,8 @@ export default function LandingPage() {
             <div className="absolute left-[110px] top-[20px] w-[1800px] flex flex-col">
               {menuGroups.map((group, idx) => (
                 <div key={idx} className="relative h-[430px] w-[1800px]">
-                  <div className="absolute left-[60px] top-[52px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
-                  <span className="absolute left-[113px] top-[42px] font-nunito font-extrabold text-[20px] leading-[23px] whitespace-nowrap text-black">{group.name}</span>
+                  <div className="absolute left-[0px] top-[52px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
+                  <span className="absolute left-[44px] top-[42px] font-nunito font-extrabold text-[20px] leading-[23px] whitespace-nowrap text-black">{group.name}</span>
                   <div className="absolute left-0 top-[117px] flex flex-row gap-[70px]">
                     {group.cards.map((card, cIdx) => (
                       <div key={cIdx} className="relative w-[540px] h-[265px] flex-shrink-0 rounded-[22px] bg-white shadow-card hover:-translate-y-[7px] hover:shadow-[inset_0_0_0_1px_#E5E7EB,14px_20px_34px_0px_rgba(0,0,0,0.22)] transition-all duration-300">
@@ -408,7 +406,7 @@ export default function LandingPage() {
 
         {/* ============ FOLLOW ============ */}
         <section className="absolute left-0 w-[1920px] h-[314.3px]" style={{ top: followTop }}>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <a href="https://www.instagram.com/theliquidspotuk" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
           <span className="absolute left-[638px] top-[176px] w-[523px] font-nunito font-medium text-[50px] leading-[83.33px] text-center whitespace-nowrap text-black">Follow TheLiquidSpot</span>

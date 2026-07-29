@@ -99,7 +99,7 @@ export default function AboutUs() {
             <span className="font-nunito font-extrabold text-[80px] leading-[67.2px] whitespace-nowrap text-[#212121]">Vision &amp; Mission.</span>
           </div>
           <div className="absolute left-[208px] top-[364px] w-[1543px] flex flex-row gap-[76px] items-center">
-            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] hover:shadow-[0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
+            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] transition-all duration-300">
               <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Vision</span>
               <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
               <div className="flex flex-row gap-[10px]">
@@ -109,7 +109,7 @@ export default function AboutUs() {
             <div className="relative w-[171px] h-[171px] flex-shrink-0 rounded-[37.5px] bg-black">
               <div className="absolute left-[-7px] top-[-13.5px] w-[185px] h-[185px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
             </div>
-            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] hover:shadow-[0_18px_36px_rgba(0,0,0,0.14)] transition-all duration-300">
+            <div className="relative w-[610px] flex-shrink-0 rounded-[30px] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] transition-all duration-300">
               <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Mission</span>
               <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
             </div>
@@ -118,7 +118,7 @@ export default function AboutUs() {
 
         {/* ============ OUR OFFERINGS ============ */}
         <section className="absolute left-[15px] top-[2622px] w-[1898px] h-[596px]">
-          <span className="absolute left-[100px] top-[195px] font-oswald font-semibold text-[100px] leading-[67px] tracking-[5px] whitespace-nowrap text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our</span>
+          <span className="absolute left-[430px] top-[195px] font-oswald font-semibold text-[100px] leading-[67px] tracking-[5px] whitespace-nowrap text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Our</span>
           <span className="absolute left-[1325px] top-[195px] font-oswald font-semibold text-[100px] leading-[67px] tracking-[5px] whitespace-nowrap text-transparent" style={{ WebkitTextStroke: '2px #F3274C' }}>Offerings</span>
           <div className="absolute left-[635px] top-[98px] w-[660px] h-[423.32px]">
             {offerings.map((tile, idx) => (
@@ -200,7 +200,7 @@ export default function AboutUs() {
 
         {/* ============ FOLLOW ============ */}
         <section className="absolute left-0 top-[4880px] w-[1920px] h-[314.3px]">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <a href="https://www.instagram.com/theliquidspotuk" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
           <span className="absolute left-[638px] top-[176px] w-[523px] font-nunito font-medium text-[50px] leading-[83.33px] text-center whitespace-nowrap text-black">Follow TheLiquidSpot</span>
@@ -275,14 +275,14 @@ export default function AboutUs() {
           <h2 className="font-extrabold text-[40px] md:text-[56px] leading-none text-[#212121]">Vision &amp; Mission.</h2>
         </div>
         <div className="grid gap-8 md:grid-cols-2 items-stretch">
-          <div className="rounded-[30px] shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
+          <div className="rounded-[30px] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
             <span className="font-bold text-[22px] text-[#222]">Our Vision</span>
             <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
             <div className="flex flex-row gap-[10px]">
               {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-[8px] h-[8px] border border-brand-yellowAccent" />)}
             </div>
           </div>
-          <div className="rounded-[30px] shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
+          <div className="rounded-[30px] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
             <span className="font-bold text-[22px] text-[#222]">Our Mission</span>
             <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
           </div>

@@ -36,7 +36,7 @@ export function MobileFollow() {
   return (
     <section className="flex flex-col items-center gap-4 px-6 py-14 text-center">
       <a
-        href="https://www.instagram.com"
+        href="https://www.instagram.com/theliquidspotuk"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="The Liquid Spot on Instagram"

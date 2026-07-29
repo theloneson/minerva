@@ -56,8 +56,8 @@ export function Footer({ top }: FooterProps) {
           <span className="font-oswald font-normal text-[20px] leading-[24px] text-brand-yellow">Social</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[16px] leading-[32px]">
             <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Facebook</a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
-            <a href="https://www.tiktok.com/@theliquidspot" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
+            <a href="https://www.instagram.com/theliquidspotuk" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@the.liquidspotuk" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
           </div>
         </div>
 
@@ -82,7 +82,7 @@ export function Footer({ top }: FooterProps) {
       {/* Bottom Copyright */}
       <div className="absolute left-0 top-[878px] w-[1920px] flex flex-row gap-[8px] items-center justify-center">
         <span className="font-fugaz font-normal text-[16px] leading-[26.67px] text-brand-yellow">TheLiquidSpot</span>
-        <span className="font-nunito font-normal text-[14px] leading-[23.8px] text-footer-gray">© 2025. All Rights Reserved.</span>
+        <span className="font-nunito font-normal text-[14px] leading-[23.8px] text-footer-gray">© 2026. All Rights Reserved.</span>
       </div>
     </footer>
   );
@@ -130,8 +130,8 @@ export function MobileFooter() {
           <span className="font-oswald font-normal text-[18px] leading-[24px] text-brand-yellow">Social</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[14px] leading-[28px]">
             <a href="#" className="text-footer-gray hover:text-brand-yellow transition-colors">Facebook</a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
-            <a href="https://www.tiktok.com/@theliquidspot" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
+            <a href="https://www.instagram.com/theliquidspotuk" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">Instagram</a>
+            <a href="https://www.tiktok.com/@the.liquidspotuk" target="_blank" rel="noopener noreferrer" className="text-footer-gray hover:text-brand-yellow transition-colors">TikTok</a>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@ export function MobileFooter() {
       {/* Copyright */}
       <div className="flex flex-row flex-wrap gap-[8px] items-center justify-center border-t border-white/10 pt-6">
         <span className="font-fugaz font-normal text-[15px] leading-[26px] text-brand-yellow">TheLiquidSpot</span>
-        <span className="font-nunito font-normal text-[13px] leading-[22px] text-footer-gray">© 2025. All Rights Reserved.</span>
+        <span className="font-nunito font-normal text-[13px] leading-[22px] text-footer-gray">© 2026. All Rights Reserved.</span>
       </div>
     </footer>
   );

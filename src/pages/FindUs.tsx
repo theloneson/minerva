@@ -6,7 +6,7 @@ import { Footer, MobileFooter } from '../components/Footer';
 import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStrip';
 
 export default function FindUs() {
-  const { scaleTransform, scaledHeight } = useScale(4550);
+  const { scaleTransform, scaledHeight } = useScale(4670);
   const [prefIdx, setPrefIdx] = useState<number>(0);
 
   const prefLabels = ["Virtual Meeting", "Phone Call", "In-Person Meeting"];
@@ -75,10 +75,10 @@ export default function FindUs() {
         </section>
 
         {/* ============ BOOK A CONSULTATION ============ */}
-        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1252px] overflow-hidden">
+        <section id="consultation" className="absolute left-0 top-[1668px] w-[1920px] h-[1372px] overflow-hidden">
 
           {/* Left Image Panel — height matches the form card's rendered height (40px top padding + form content + 40px bottom padding) so the two columns end flush together */}
-          <div className="absolute left-0 top-0 w-[1013px] h-[1252px] overflow-hidden">
+          <div className="absolute left-0 top-0 w-[1013px] h-[1372px] overflow-hidden">
             <div className="absolute inset-0 bg-[url('/figma/catering/assets/bf7b0e683dc63017.jpg')] bg-center bg-cover bg-no-repeat" />
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute left-[86px] top-[88px] w-[722px] flex flex-col gap-[21px] items-start">
@@ -193,8 +193,8 @@ export default function FindUs() {
             </div>
 
             {/* Submit Block */}
-            <div className="w-full flex flex-row justify-between items-center mt-[12px]">
-              <div className="flex flex-col gap-[24px]">
+            <div className="w-full flex flex-col gap-[20px] mt-[12px]">
+              <div className="flex flex-col gap-[16px]">
                 <span className="font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Consultation Preference</span>
                 <div className="flex flex-row gap-[40px] items-center">
                   {prefLabels.map((label, idx) => (
@@ -207,26 +207,28 @@ export default function FindUs() {
                   ))}
                 </div>
               </div>
-              <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative w-[220px] h-[60px] rounded-[12px] bg-brand-red flex items-center justify-center px-4 hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
-                <div className="absolute -inset-y-1.5 -inset-x-1 rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
-                <span className="font-fredoka font-normal text-[18px] whitespace-nowrap text-white">Submit Enquiry</span>
-              </a>
+              <div className="flex justify-end">
+                <a href={submitHref} target="_blank" rel="noopener noreferrer" className="relative w-[220px] h-[60px] rounded-[12px] bg-brand-red flex items-center justify-center px-4 hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+                  <div className="absolute -inset-y-1.5 -inset-x-1 rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
+                  <span className="font-fredoka font-normal text-[18px] whitespace-nowrap text-white">Submit Enquiry</span>
+                </a>
+              </div>
             </div>
 
           </div>
         </section>
 
         {/* ============ FOLLOW ============ */}
-        <section className="absolute left-0 top-[2931px] w-[1920px] h-[314.3px]">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+        <section className="absolute left-0 top-[3051px] w-[1920px] h-[314.3px]">
+          <a href="https://www.instagram.com/theliquidspotuk" target="_blank" rel="noopener noreferrer" className="absolute left-[850px] top-[57px] w-[100px] h-[100px] rounded-[50px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <i className="fab fa-instagram text-[50px] text-white" />
           </a>
           <span className="absolute left-[638px] top-[176px] w-[523px] font-nunito font-medium text-[50px] leading-[83.33px] text-center whitespace-nowrap text-black">Follow TheLiquidSpot</span>
           <span className="absolute left-[594px] top-[259px] w-[611px] font-nunito font-medium text-[18px] leading-[30px] text-center whitespace-nowrap text-body-gray">Fresh bites, refreshing blends, and moments worth sharing.</span>
         </section>
 
-        <InstagramStrip top={3246} />
-        <Footer top={3617} />
+        <InstagramStrip top={3366} />
+        <Footer top={3737} />
       </div>
     </div>
 
