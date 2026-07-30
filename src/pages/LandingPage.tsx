@@ -15,6 +15,22 @@ const MENU_HEIGHTS: Record<'quick' | 'drinks' | 'pastries' | 'salads', number> =
   salads: 1080,
 };
 
+function renderFormattedText(text: string) {
+  if (!text) return null;
+  const colonIdx = text.indexOf(':');
+  if (colonIdx !== -1) {
+    const label = text.substring(0, colonIdx + 1);
+    const content = text.substring(colonIdx + 1);
+    return (
+      <>
+        <span className="text-brand-red font-semibold">{label}</span>
+        {content}
+      </>
+    );
+  }
+  return text;
+}
+
 export default function LandingPage() {
   const [activeTab, setActiveTab] = useState<'quick' | 'drinks' | 'pastries' | 'salads'>('quick');
   const [openFaqIdx, setOpenFaqIdx] = useState<number>(0);
@@ -196,8 +212,8 @@ export default function LandingPage() {
                         <div className="absolute left-[292px] top-[18px] w-[228px] h-[178px] overflow-hidden flex flex-col gap-[5px] items-start">
                           <span className="font-nunito font-bold text-[22px] leading-[26px] line-clamp-2 text-[#222]">{card.title}</span>
                           <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222] w-[226px]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222] w-[226px]">{card.ingr}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222] w-[226px]">{card.allergen}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222] w-[226px]">{renderFormattedText(card.ingr)}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222] w-[226px]">{renderFormattedText(card.allergen)}</span>
                         </div>
                         <span className="absolute left-[292px] top-[203px] font-nunito font-extrabold text-[18px] leading-[26px] text-brand-red">{card.price}</span>
                         {card.spice && (
@@ -230,8 +246,8 @@ export default function LandingPage() {
                         <div className="font-nunito font-bold text-[22px] leading-[27px] line-clamp-2 text-[#222]">{card.title}</div>
                         <div className="mt-2.5 flex flex-col gap-2">
                           <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{card.ingr}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{renderFormattedText(card.ingr)}</span>
+                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
                         </div>
                         <div className="relative w-[236px] h-[32px] mt-[14px]">
                           <span className="absolute left-0 top-0 font-nunito font-extrabold text-[18px] leading-[32px] text-brand-red">{card.price}</span>
@@ -259,8 +275,8 @@ export default function LandingPage() {
                     <span className="absolute left-[46px] top-[363px] font-nunito font-normal text-[32px] leading-[38px] whitespace-nowrap text-black">{card.title}</span>
                     <div className="absolute left-[46px] top-[416px] w-[310px] h-[113px] overflow-hidden flex flex-col gap-[8px]">
                       <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
-                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{card.allergen}</span>
+                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
+                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{renderFormattedText(card.allergen)}</span>
                     </div>
                     <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                     <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
@@ -280,8 +296,8 @@ export default function LandingPage() {
                       <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
                       <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
                         <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
-                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
+                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
+                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
                       </div>
                       <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                       <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
@@ -305,8 +321,8 @@ export default function LandingPage() {
                   <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
                   <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
                     <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.ingr}</span>
-                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{card.allergen}</span>
+                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
+                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
                   </div>
                   <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                   <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
@@ -511,8 +527,8 @@ export default function LandingPage() {
                       <div className="p-4 flex flex-col gap-1.5">
                         <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
                         <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
-                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
-                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                         <div className="mt-2 flex flex-row items-center justify-between">
                           <span className="font-extrabold text-[16px] text-brand-red">{card.price}</span>
                           {card.spice && (
@@ -542,8 +558,8 @@ export default function LandingPage() {
                 <div className="flex-grow p-4 flex flex-col gap-1.5">
                   <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
                   <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
-                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
-                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                  <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                   <div className="mt-2 flex flex-row items-center justify-between">
                     <span className="font-extrabold text-[16px] text-brand-red">{card.price}</span>
                     <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="rounded-[4px] bg-brand-yellow px-3 py-1.5 hover:brightness-95 transition-all">
@@ -690,8 +706,8 @@ function MobilePastryCard({ card }: { card: { title: string; price: string; bg: 
         <span className="font-extrabold text-[15px] leading-[20px] text-brand-red">{card.price}</span>
         <span className="font-normal text-[22px] leading-[27px] text-black">{card.title}</span>
         <span className="mt-1 font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
-        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.ingr}</span>
-        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{card.allergen}</span>
+        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+        <span className="font-semibold text-[10px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
         <div className="mt-3 flex flex-row items-center gap-4">
           <i className="fas fa-arrow-right text-[15px] text-black" />
           <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="w-[101px] h-[32px] rounded-[4px] bg-brand-yellow flex items-center justify-center hover:brightness-95 transition-all">
@@ -735,12 +751,12 @@ const menuGroups = [
 
 const drinkRows = [
   { cards: [
-    { title: "Creamy Tigernut Drink", price: "£5.00", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Horchata%2C_my_drink_of_choice_in_Mexico_-_Merida_Yucatan_21_March_2021.jpg/960px-Horchata%2C_my_drink_of_choice_in_Mexico_-_Merida_Yucatan_21_March_2021.jpg", desc: "Smooth, naturally sweet tigernut drink.", ingr: "Ingredients: Tigernuts, water, spices", allergen: "Allergen advice: May contain traces of nuts" },
-    { title: "Blended Banana", price: "£6.99", bg: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Fresh_fruit_smoothie_being_poured_into_a_glass.jpg/960px-Fresh_fruit_smoothie_being_poured_into_a_glass.jpg", desc: "Fresh bananas blended into a smooth, refreshing drink.", ingr: "Ingredients: Bananas, milk, sweetener", allergen: "Allergen advice: Contains milk; may contain traces of nuts" },
-    { title: "Nosy Cinnamon", price: "£6.99", bg: "https://upload.wikimedia.org/wikipedia/commons/2/28/Boza_from_Vefa_in_Ankara.jpg", desc: "Lightly spiced cinnamon drink with warm, comforting taste.", ingr: "Ingredients: Cinnamon, milk, sweetener", allergen: "Allergen advice: Contain traces of nuts" }
+    { title: "Creamy Tigernut Drink", price: "£5.00", bg: "/figma/landing/assets/tigernut.png", desc: "Smooth, naturally sweet tigernut drink.", ingr: "Ingredients: Tigernuts, water, spices", allergen: "Allergen advice: May contain traces of nuts" },
+    { title: "Blended Banana", price: "£6.99", bg: "/figma/landing/assets/banana.png", desc: "Fresh bananas blended into a smooth, refreshing drink.", ingr: "Ingredients: Bananas, milk, sweetener", allergen: "Allergen advice: Contains milk; may contain traces of nuts" },
+    { title: "Nosy Cinnamon", price: "£6.99", bg: "/figma/landing/assets/cinamon.png", desc: "Lightly spiced cinnamon drink with warm, comforting taste.", ingr: "Ingredients: Cinnamon, milk, sweetener", allergen: "Allergen advice: Contain traces of nuts" }
   ] },
   { cards: [
-    { title: "Zesty Zobo", price: "£3.99", bg: "https://upload.wikimedia.org/wikipedia/commons/3/36/Zobo_%28local_drink_in_northern_Nigeria%29.jpg", desc: "Bold and refreshing hibiscus drink with a tangy finish.", ingr: "Ingredients: Hibiscus leaves, ginger, spices", allergen: "Allergen advice: May contain traces of nuts" }
+    { title: "Zesty Zobo", price: "£3.99", bg: "/figma/landing/assets/zobo.png", desc: "Bold and refreshing hibiscus drink with a tangy finish.", ingr: "Ingredients: Hibiscus leaves, ginger, spices", allergen: "Allergen advice: May contain traces of nuts" }
   ] }
 ];
 
