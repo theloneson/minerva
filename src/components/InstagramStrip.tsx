@@ -15,7 +15,7 @@ const stripItems: StripItem[] = [
   { src: "/shared/WhatsApp Video 2026-07-11 at 18.01.09.mp4", alt: 'The Liquid Spot 2', type: 'video' },
   { src: "/shared/WhatsApp Video 2026-07-11 at 18.15.44.mp4", alt: 'The Liquid Spot 3', type: 'video' },
   { src: "/shared/WhatsApp Video 2026-07-11 at 18.16.31.mp4", alt: 'The Liquid Spot 4', type: 'video' },
-  { src: '/shared/IMG_2719.MOV', alt: 'The Liquid Spot 5', type: 'video' },
+  { src: '/shared/new video.mp4', alt: 'The Liquid Spot 5', type: 'video' },
   { src: '/shared/IMG_0023.mov', alt: 'The Liquid Spot 6', type: 'video' },
 ];
 

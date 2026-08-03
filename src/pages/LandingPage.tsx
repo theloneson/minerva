@@ -209,11 +209,11 @@ export default function LandingPage() {
                         <div className="absolute left-[20px] top-[23px] h-[33px] rounded-[33px] bg-brand-yellow flex items-center justify-center px-[18px]">
                           <span className="font-nunito font-semibold text-[14px] leading-[22px] text-[#222]">{card.label}</span>
                         </div>
-                        <div className="absolute left-[292px] top-[18px] w-[228px] h-[178px] overflow-hidden flex flex-col gap-[5px] items-start">
+                        <div className="absolute left-[292px] top-[18px] w-[238px] h-[180px] overflow-hidden flex flex-col gap-[5px] items-start">
                           <span className="font-nunito font-bold text-[22px] leading-[26px] line-clamp-2 text-[#222]">{card.title}</span>
-                          <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222] w-[226px]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222] w-[226px]">{renderFormattedText(card.ingr)}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222] w-[226px]">{renderFormattedText(card.allergen)}</span>
+                          <span className="font-nunito font-light text-[13px] leading-[17px] text-[#222]">{card.desc}</span>
+                          <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                          <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                         </div>
                         <span className="absolute left-[292px] top-[203px] font-nunito font-extrabold text-[18px] leading-[26px] text-brand-red">{card.price}</span>
                         {card.spice && (
@@ -242,12 +242,12 @@ export default function LandingPage() {
                     <div key={cIdx} className="relative w-[500px] h-[250px] flex-shrink-0 mt-[36px] hover:-translate-y-[7px] transition-transform duration-300">
                       <div className="absolute left-0 top-0 w-[500px] h-[250px] rounded-[24px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB]" />
                       <div className="absolute left-0 top-[-36px] w-[221px] h-[313px] rounded-[110px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
-                      <div className="absolute left-[248px] top-[26px] w-[236px] h-[196px] overflow-hidden flex flex-col">
+                      <div className="absolute left-[248px] top-[24px] w-[240px] h-[196px] overflow-hidden flex flex-col">
                         <div className="font-nunito font-bold text-[22px] leading-[27px] line-clamp-2 text-[#222]">{card.title}</div>
-                        <div className="mt-2.5 flex flex-col gap-2">
-                          <span className="font-nunito font-light text-[14px] leading-[18px] line-clamp-2 text-[#222]">{card.desc}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{renderFormattedText(card.ingr)}</span>
-                          <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
+                        <div className="mt-2 flex flex-col gap-1.5">
+                          <span className="font-nunito font-light text-[13px] leading-[17px] text-[#222]">{card.desc}</span>
+                          <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                          <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                         </div>
                         <div className="relative w-[236px] h-[32px] mt-[14px]">
                           <span className="absolute left-0 top-0 font-nunito font-extrabold text-[18px] leading-[32px] text-brand-red">{card.price}</span>
@@ -273,10 +273,10 @@ export default function LandingPage() {
                     <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
                     <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
                     <span className="absolute left-[46px] top-[363px] font-nunito font-normal text-[32px] leading-[38px] whitespace-nowrap text-black">{card.title}</span>
-                    <div className="absolute left-[46px] top-[416px] w-[310px] h-[113px] overflow-hidden flex flex-col gap-[8px]">
-                      <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
-                      <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-2 text-[#222]">{renderFormattedText(card.allergen)}</span>
+                    <div className="absolute left-[46px] top-[416px] w-[310px] h-[125px] overflow-hidden flex flex-col gap-[6px]">
+                      <span className="font-nunito font-light text-[13px] leading-[18px] text-[#222]">{card.desc}</span>
+                      <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                      <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                     </div>
                     <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                     <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
@@ -294,10 +294,10 @@ export default function LandingPage() {
                       <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
                       <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
                       <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
-                      <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
-                        <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
-                        <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
+                      <div className="absolute left-[46px] top-[443px] w-[310px] h-[95px] overflow-hidden flex flex-col gap-[6px]">
+                        <span className="font-nunito font-light text-[13px] leading-[18px] text-[#222]">{card.desc}</span>
+                        <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                        <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                       </div>
                       <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                       <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
@@ -319,10 +319,10 @@ export default function LandingPage() {
                   <div className="absolute left-0 top-[83px] w-[400px] h-[228px] rounded-[65px]" style={{ background: card.bg }} />
                   <span className="absolute left-[46px] top-[334px] font-nunito font-extrabold text-[22px] leading-[29px] text-brand-red">{card.price}</span>
                   <span className="absolute left-[46px] top-[363px] w-[312px] font-nunito font-normal text-[32px] leading-[38px] text-black">{card.title}</span>
-                  <div className="absolute left-[46px] top-[443px] w-[310px] h-[86px] overflow-hidden flex flex-col gap-[6px]">
-                    <span className="font-nunito font-light text-[14px] leading-[20px] line-clamp-2 text-[#222]">{card.desc}</span>
-                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.ingr)}</span>
-                    <span className="font-nunito font-semibold text-[13px] leading-[16px] line-clamp-1 text-[#222]">{renderFormattedText(card.allergen)}</span>
+                  <div className="absolute left-[46px] top-[443px] w-[310px] h-[95px] overflow-hidden flex flex-col gap-[6px]">
+                    <span className="font-nunito font-light text-[13px] leading-[18px] text-[#222]">{card.desc}</span>
+                    <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.ingr)}</span>
+                    <span className="font-nunito font-semibold text-[12px] leading-[15px] text-[#222]">{renderFormattedText(card.allergen)}</span>
                   </div>
                   <i className="fas fa-arrow-right absolute left-[53px] top-[543px] text-[19px] text-black" />
                   <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[120px] top-[534px] w-[133px] h-[43px] rounded-[6px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[2px] transition-all">
