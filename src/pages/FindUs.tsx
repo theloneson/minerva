@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useScale } from '../hooks/useScale';
 import { MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -8,6 +8,17 @@ import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStr
 export default function FindUs() {
   const { scaleTransform, scaledHeight } = useScale(4670);
   const [prefIdx, setPrefIdx] = useState<number>(0);
+
+  useEffect(() => {
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
+    }
+  }, []);
 
   const prefLabels = ["Virtual Meeting", "Phone Call", "In-Person Meeting"];
   const waBody = encodeURIComponent(`Hi The Liquid Spot! I'd like to book a catering consultation. My preference: ${prefLabels[prefIdx]}`);

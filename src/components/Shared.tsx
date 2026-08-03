@@ -13,7 +13,7 @@ interface ButtonProps {
 function tagFor(href?: string): { Tag: React.ElementType; props: Record<string, unknown> } {
   if (!href) return { Tag: 'button', props: {} };
   if (href.startsWith('/')) return { Tag: Link, props: { to: href } };
-  return { Tag: 'a', props: { href } };
+  return { Tag: 'a', props: { href, target: '_blank', rel: 'noopener noreferrer' } };
 }
 
 export function RedButton({ children, href, onClick, className = "" }: ButtonProps) {
