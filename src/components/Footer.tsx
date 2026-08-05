@@ -4,13 +4,13 @@ interface FooterProps {
 
 export function Footer({ top }: FooterProps) {
   return (
-    <footer 
-      className="absolute left-0 w-[1920px] h-[933px] overflow-hidden bg-black" 
+    <footer
+      className="absolute left-0 w-[1920px] h-[933px] overflow-hidden bg-black"
       style={{ top: `${top}px` }}
     >
       {/* Background Decorations */}
       <div className="absolute left-[-169px] top-[216px] w-[472px] h-[335px] opacity-40 bg-[url('/figma/landing/assets/f45ef5c82c01e6de.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
-      
+
       <div className="absolute left-[1769px] top-[-40px] w-[276px] h-[217px] flex flex-row gap-[68px] rotate-45">
         {[1, 2, 3, 4].map(i => <div key={i} className="w-[1px] h-[250px] bg-[#BD9675]" />)}
       </div>
@@ -25,7 +25,7 @@ export function Footer({ top }: FooterProps) {
         <div className="flex flex-col gap-[30px] items-center text-center flex-shrink-0">
           <span className="font-oswald font-semibold text-[20px] leading-[24px] text-brand-yellow">Working Hours</span>
           <span className="font-josefin font-normal text-[16px] leading-[32px] tracking-tight text-footer-gray">
-            MONDAY TO SATURDAY<br/>7.00am – 6.00pm
+            MONDAY TO SATURDAY<br />7.00am – 6.00pm
           </span>
         </div>
 
@@ -75,7 +75,7 @@ export function Footer({ top }: FooterProps) {
       <div className="absolute left-[171px] top-[467px] w-[1579px] flex flex-row gap-[80px] items-center justify-center">
         <div className="w-[252px] h-[252px] flex-shrink-0 bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
         <span className="w-[600px] flex-shrink-0 font-nunito font-normal text-[16px] leading-[27.2px] text-center text-footer-gray">
-          The Liquid Spot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
+          TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
         </span>
       </div>
 
@@ -105,7 +105,7 @@ export function MobileFooter() {
         <div className="flex flex-col gap-[14px] items-center text-center">
           <span className="font-oswald font-semibold text-[18px] leading-[24px] text-brand-yellow">Working Hours</span>
           <span className="font-josefin font-normal text-[14px] leading-[26px] tracking-tight text-footer-gray">
-            MONDAY TO SATURDAY<br/>7.00am – 6.00pm
+            MONDAY to SATURDAY<br />7.00am – 6.00pm
           </span>
         </div>
         <div className="flex flex-col gap-[14px] items-center text-center">

@@ -3,6 +3,7 @@ import LandingPage from './pages/LandingPage';
 import CateringService from './pages/CateringService';
 import FindUs from './pages/FindUs';
 import AboutUs from './pages/AboutUs';
+import { WhatsAppFloatingButton } from './components/Shared';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/find-us" element={<FindUs />} />
         <Route path="/about-us" element={<AboutUs />} />
       </Routes>
+      <WhatsAppFloatingButton />
     </Router>
   );
 }
