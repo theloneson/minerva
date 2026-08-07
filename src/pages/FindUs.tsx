@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
 import { MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -8,17 +9,40 @@ import { InstagramStrip, MobileInstagramStrip } from '../components/InstagramStr
 export default function FindUs() {
   const { scaleTransform, scaledHeight } = useScale(4670);
   const [prefIdx, setPrefIdx] = useState<number>(0);
+  const location = useLocation();
 
   useEffect(() => {
-    if (window.location.hash) {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
+    if (location.hash) {
+      const isDesktop = window.innerWidth >= 1024;
+      let rawHash = location.hash.replace('#', '');
+
+      // Map hash targets appropriately for desktop vs mobile
+      let targetId = rawHash;
+      if (isDesktop) {
+        targetId = 'consultation-form';
+      } else {
+        targetId = 'consultation-form-m';
+      }
+
+      const el = document.getElementById(targetId) || document.getElementById(rawHash);
+      if (el) {
         setTimeout(() => {
-          target.scrollIntoView({ behavior: 'smooth' });
+          if (isDesktop) {
+            const scale = Math.min(1, window.innerWidth / 1920);
+            let topPos = 0;
+            let curr: HTMLElement | null = el;
+            while (curr && curr !== document.body) {
+              topPos += curr.offsetTop;
+              curr = curr.offsetParent as HTMLElement;
+            }
+            window.scrollTo({ top: topPos * scale, behavior: 'smooth' });
+          } else {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         }, 150);
       }
     }
-  }, []);
+  }, [location]);
 
   const prefLabels = ["Virtual Meeting", "Phone Call", "In-Person Meeting"];
   const waBody = encodeURIComponent(`Hi The Liquid Spot! I'd like to book a catering consultation. My preference: ${prefLabels[prefIdx]}`);
@@ -106,7 +130,7 @@ export default function FindUs() {
           </div>
 
           {/* Form Card */}
-          <div className="absolute left-[1053px] top-[40px] w-[827px] rounded-[24px] bg-[#FAFAFA] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-[40px] flex flex-col gap-[20px] items-start">
+          <div id="consultation-form" className="absolute left-[1053px] top-[40px] w-[827px] rounded-[24px] bg-[#FAFAFA] shadow-[0_10px_40px_rgba(0,0,0,0.08)] p-[40px] flex flex-col gap-[20px] items-start">
 
             {/* Contact Info */}
             <div className="flex flex-col gap-[24px] w-full">
@@ -320,7 +344,7 @@ export default function FindUs() {
         </div>
 
         {/* Form */}
-        <div className="px-6 md:px-12 py-12 flex flex-col gap-6 max-w-2xl mx-auto">
+        <div id="consultation-form-m" className="px-6 md:px-12 py-12 flex flex-col gap-6 max-w-2xl mx-auto">
           <div className="flex flex-col gap-4">
             <span className="font-oswald font-bold text-[20px] text-brand-redAlt">Contact Information</span>
             <input type="text" placeholder="Full Name" className="w-full h-[56px] rounded-[7px] bg-white border-[3px] border-line-inputThick px-5 font-epilogue font-semibold text-[16px] text-[#222] placeholder-[#555] outline-none" />

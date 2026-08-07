@@ -82,7 +82,7 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-black/40 pointer-events-none" />
 
             {/* Decorative Right Cluster (photos only) */}
-            <div className="absolute left-[775px] top-[145px] w-[1172px] h-[889px]">
+            <div className="absolute left-[775px] top-[215px] w-[1172px] h-[889px]">
               <div className="absolute left-0 top-0 w-[163px] h-[127px] rounded-[4px] bg-[url('/figma/landing/assets/374a955a0b7cc45c.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0,-1,1,0,72,255)' }} />
               <div className="absolute left-0 top-0 w-[150.083px] h-[501.769px] bg-[url('/figma/landing/assets/9a2b60982818b63b.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.519,0.855,-0.855,0.519,1051.891,432)' }} />
               <div className="absolute left-0 top-0 w-[458.303px] h-[687.455px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-cover bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.925,-0.380,0.380,0.925,-62,214.061)' }} />
@@ -337,7 +337,7 @@ export default function LandingPage() {
             <div className="absolute left-[960px] top-[480px] w-[963px] h-[480px] bg-[url('/figma/landing/assets/0df3bfdfbfaf75d0.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
             <div className="absolute inset-0 bg-black/55" />
             <div className="absolute left-[661px] top-0 w-[672px] h-[672px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-            <a href="/find-us#consultation" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+            <a href="/find-us#consultation-form" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
               <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
               <span className="font-nunito font-bold text-[25px] leading-[25px] text-white">Book a Consultation</span>
             </a>
@@ -593,7 +593,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/55" />
           <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-          <a href="/find-us#consultation-m" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <a href="/find-us#consultation-form-m" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
             <span className="font-bold text-[20px] leading-[25px] text-white">Book a Consultation</span>
           </a>
