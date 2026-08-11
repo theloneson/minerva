@@ -13,60 +13,54 @@ export default function AboutUs() {
   const prevQuote = () => setQuoteIdx((prev) => (prev + quotes.length - 1) % quotes.length);
 
   // Auto-advance the testimonial carousel continuously.
-  useEffect(() => {
-    const id = setInterval(() => setQuoteIdx((prev) => (prev + 1) % quotes.length), 3000);
-    return () => clearInterval(id);
-  }, []);
+          {/* Auto-advance the testimonial carousel continuously (7s interval for smooth reading) */}
+          useEffect(() => {
+            const id = setInterval(() => setQuoteIdx((prev) => (prev + 1) % quotes.length), 7000);
+            return () => clearInterval(id);
+          }, []);
 
-  return (
-    <>
-      <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
-        <div
-          className="relative mx-auto bg-white font-nunito w-[1920px] h-[6495px] origin-top-left"
-          style={{ transform: scaleTransform }}
-        >
-          {/* ============ HERO ============ */}
-          <section className="absolute left-0 top-0 w-[1920px] h-[596px] overflow-hidden">
-            <div className="absolute left-0 top-[-152px] w-[1920px] h-[900px] bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-center bg-[length:100%_120.471%] bg-no-repeat" />
-            <div className="absolute left-0 top-0 w-[1934px] h-[709px] opacity-90 bg-black" />
+          return (
+            <>
+              <div className="hidden lg:block w-full overflow-hidden bg-white" style={{ height: scaledHeight }}>
+                <div
+                  className="relative mx-auto bg-white font-nunito w-[1920px] h-[6495px] origin-top-left"
+                  style={{ transform: scaleTransform }}
+                >
+                  {/* ============ HERO ============ */}
+                  <section className="absolute left-0 top-0 w-[1920px] h-[596px] overflow-hidden">
+                    <div className="absolute left-0 top-[-152px] w-[1920px] h-[900px] bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-center bg-[length:100%_120.471%] bg-no-repeat" />
+                    <div className="absolute left-0 top-0 w-[1934px] h-[709px] opacity-90 bg-black" />
 
-            {/* Shawarma (same as landing hero, right side, cropped by hero bottom) */}
-            <div className="absolute left-[926px] top-[3px] w-[1166.911px] h-[1150.454px] overflow-hidden pointer-events-none">
-              <div className="absolute left-0 top-0 w-[794.477px] h-[993.54px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ backgroundPosition: '50% 0', transform: 'matrix(-0.117,-0.993,-0.993,0.117,1167.7,869.2)' }} />
-            </div>
+                    <Header activePage="about-us" />
 
-            <Header activePage="about-us" />
+                    <h1 className="absolute left-[510px] top-[210px] w-[900px] font-nunito font-black text-[90px] leading-[70px] text-center">
+                      <span className="text-[#FFE600]">About</span>{' '}
+                      <span className="text-[#FF3B5C]">Us</span>
+                    </h1>
+                    <span className="absolute left-[360px] top-[300px] w-[1200px] font-nunito font-bold text-[24px] leading-[36px] text-center text-[#F4F1F1] text-balance">
+                      TheLiquidSpot is a food and beverage brand dedicated to serving freshly prepared handmade foods and specialty drinks. Our menu brings together a variety of well-loved snacks, pastries, meals, and refreshing drinks made with care and quality ingredients. From handcrafted shawarmas and freshly baked pastries to refreshing specialty drinks, every item is prepared with attention to flavour, freshness, and consistency.
+                    </span>
+                  </section>
 
-            <h1 className="absolute left-[673px] top-[246px] w-[433px] font-nunito font-black text-[80px] leading-[60px] text-center">
-              <span className="text-[#FFE600]">About</span>{' '}
-              <span className="text-[#FF3B5C]">Us</span>
-            </h1>
-            <span className="absolute left-[574px] top-[326px] w-[622px] font-nunito font-semibold italic text-[20px] leading-[25px] text-center text-[#F4F1F1] text-balance">
-              TheLiquidSpot is a food and beverage brand dedicated to serving freshly prepared handmade foods and specialty drinks. Our menu brings together a variety of well-loved snacks, pastries, meals, and refreshing drinks made with care and quality ingredients.
-            </span>
-          </section>
+                  <section className="absolute left-[161px] top-[651px] w-[1548px] h-[734px]">
+                    <div className="absolute left-[51px] top-[21px] w-[669px] h-[734px]">
+                      {/* Left Image (Tall) */}
+                      <div className="absolute left-0 top-[67px] w-[320px] h-[600px] rounded-[16px] bg-[url('/figma/about/assets/1.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
 
-          <section className="absolute left-[161px] top-[651px] w-[1548px] h-[734px]">
-            <div className="absolute left-[51px] top-[21px] w-[669px] h-[734px]">
-              {/* Left Image (Tall) */}
-              <div className="absolute left-0 top-[67px] w-[320px] h-[600px] rounded-[16px] bg-[url('/figma/about/assets/1.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
+                      {/* Right Top Image */}
+                      <div className="absolute left-[340px] top-[67px] w-[320px] h-[290px] rounded-[16px] bg-[url('/figma/about/assets/2.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
 
-              {/* Right Top Image */}
-              <div className="absolute left-[340px] top-[67px] w-[320px] h-[290px] rounded-[16px] bg-[url('/figma/about/assets/2.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
-
-              {/* Right Bottom Image */}
-              <div className="absolute left-[340px] top-[377px] w-[320px] h-[290px] rounded-[16px] bg-[url('/figma/about/assets/3.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
-            </div>
-            <div className="absolute left-[852px] top-[197.5px] w-[696px] flex flex-col gap-[18px] items-center">
-              <span className="font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] text-center text-brand-red">WHO WE ARE</span>
-              <span className="font-nunito font-extrabold text-[60px] leading-[60px] text-center text-[#212121]">TheLiquidSpot.</span>
-              <span className="w-[640px] font-nunito font-medium text-[17px] leading-[28px] text-center text-body-gray whitespace-pre-line">
-                From handcrafted shawarmas and freshly baked pastries to refreshing specialty drinks, every item is prepared with attention to flavour, freshness, and consistency.
-                {"\n\n"}
-                At TheLiquidSpot, we believe good food and drinks create moments of enjoyment and connection. Whether you're grabbing a quick bite, enjoying a refreshing drink, or sharing food with friends and family, we aim to provide an experience that is simple, satisfying, and memorable.
-              </span>
-            </div>
-          </section>
+                      {/* Right Bottom Image */}
+                      <div className="absolute left-[340px] top-[377px] w-[320px] h-[290px] rounded-[16px] bg-[url('/figma/about/assets/3.png')] bg-center bg-cover bg-no-repeat shadow-[0_10px_30px_rgba(0,0,0,0.2)]" />
+                    </div>
+                    <div className="absolute left-[852px] top-[197.5px] w-[696px] flex flex-col gap-[20px] items-center">
+                      <span className="font-oswald font-bold text-[28px] leading-[30px] tracking-[2px] text-center text-brand-red">WHO WE ARE</span>
+                      <span className="font-nunito font-black text-[65px] leading-[65px] text-center text-[#212121]">TheLiquidSpot.</span>
+                      <span className="w-[660px] font-nunito font-semibold text-[22px] leading-[36px] text-center text-body-gray">
+                        At TheLiquidSpot, we believe good food and drinks create moments of enjoyment and connection. Whether you are grabbing a quick bite, enjoying a refreshing drink, or sharing food with friends and family, we aim to provide an experience that is simple, satisfying, and memorable.
+                      </span>
+                    </div>
+                  </section>
 
           {/* ============ HYGIENE RATING BAR ============ */}
           <section className="absolute left-0 top-[1440px] w-[1920px] h-[285px] bg-[url('/figma/findus/assets/84b21635877fa5ff.png')] bg-[length:14.115%_35.411%] bg-[position:100%_0%] bg-no-repeat">
@@ -100,8 +94,8 @@ export default function AboutUs() {
             </div>
             <div className="absolute left-[208px] top-[364px] w-[1543px] flex flex-row gap-[76px] items-center">
               <div className="relative w-[610px] flex-shrink-0 rounded-[30px] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] transition-all duration-300">
-                <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Vision</span>
-                <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
+                <span className="font-nunito font-black text-[38px] leading-[42px] text-center text-[#222]">Our Vision</span>
+                <span className="font-nunito font-bold text-[24px] leading-[38px] text-center text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
                 <div className="flex flex-row gap-[10px]">
                   {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-[8px] h-[8px] border border-brand-yellowAccent" />)}
                 </div>
@@ -110,8 +104,8 @@ export default function AboutUs() {
                 <div className="absolute left-[-7px] top-[-13.5px] w-[185px] h-[185px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
               </div>
               <div className="relative w-[610px] flex-shrink-0 rounded-[30px] flex flex-col gap-[22px] items-center justify-center px-[60px] py-[50px] hover:-translate-y-[8px] transition-all duration-300">
-                <span className="font-nunito font-bold text-[34px] leading-[38px] text-center text-[#222]">Our Mission</span>
-                <span className="font-nunito font-medium text-[28px] leading-[40px] text-center text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
+                <span className="font-nunito font-black text-[38px] leading-[42px] text-center text-[#222]">Our Mission</span>
+                <span className="font-nunito font-bold text-[24px] leading-[38px] text-center text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
               </div>
             </div>
           </section>
@@ -156,9 +150,9 @@ export default function AboutUs() {
           <section className="absolute left-0 top-[4166px] w-[1920px] h-[730px] overflow-hidden bg-black">
             <div className="absolute left-[-76px] top-[-133px] w-[2036px] h-[805px] opacity-20 bg-[url('/figma/about/assets/b073f56caebd2e41.png')] bg-[position:50%_0%] bg-[length:100.023%_142.857%] bg-no-repeat" />
             <div className="absolute left-[365px] top-[180px] w-[1320px] h-[393px]">
-              <div className="absolute left-[444px] top-0 w-[432px] h-[69.39px] border-b border-dashed border-brand-yellow">
-                <i className="fas fa-quote-left absolute left-[76px] top-[4px] text-[28px] text-brand-yellow" />
-                <span className="absolute left-[143.55px] top-[-5px] w-[212px] font-oswald font-normal text-[32px] leading-[38.4px] text-center whitespace-nowrap text-white">Client Feedback?</span>
+              <div className="absolute left-[410px] top-0 w-[500px] h-[69.39px] border-b border-dashed border-brand-yellow">
+                <i className="fas fa-quote-left absolute left-[50px] top-[4px] text-[28px] text-brand-yellow" />
+                <span className="absolute left-[100px] top-[-5px] w-[300px] font-oswald font-normal text-[32px] leading-[38.4px] text-center whitespace-nowrap text-white">Customer Feedback</span>
               </div>
               <div className="absolute left-[12px] top-[109px] w-[1296px] overflow-hidden">
                 <div
@@ -240,10 +234,8 @@ export default function AboutUs() {
           <div className="flex flex-col items-center gap-4 text-center">
             <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHO WE ARE</span>
             <h2 className="font-extrabold text-[40px] md:text-[52px] leading-none text-[#212121]">TheLiquidSpot.</h2>
-            <p className="max-w-xl font-medium text-[15px] md:text-[17px] leading-[26px] text-body-gray whitespace-pre-line">
-              From handcrafted shawarmas and freshly baked pastries to refreshing specialty drinks, every item is prepared with attention to flavour, freshness, and consistency.
-              {"\n\n"}
-              At TheLiquidSpot, we believe good food and drinks create moments of enjoyment and connection. Whether you're grabbing a quick bite, enjoying a refreshing drink, or sharing food with friends and family, we aim to provide an experience that is simple, satisfying, and memorable.
+            <p className="max-w-xl font-semibold text-[17px] md:text-[20px] leading-[30px] text-body-gray">
+              At TheLiquidSpot, we believe good food and drinks create moments of enjoyment and connection. Whether you are grabbing a quick bite, enjoying a refreshing drink, or sharing food with friends and family, we aim to provide an experience that is simple, satisfying, and memorable.
             </p>
           </div>
         </section>
@@ -276,15 +268,15 @@ export default function AboutUs() {
           </div>
           <div className="grid gap-8 md:grid-cols-2 items-stretch">
             <div className="rounded-[30px] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
-              <span className="font-bold text-[22px] text-[#222]">Our Vision</span>
-              <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
+              <span className="font-black text-[26px] md:text-[30px] text-[#222]">Our Vision</span>
+              <span className="font-bold text-[17px] md:text-[20px] leading-[30px] text-body-gray">To become the go-to brand for handmade foods and specialty drinks, known for quality, flavor, and a satisfying food experience.</span>
               <div className="flex flex-row gap-[10px]">
                 {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-[8px] h-[8px] border border-brand-yellowAccent" />)}
               </div>
             </div>
             <div className="rounded-[30px] flex flex-col gap-[18px] items-center justify-center px-7 py-9 text-center">
-              <span className="font-bold text-[22px] text-[#222]">Our Mission</span>
-              <span className="font-medium text-[15px] md:text-[17px] leading-[27px] text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
+              <span className="font-black text-[26px] md:text-[30px] text-[#222]">Our Mission</span>
+              <span className="font-bold text-[17px] md:text-[20px] leading-[30px] text-body-gray">Our mission is to prepare and serve freshly made snacks, pastries, meals, and specialty drinks using quality ingredients and carefully crafted recipes. We are committed to delivering great taste, consistency, and a welcoming food experience that keeps customers coming back</span>
             </div>
           </div>
         </section>
@@ -387,7 +379,7 @@ export default function AboutUs() {
 
 const offerings = [
   { x: "15px", y: "0px", title: "Freshly Made Food & Snacks", bg: "url('/figma/landing/assets/0fe094edc96a1173.jpg') 50% 50% / 100% 100% no-repeat", desc: "Preparation and sale of handmade snacks, pastries, and light meals including shawarmas, pies, sausage rolls, melts, and other freshly prepared items" },
-  { x: "335px", y: "0px", title: "Specialty Drinks", bg: "url('/figma/about/assets/89bbbd02ec579f6c.jpg') 50% 50% / 100% 100% no-repeat", desc: "Preparation and sale of refreshing beverages including fruit blends, traditional drinks, and other specialty refreshments." },
+  { x: "335px", y: "0px", title: "Specialty Drinks", bg: "url('/figma/landing/assets/zobo.png') 50% 50% / cover no-repeat", desc: "Preparation and sale of refreshing beverages including fruit blends, traditional drinks, and other specialty refreshments." },
   { x: "15px", y: "211.66px", title: "Catering Services", bg: "url('/figma/about/assets/9825f97d056d7079.png') 50% 50% / 100% 100% no-repeat", desc: "Provision of freshly prepared food and drinks for small events, meetings and gatherings, church or community events, and private celebrations." },
   { x: "335px", y: "211.66px", title: "Custom Orders", bg: "url('/figma/about/assets/6e085848898fa0ce.jpg') 50% 50% / 100% 100% no-repeat", desc: "Preparation of selected menu items in larger quantities for parties, celebrations, group orders, and corporate needs." }
 ];

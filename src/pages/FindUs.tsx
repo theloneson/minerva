@@ -67,8 +67,8 @@ export default function FindUs() {
           <span className="absolute left-[235px] top-[290px] font-nunito font-extrabold text-[25px] leading-[35px] whitespace-nowrap text-brand-yellow">Get In Touch</span>
           <span className="absolute left-[149px] top-[350px] font-nunito font-black text-[80px] leading-[96px] whitespace-nowrap text-white">Find Us.</span>
           <span className="absolute left-[149px] top-[448px] font-nunito font-black text-[80px] leading-[96px] whitespace-nowrap text-brand-red">Order Fresh.</span>
-          <span className="absolute left-[149px] top-[544px] w-[622px] font-nunito font-semibold italic text-[20px] leading-[25px] text-[#F4F1F1] text-balance">
-            Daily orders go through us directly. Catering and event bookings go through the form below. We're easy to reach and quick to respond.
+          <span className="absolute left-[149px] top-[540px] w-[750px] font-nunito font-bold italic text-[25px] leading-[36px] text-[#F4F1F1] text-balance">
+            Daily orders go through us directly. Catering and event bookings go through the form below. We are easy to reach and quick to respond.
           </span>
         </section>
 
@@ -99,7 +99,7 @@ export default function FindUs() {
           </div>
           <div className="absolute left-[101px] top-[82px] w-[1636px] flex flex-row gap-[504px] items-center">
             <div className="w-[779px] flex-shrink-0 flex flex-col gap-[16px] items-start">
-              <span className="font-nunito font-bold text-[60px] leading-[60px] text-white">Ready To Order? We're One Message Away.</span>
+              <span className="font-nunito font-bold text-[60px] leading-[60px] text-white">Ready To Order? We Are One Message Away.</span>
               <span className="font-nunito font-semibold italic text-[20px] leading-[25px] text-[#F4F1F1]">We deliver nationwide. Please see our FAQ section for notice windows on regular and catering orders.</span>
             </div>
             <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="relative w-[353px] h-[101px] flex-shrink-0 rounded-[12px] bg-white flex items-center justify-center hover:brightness-95 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
@@ -122,7 +122,7 @@ export default function FindUs() {
                 <span className="absolute left-[45px] top-[5px] font-oswald font-bold text-[25px] leading-[28px] whitespace-nowrap text-brand-redAlt">Catering Enquiries</span>
               </div>
               <span className="font-nunito font-extrabold text-[60px] leading-[67.2px] whitespace-nowrap text-white">Book a Consultation.</span>
-              <span className="font-nunito font-medium text-[17px] leading-[28px] text-white">Fill this in and we'll be in touch within 2 working days to arrange your consultation.</span>
+              <span className="font-nunito font-medium text-[17px] leading-[28px] text-white">Fill this in and we will be in touch within 2 working days to arrange your consultation.</span>
             </div>
             <div className="absolute left-[420px] top-[430px] w-[175px] h-[175px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
             <span className="absolute left-[283px] top-[660px] w-[577px] font-nunito font-extrabold text-[40px] leading-[96px] text-center whitespace-nowrap text-white">Book at least 8 weeks ahead</span>
@@ -283,8 +283,8 @@ export default function FindUs() {
             <span className="block text-white">Find Us.</span>
             <span className="block text-brand-red">Order Fresh.</span>
           </h1>
-          <p className="max-w-xl font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
-            Daily orders go through us directly. Catering and event bookings go through the form below. We're easy to reach and quick to respond.
+          <p className="max-w-xl font-bold italic text-[18px] md:text-[22px] leading-relaxed text-[#F4F1F1]">
+            Daily orders go through us directly. Catering and event bookings go through the form below. We are easy to reach and quick to respond.
           </p>
         </div>
       </section>
@@ -313,7 +313,7 @@ export default function FindUs() {
       <section className="relative overflow-hidden bg-brand-redBanner px-6 md:px-12 py-12">
         <div className="absolute inset-0 opacity-5 bg-[url('/figma/catering/assets/1a2194c95b168638.png')] bg-cover bg-top" />
         <div className="relative flex flex-col items-start gap-5">
-          <h2 className="font-bold text-[32px] md:text-[44px] leading-[1.1] text-white">Ready To Order? We're One Message Away.</h2>
+          <h2 className="font-bold text-[32px] md:text-[44px] leading-[1.1] text-white">Ready To Order? We Are One Message Away.</h2>
           <p className="font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">We deliver nationwide. Please see our FAQ section for notice windows on regular and catering orders.</p>
           <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="relative mt-2 w-[240px] h-[68px] rounded-[12px] bg-white flex items-center justify-center hover:brightness-95 shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
             <div className="absolute -inset-y-[6px] inset-x-[12px] rounded-[12px] shadow-[inset_0_0_0_3px_#FFF] pointer-events-none" />
@@ -334,7 +334,7 @@ export default function FindUs() {
               <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-redAlt">Catering Enquiries</span>
             </div>
             <h2 className="font-extrabold text-[36px] md:text-[52px] leading-[1.05] text-white">Book a Consultation.</h2>
-            <p className="font-medium text-[15px] md:text-[17px] leading-[26px] text-white">Fill this in and we'll be in touch within 2 working days to arrange your consultation.</p>
+            <p className="font-medium text-[15px] md:text-[17px] leading-[26px] text-white">Fill this in and we will be in touch within 2 working days to arrange your consultation.</p>
             <div className="mt-2 flex flex-col items-center gap-3 text-center">
               <div className="w-[120px] h-[120px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
               <span className="font-extrabold text-[24px] md:text-[30px] leading-tight text-white">Book at least 8 weeks ahead</span>

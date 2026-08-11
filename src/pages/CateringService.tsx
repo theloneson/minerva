@@ -33,7 +33,7 @@ export default function CateringService() {
               <div className="text-brand-yellow">The Food</div>
               <div className="text-brand-red">You Own</div>
             </div>
-            <span className="absolute left-[160px] top-[679px] w-[622px] font-nunito font-semibold italic text-[20px] leading-[25px] text-[#F4F1F1] text-balance">
+            <span className="absolute left-[160px] top-[660px] w-[750px] font-nunito font-bold italic text-[24px] leading-[36px] text-[#F4F1F1] text-balance">
               At TheLiquidSpot, we understand that every event is unique. Whether you are hosting a birthday celebration, wedding, corporate event, showers, church gathering, private party at home, or community event, we work closely with you to create a menu that perfectly suits your occasion and guests.
             </span>
             <a href="/find-us#consultation-form" className="absolute left-[1331px] top-[708px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
@@ -133,7 +133,7 @@ export default function CateringService() {
               <div className="absolute left-[13px] top-[40px] w-[589px] flex flex-col gap-[19px] items-start">
                 <div className="relative w-[304px] h-[30px]">
                   <div className="absolute left-[23px] top-[15px] w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
-                  <span className="absolute left-[66px] top-[5px] font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">WHAT WE CATER</span>
+                  <span className="absolute left-[66px] top-[5px] font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] whitespace-nowrap text-brand-red">WHAT TO CATER TO</span>
                 </div>
                 <span className="font-nunito font-semibold text-[50px] leading-[50px] text-[#212121]">Booking &amp; Planning Timeline.</span>
                 <span className="w-[589px] font-nunito font-medium text-[17px] leading-[28px] text-[#222]">To ensure the highest level of service and a menu truly curated for your event, we recommend booking at least 8 weeks in advance.</span>
@@ -296,7 +296,7 @@ export default function CateringService() {
           <div className="bg-[#FFFEFA] px-6 md:px-12 py-12 flex flex-col gap-6">
             <div className="flex flex-row items-center gap-3">
               <div className="w-[42px] h-[2px] rounded-[30px] bg-brand-yellowAccent" />
-              <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT WE CATER</span>
+              <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[2px] text-brand-red">WHAT TO CATER TO</span>
             </div>
             <h2 className="font-semibold text-[34px] md:text-[44px] leading-[1.05] text-[#212121]">Booking &amp; Planning Timeline.</h2>
             <p className="max-w-2xl font-medium text-[15px] md:text-[17px] leading-[26px] text-[#222]">
@@ -359,9 +359,9 @@ const offerings = [
 ];
 
 const steps = [
-  { num: "01", title: "Book Consultation", desc: "Schedule a free consultation. We'll learn about your event, your vision, and exactly what you're looking to achieve." },
+  { num: "01", title: "Book Consultation", desc: "Schedule a free consultation. We will learn about your event, your vision, and exactly what you are looking to achieve." },
   { num: "02", title: "Menu Design", desc: "We design a customised menu from our Signature Feasts, Artisan Bites, and LiquidSpot Blends collections — tailored to your event style and guests." },
-  { num: "03", title: "Proposal & Quote", desc: "You'll receive a clear, tailored proposal with menu recommendations, service options, and transparent pricing. No surprises." },
+  { num: "03", title: "Proposal & Quote", desc: "You will receive a clear, tailored proposal with menu recommendations, service options, and transparent pricing. No surprises." },
   { num: "04", title: "Confirmation & Delivery", desc: "Once approved, we bring everything to life — freshly prepared food, exceptional service, and the quality The LiquidSpot is known for." }
 ];
 
@@ -369,6 +369,6 @@ const timeline = [
   { title: "Consultation & Event Planning", desc: "A detailed discussion to understand your vision, guest profile, dietary requirements, and budget." },
   { title: "Menu Design & Recommendations", desc: "Crafting a menu that matches your event style and guests — not a generic package." },
   { title: "Dietary & Guest Considerations", desc: "Time to review all allergies, dietary needs, and guest preferences properly." },
-  { title: "Proposal Preparation & Revisions", desc: "Your tailored proposal, reviewed and revised until it's exactly right." },
+  { title: "Proposal Preparation & Revisions", desc: "Your tailored proposal, reviewed and revised until it is exactly right." },
   { title: "Event Logistics & Scheduling", desc: "Delivery, setup, timing, and service coordination — all confirmed well in advance." }
 ];

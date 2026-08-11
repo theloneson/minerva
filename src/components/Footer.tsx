@@ -25,7 +25,7 @@ export function Footer({ top }: FooterProps) {
         <div className="flex flex-col gap-[30px] items-center text-center flex-shrink-0">
           <span className="font-oswald font-semibold text-[20px] leading-[24px] text-brand-yellow">Working Hours</span>
           <span className="font-josefin font-normal text-[16px] leading-[32px] tracking-tight text-footer-gray">
-            MONDAY TO SATURDAY<br />7.00am – 6.00pm
+            MONDAY TO SATURDAY
           </span>
         </div>
 
@@ -105,7 +105,7 @@ export function MobileFooter() {
         <div className="flex flex-col gap-[14px] items-center text-center">
           <span className="font-oswald font-semibold text-[18px] leading-[24px] text-brand-yellow">Working Hours</span>
           <span className="font-josefin font-normal text-[14px] leading-[26px] tracking-tight text-footer-gray">
-            MONDAY to SATURDAY<br />7.00am – 6.00pm
+            MONDAY to SATURDAY
           </span>
         </div>
         <div className="flex flex-col gap-[14px] items-center text-center">

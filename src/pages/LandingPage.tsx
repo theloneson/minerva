@@ -109,7 +109,7 @@ export default function LandingPage() {
 
             <div className="absolute left-[149px] top-[345px] font-nunito font-black text-[120px] leading-[96px]">
               <div className="text-white">Flavor</div>
-              <div className="text-brand-red">You’ll</div>
+              <div className="text-brand-red">You will</div>
               <div className="text-brand-yellow">Crave Again</div>
             </div>
 
@@ -141,10 +141,7 @@ export default function LandingPage() {
               TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
             </span>
 
-            <span className="absolute left-[508px] top-[411px] w-[351px] font-nunito font-black text-[16px] leading-[26.67px] text-center whitespace-nowrap text-body-gray">
-              Monday to Saturday – 07:00am TO 06:00pm
-            </span>
-            <span className="absolute left-[569px] top-[444px] w-[213px] font-nunito font-black text-[24px] leading-[40px] text-center whitespace-nowrap text-brand-red">
+            <span className="absolute left-[569px] top-[430px] w-[213px] font-nunito font-black text-[24px] leading-[40px] text-center whitespace-nowrap text-brand-red">
               +44 7810 007 544
             </span>
 
@@ -167,32 +164,28 @@ export default function LandingPage() {
 
             {/* TABS — whitespace-nowrap keeps every label on one line so all four sit on the same baseline instead of wrapping unevenly and looking crooked. Left-aligned to the same 170px margin as the group headings below (e.g. "Classic Wraps") so the whole menu block reads as one consistent column instead of drifting right */}
             <div className="absolute left-[154px] top-[316px] flex flex-row gap-[56px] items-start">
-              <div onClick={() => setActiveTab('quick')} className="relative h-[69px] cursor-pointer text-center group">
+              <div onClick={() => setActiveTab('quick')} className="relative cursor-pointer text-center group">
                 <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
-                <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Yummy Choi</div>
-                {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+                {activeTab === 'quick' && <div className="mt-2 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
               </div>
-              <div onClick={() => setActiveTab('drinks')} className="relative h-[69px] cursor-pointer text-center group">
+              <div onClick={() => setActiveTab('drinks')} className="relative cursor-pointer text-center group">
                 <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
-                <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Tropical and Traditional</div>
-                {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+                {activeTab === 'drinks' && <div className="mt-2 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
               </div>
-              <div onClick={() => setActiveTab('pastries')} className="relative h-[69px] cursor-pointer text-center group">
+              <div onClick={() => setActiveTab('pastries')} className="relative cursor-pointer text-center group">
                 <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Pastries</div>
-                <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Cool Bites</div>
-                {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+                {activeTab === 'pastries' && <div className="mt-2 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
               </div>
-              <div onClick={() => setActiveTab('salads')} className="relative h-[69px] cursor-pointer text-center group">
+              <div onClick={() => setActiveTab('salads')} className="relative cursor-pointer text-center group">
                 <div className="font-nunito font-semibold text-[28px] leading-[28.8px] whitespace-nowrap text-black group-hover:text-brand-red transition-colors">Salads</div>
-                <div className="font-oswald font-semibold text-[18px] leading-[25px] whitespace-nowrap text-brand-red">Cool Bites</div>
-                {activeTab === 'salads' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
+                {activeTab === 'salads' && <div className="mt-2 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
               </div>
             </div>
 
             {/* Scrollable tab content area — starts below the tabs row so it never intercepts clicks on the tabs themselves. The section itself is sized per-tab (see MENU_HEIGHTS) so short tabs (Drinks, Salads) don't leave dead space; only Pastries — whose content is genuinely taller than the section — scrolls internally */}
             <div
-              className="absolute left-0 top-[406px] w-full overflow-x-hidden"
-              style={{ height: menuSectionHeight - 406, overflowY: activeTab === 'pastries' ? 'auto' : 'visible' }}
+              className="absolute left-0 top-[380px] w-full overflow-x-hidden"
+              style={{ height: menuSectionHeight - 380, overflowY: activeTab === 'pastries' ? 'auto' : 'visible' }}
             >
 
               {/* TAB 1: QUICK BITES */}
@@ -206,9 +199,6 @@ export default function LandingPage() {
                         {group.cards.map((card, cIdx) => (
                           <div key={cIdx} className="relative w-[540px] h-[265px] flex-shrink-0 rounded-[22px] bg-white shadow-card hover:-translate-y-[7px] hover:shadow-[inset_0_0_0_1px_#E5E7EB,14px_20px_34px_0px_rgba(0,0,0,0.22)] transition-all duration-300">
                             <div className="absolute left-[1px] top-[1px] w-[268px] h-[263px] overflow-hidden rounded-[22px]" style={{ background: card.bg }} />
-                            <div className="absolute left-[20px] top-[23px] h-[33px] rounded-[33px] bg-brand-yellow flex items-center justify-center px-[18px]">
-                              <span className="font-nunito font-semibold text-[14px] leading-[22px] text-[#222]">{card.label}</span>
-                            </div>
                             <div className="absolute left-[292px] top-[18px] w-[238px] h-[180px] overflow-hidden flex flex-col gap-[5px] items-start">
                               <span className="font-nunito font-bold text-[22px] leading-[26px] line-clamp-2 text-[#222]">{card.title}</span>
                               <span className="font-nunito font-light text-[13px] leading-[17px] text-[#222]">{card.desc}</span>
@@ -441,7 +431,7 @@ export default function LandingPage() {
             </span>
             <h1 className="font-black text-[54px] md:text-[84px] leading-[0.92]">
               <span className="block text-white">Flavor</span>
-              <span className="block text-brand-red">You’ll</span>
+              <span className="block text-brand-red">You will</span>
               <span className="block text-brand-yellow">Crave Again</span>
             </h1>
             <p className="max-w-md font-light italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
@@ -464,7 +454,6 @@ export default function LandingPage() {
           <p className="max-w-xl font-medium text-[15px] md:text-[17px] leading-relaxed text-body-gray">
             TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
           </p>
-          <span className="font-black text-[13px] md:text-[15px] text-body-gray">Monday to Saturday – 07:00am TO 06:00pm</span>
           <span className="font-black text-[22px] md:text-[24px] text-brand-red">+44 7810 007 544</span>
           <RedButton href="/about-us" className="mt-2 w-[180px]">Learn More</RedButton>
         </section>
@@ -483,22 +472,18 @@ export default function LandingPage() {
           <div className="mt-8 px-6 md:px-12 flex flex-row gap-7 overflow-x-auto no-scrollbar">
             <button type="button" onClick={() => setActiveTab('quick')} className="flex-shrink-0 text-center group">
               <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Quick Bites &amp; Meals</div>
-              <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Yummy Choi</div>
               {activeTab === 'quick' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </button>
             <button type="button" onClick={() => setActiveTab('drinks')} className="flex-shrink-0 text-center group">
               <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Fresh Blends &amp; Drinks</div>
-              <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Tropical and Traditional</div>
               {activeTab === 'drinks' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </button>
             <button type="button" onClick={() => setActiveTab('pastries')} className="flex-shrink-0 text-center group">
               <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Pastries</div>
-              <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
               {activeTab === 'pastries' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </button>
             <button type="button" onClick={() => setActiveTab('salads')} className="flex-shrink-0 text-center group">
               <div className="font-semibold text-[18px] md:text-[22px] leading-tight text-black whitespace-nowrap group-hover:text-brand-red transition-colors">Salads</div>
-              <div className="font-oswald font-semibold text-[13px] md:text-[15px] text-brand-red">Cool Bites</div>
               {activeTab === 'salads' && <div className="mt-1 mx-auto w-[42px] h-[3px] rounded-[30px] bg-brand-yellowAccent" />}
             </button>
           </div>
@@ -515,9 +500,7 @@ export default function LandingPage() {
                   <div className="grid gap-6 md:grid-cols-2">
                     {group.cards.map((card, cIdx) => (
                       <div key={cIdx} className="rounded-[18px] bg-white shadow-card overflow-hidden">
-                        <div className="relative h-44 md:h-52" style={{ background: card.bg }}>
-                          <span className="absolute left-3 top-3 rounded-[26px] bg-brand-yellow px-3 py-[4px] font-semibold text-[12px] text-[#222]">{card.label}</span>
-                        </div>
+                        <div className="relative h-44 md:h-52" style={{ background: card.bg }} />
                         <div className="p-4 flex flex-col gap-1.5">
                           <span className="font-bold text-[17px] text-[#222]">{card.title}</span>
                           <span className="font-light text-[12px] leading-[18px] text-[#222]">{card.desc}</span>
@@ -774,9 +757,9 @@ const salads = [
 ];
 
 const faqData = [
-  { q: "How do I place an order?", a: "Click the WhatsApp button on our website and send us a message — we'll guide you through the rest." },
+  { q: "How do I place an order?", a: "Click the WhatsApp button on our website and send us a message — we will guide you through the rest." },
   { q: "How much notice do you require?", a: "All orders are freshly made to order. We require a minimum of 24–48 hours' notice to ensure availability and quality." },
-  { q: "Do you Cater for dietary requirements", a: "Yes. Please discuss any allergies or dietary needs with us when placing your order and we'll do our best to accommodate." },
+  { q: "Do you Cater for dietary requirements", a: "Yes. Please discuss any allergies or dietary needs with us when placing your order and we will do our best to accommodate." },
   { q: "Do you offer Catering Services?", a: "Yes. We cater for birthdays, weddings, corporate events, church gatherings, baby showers, private parties, and other occasions. For event bookings, visit our Catering page." },
   { q: "Can i customize my catering menu?", a: "Absolutely. We work closely with clients to curate menus based on event type, preferences, guest requirements, and budget." },
   { q: "Do you deliver?", a: "Delivery may be available depending on your location and order size — message us on WhatsApp to confirm." },
