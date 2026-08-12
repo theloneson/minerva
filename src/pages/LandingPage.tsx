@@ -78,22 +78,17 @@ export default function LandingPage() {
           <section className="absolute left-0 top-0 w-[1920px] h-[900px] overflow-hidden">
             <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
 
-            {/* Dark veil sits on the plain background only — placed before the shawarma cluster so the food photos render crisp and un-darkened on top, same trick as the Catering Services banner */}
-            <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+            {/* Dark veil */}
+            <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
-            {/* Decorative Right Cluster (photos only) */}
-            <div className="absolute left-[775px] top-[215px] w-[1172px] h-[889px]">
-              <div className="absolute left-0 top-0 w-[163px] h-[127px] rounded-[4px] bg-[url('/figma/landing/assets/374a955a0b7cc45c.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0,-1,1,0,72,255)' }} />
-              <div className="absolute left-0 top-0 w-[150.083px] h-[501.769px] bg-[url('/figma/landing/assets/9a2b60982818b63b.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.519,0.855,-0.855,0.519,1051.891,432)' }} />
-              <div className="absolute left-0 top-0 w-[458.303px] h-[687.455px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-cover bg-no-repeat origin-top-left" style={{ transform: 'matrix(0.925,-0.380,0.380,0.925,-62,214.061)' }} />
-              <div className="absolute left-[72px] top-[-123px] w-[1166.911px] h-[1150.454px] overflow-hidden pointer-events-none">
-                <div className="absolute left-0 top-0 w-[794.477px] h-[993.54px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ backgroundPosition: '50% 0', transform: 'matrix(-0.117,-0.993,-0.993,0.117,1167.7,869.2)' }} />
-              </div>
-            </div>
+            {/* Left Drink Image in Background */}
+            <div className="absolute left-[-40px] bottom-[-20px] w-[540px] h-[660px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-cover bg-no-repeat pointer-events-none" />
 
+            {/* Right Shawarma Image in Background */}
+            <div className="absolute right-[-40px] bottom-[-30px] w-[650px] h-[720px] bg-[url('/figma/landing/assets/ded90afec8a34908.png')] bg-center bg-cover bg-no-repeat pointer-events-none" />
 
             {/* WhatsApp Bubble */}
-            <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform">
+            <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform z-20">
               <div className="absolute inset-0 rounded-[37.5px] bg-gradient-to-br from-[#FBFBFC] to-[#DBDDE8]" />
               <div className="absolute left-[18.8px] top-[62.5px] w-[85.2px] h-[53.2px] opacity-25 rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74]" />
               <div className="absolute left-[16.3px] top-[16.3px] w-[92.2px] h-[92.2px] rounded-[37.5px] bg-gradient-to-tl from-[#00D95F] to-[#07FF74] flex items-center justify-center">
@@ -103,51 +98,53 @@ export default function LandingPage() {
 
             <Header activePage="home" />
 
-            <span className="absolute left-[152px] top-[300px] font-nunito font-bold text-[20px] leading-[25px] whitespace-nowrap text-brand-red">
-              Freshly Made Daily • Served With Flavor
-            </span>
+            {/* Centered Hero Content */}
+            <div className="absolute left-1/2 top-[290px] -translate-x-1/2 w-[960px] flex flex-col items-center text-center gap-6 z-10">
+              <div className="font-nunito font-black text-[110px] leading-[95px] tracking-tight">
+                <span className="text-brand-yellow">Flavor </span>
+                <span className="text-brand-red">You’ll</span>
+                <div className="text-white mt-2">Crave Again</div>
+              </div>
 
-            <div className="absolute left-[149px] top-[345px] font-nunito font-black text-[120px] leading-[96px]">
-              <div className="text-white">Flavor</div>
-              <div className="text-brand-red">You will</div>
-              <div className="text-brand-yellow">Crave Again</div>
-            </div>
+              <p className="max-w-[780px] font-nunito font-light italic text-[22px] leading-[32px] text-[#F4F1F1]">
+                From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
+              </p>
 
-            <span className="absolute left-[149px] top-[650px] w-[560px] font-nunito font-light italic text-[20px] leading-[25px] text-[#F4F1F1]">
-              From signature shawarmas to refreshing blends and satisfying meals, TheLiquidSpot brings you flavor, comfort, and quality in every order.
-            </span>
-
-            <div className="absolute left-[149px] top-[750px] w-[200px] h-[61px]">
-              <RedButton onClick={handleMenuScroll} className="absolute left-0 top-0 w-[192.27px]">
-                View Menu
-              </RedButton>
+              <div className="mt-2">
+                <RedButton onClick={handleMenuScroll} className="w-[200px] h-[58px]">
+                  View Menu
+                </RedButton>
+              </div>
             </div>
           </section>
 
           {/* ============ BITES & BLENDS INTRO ============ */}
-          <section className="absolute left-[295px] top-[979px] w-[1330px] h-[555px]">
-            <div className="absolute left-[-64px] top-[30px] w-[369px] h-[525px] rounded-pill bg-[url('/figma/landing/assets/ded90afec8a34908.png')] bg-center bg-[length:100%_114.8%] bg-no-repeat hover:scale-105 hover:shadow-2xl transition-all duration-350" />
-            <div className="absolute left-[1024px] top-[30px] w-[369px] h-[525px] rounded-pill bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-[length:100%_114.8%] bg-no-repeat hover:scale-105 hover:shadow-2xl transition-all duration-350" />
+          <section className="absolute left-0 top-[979px] w-[1920px] h-[555px]">
+            <div className="absolute left-[200px] top-[30px] w-[369px] h-[525px] rounded-pill bg-[url('/figma/landing/assets/ded90afec8a34908.png')] bg-center bg-[length:100%_114.8%] bg-no-repeat hover:scale-105 hover:shadow-2xl transition-all duration-350" />
+            <div className="absolute left-[1350px] top-[30px] w-[369px] h-[525px] rounded-pill bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-[length:100%_114.8%] bg-no-repeat hover:scale-105 hover:shadow-2xl transition-all duration-350" />
 
-            <span className="absolute left-[530px] top-[83px] w-[304px] font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] text-center whitespace-nowrap text-brand-red">
-              THELIQUIDSPOT
-            </span>
+            {/* Unified Center Column */}
+            <div className="absolute left-1/2 top-[50px] -translate-x-1/2 w-[650px] flex flex-col items-center text-center gap-5">
+              <span className="font-oswald font-bold text-[25px] leading-[30px] tracking-[2px] text-brand-red">
+                THELIQUIDSPOT
+              </span>
 
-            <div className="absolute left-[394px] top-[152px] w-[578.75px] h-[72px] flex flex-row items-center justify-center gap-[18px] font-nunito font-semibold text-[80px] leading-[72px] text-black whitespace-nowrap">
-              <span>Bites</span><span>&amp;</span><span>Blends</span>
+              <h2 className="font-nunito font-semibold text-[80px] leading-[72px] text-black">
+                Bites &amp; Blends
+              </h2>
+
+              <p className="font-nunito font-medium text-[20px] leading-[26.67px] text-body-gray text-balance">
+                TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
+              </p>
+
+              <span className="font-nunito font-black text-[24px] leading-[40px] text-brand-red">
+                +44 7810 007 544
+              </span>
+
+              <RedButton href="/about-us" className="w-[192.27px]">
+                Learn More
+              </RedButton>
             </div>
-
-            <span className="absolute left-[392px] top-[286px] w-[583px] font-nunito font-medium text-[20px] leading-[26.67px] text-center text-body-gray text-balance">
-              TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
-            </span>
-
-            <span className="absolute left-[392px] top-[430px] w-[583px] font-nunito font-black text-[24px] leading-[40px] text-center whitespace-nowrap text-brand-red">
-              +44 7810 007 544
-            </span>
-
-            <RedButton href="/about-us" className="absolute left-[568.86px] top-[503px] w-[192.27px]">
-              Learn More
-            </RedButton>
           </section>
 
           {/* ============ MENU ============ */}
@@ -424,17 +421,14 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/45" />
           <MobileHeader activePage="home" />
-          <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-start gap-5">
-            <span className="font-bold text-[15px] md:text-[18px] leading-[22px] text-brand-red">
-              Freshly Made Daily • Served With Flavor
-            </span>
+          <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-center text-center gap-5">
             <h1 className="font-black text-[54px] md:text-[84px] leading-[0.92]">
-              <span className="block text-white">Flavor</span>
-              <span className="block text-brand-red">You will</span>
-              <span className="block text-brand-yellow">Crave Again</span>
+              <span className="text-brand-yellow">Flavor </span>
+              <span className="text-brand-red">You’ll</span>
+              <span className="block text-white mt-2">Crave Again</span>
             </h1>
             <p className="max-w-md font-light italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
-              From signature shawarmas to refreshing blends and satisfying meals, TheLiquidSpot brings you flavor, comfort, and quality in every order.
+              From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
             </p>
             <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px]">
               View Menu
