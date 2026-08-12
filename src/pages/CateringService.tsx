@@ -353,7 +353,7 @@ const caterCards = [
 ];
 
 const offerings = [
-  { label: "Main Course", title: "Signature Feasts", bg: "url('/figma/catering/assets/a009410a210a1347.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Delicious main meals and hearty dishes prepared with quality ingredients and authentic flavours to satisfy your guests.." },
+  { label: "Main Course", title: "Signature Feasts", bg: "url('/shared/newimg.png') center / cover no-repeat", desc: "Delicious main meals and hearty dishes prepared with quality ingredients and authentic flavours to satisfy your guests.." },
   { label: "Finger Food", title: "Artisan Bites", bg: "url('/figma/catering/assets/094aea18f7394678.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "A selection of handcrafted pastries, snacks, finger foods, and crowd favourites designed for sharing, grazing, and memorable moments." },
   { label: "Drinks", title: "LiquidSpot Blends", bg: "url('/figma/catering/assets/3f7de7e3222ab905.png') 102.994% 0% / 99.919% 114.637% no-repeat", desc: "Our range of refreshing specialty drinks and beverages, carefully crafted to complement your menu and elevate your event experience.." }
 ];

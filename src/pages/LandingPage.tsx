@@ -141,11 +141,11 @@ export default function LandingPage() {
               TheLiquidSpot is your go-to for bold flavours and feel-good bites — from loaded shawarmas and flaky pastries to rich banana loaves and refreshing handcrafted drinks. Every bite and sip is made to satisfy.
             </span>
 
-            <span className="absolute left-[569px] top-[430px] w-[213px] font-nunito font-black text-[24px] leading-[40px] text-center whitespace-nowrap text-brand-red">
+            <span className="absolute left-[392px] top-[430px] w-[583px] font-nunito font-black text-[24px] leading-[40px] text-center whitespace-nowrap text-brand-red">
               +44 7810 007 544
             </span>
 
-            <RedButton href="/about-us" className="absolute left-[565px] top-[503px] w-[192.27px]">
+            <RedButton href="/about-us" className="absolute left-[568.86px] top-[503px] w-[192.27px]">
               Learn More
             </RedButton>
           </section>
@@ -225,7 +225,7 @@ export default function LandingPage() {
                       {row.cards.map((card, cIdx) => (
                         <div key={cIdx} className="relative w-[500px] h-[250px] flex-shrink-0 mt-[36px] hover:-translate-y-[7px] transition-transform duration-300">
                           <div className="absolute left-0 top-0 w-[500px] h-[250px] rounded-[24px] bg-white shadow-[inset_0_0_0_1px_#E5E7EB]" />
-                          <div className="absolute left-0 top-[-36px] w-[221px] h-[313px] rounded-[110px] bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
+                          <div className="absolute left-0 top-0 w-[210px] h-[250px] rounded-l-[24px] overflow-hidden bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('${card.bg}')` }} />
                           <div className="absolute left-[248px] top-[24px] w-[240px] h-[196px] overflow-hidden flex flex-col">
                             <div className="font-nunito font-bold text-[22px] leading-[27px] line-clamp-2 text-[#222]">{card.title}</div>
                             <div className="mt-2 flex flex-col gap-1.5">
@@ -395,7 +395,6 @@ export default function LandingPage() {
             <div className="absolute left-0 top-0 w-[1017px] h-[730px] bg-[url('/figma/landing/assets/e9035b2b86b7fc28.png')] bg-center bg-[length:105%_100%] bg-no-repeat" />
             <div className="absolute left-0 top-0 w-[75px] h-[148px] bg-[url('/figma/landing/assets/5cdfcc8a47b72ae9.png')] bg-center bg-[length:100%_100%] bg-no-repeat origin-top-left" style={{ transform: 'matrix(-1,0,0,1,1939,286)' }} />
             <div className="absolute left-[1103px] top-[120px] w-[761px] h-[397px]">
-              <span className="absolute left-[236px] top-0 font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-redAlt">Crispy, Every Bite Taste</span>
               <span className="absolute left-0 top-[67px] w-[761px] font-nunito font-bold text-[80px] leading-[81px] text-center text-[#212121]">Every Bite Deserves A Refreshing Blend.</span>
               <span className="absolute left-[174px] top-[258px] w-[414px] font-nunito font-medium text-[17px] leading-[28px] text-center whitespace-nowrap text-body-gray2">Fresh drinks made to complement every craving.</span>
               <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[250px] top-[332px] w-[212.3px] h-[65px] rounded-[9px] bg-brand-yellow flex items-center justify-center hover:brightness-95 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.25)] transition-all">
@@ -761,7 +760,7 @@ const faqData = [
   { q: "How much notice do you require?", a: "All orders are freshly made to order. We require a minimum of 24–48 hours' notice to ensure availability and quality." },
   { q: "Do you Cater for dietary requirements", a: "Yes. Please discuss any allergies or dietary needs with us when placing your order and we will do our best to accommodate." },
   { q: "Do you offer Catering Services?", a: "Yes. We cater for birthdays, weddings, corporate events, church gatherings, baby showers, private parties, and other occasions. For event bookings, visit our Catering page." },
-  { q: "Can i customize my catering menu?", a: "Absolutely. We work closely with clients to curate menus based on event type, preferences, guest requirements, and budget." },
+  { q: "Can I customize my catering menu?", a: "Absolutely. We work closely with clients to curate menus based on event type, preferences, guest requirements, and budget." },
   { q: "Do you deliver?", a: "Delivery may be available depending on your location and order size — message us on WhatsApp to confirm." },
   { q: "What do you offer?", a: "Pastries, snacks, specialty drinks, shawarmas, melts, salads, banana bread, catering menus, and seasonal selections." },
   { q: "Are you a registered business?", a: "Yes. TheLiquidSpot is a registered UK food business operating in compliance with food safety regulations. We hold a 4-Star Food Hygiene Rating." }
