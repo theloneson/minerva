@@ -76,16 +76,10 @@ export default function LandingPage() {
         >
           {/* ============ HERO ============ */}
           <section className="absolute left-0 top-0 w-[1920px] h-[900px] overflow-hidden">
-            <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
+            <div className="absolute inset-0 bg-[url('/shared/background.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
 
             {/* Dark veil */}
             <div className="absolute inset-0 bg-black/45 pointer-events-none" />
-
-            {/* Left Drink Image in Background */}
-            <div className="absolute left-[-80px] bottom-[-60px] w-[500px] h-[750px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-contain bg-no-repeat pointer-events-none rotate-12" />
-
-            {/* Right Stacked Shawarma Image in Background */}
-            <div className="absolute right-[-100px] bottom-[-80px] w-[700px] h-[850px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-center bg-contain bg-no-repeat pointer-events-none" />
 
             {/* WhatsApp Bubble */}
             <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform z-20">
@@ -418,12 +412,8 @@ export default function LandingPage() {
       <div className="lg:hidden w-full overflow-x-hidden bg-white font-nunito">
         {/* HERO */}
         <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-cover bg-center" />
+          <div className="absolute inset-0 bg-[url('/shared/background.png')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/45" />
-
-          {/* Mobile Edge Decorative Images */}
-          <div className="absolute left-[-40px] bottom-[-20px] w-[200px] h-[300px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-contain bg-no-repeat pointer-events-none rotate-12 opacity-80" />
-          <div className="absolute right-[-40px] bottom-[-40px] w-[250px] h-[350px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-center bg-contain bg-no-repeat pointer-events-none opacity-80" />
 
           <MobileHeader activePage="home" />
           <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-center text-center gap-5">
