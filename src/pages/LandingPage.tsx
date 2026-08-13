@@ -82,10 +82,10 @@ export default function LandingPage() {
             <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
             {/* Left Drink Image in Background */}
-            <div className="absolute left-[-40px] bottom-[-20px] w-[540px] h-[660px] bg-[url('/figma/landing/assets/3a6280bd1e8636e7.png')] bg-center bg-cover bg-no-repeat pointer-events-none" />
+            <div className="absolute left-[-80px] bottom-[-60px] w-[500px] h-[750px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-contain bg-no-repeat pointer-events-none rotate-12" />
 
-            {/* Right Shawarma Image in Background */}
-            <div className="absolute right-[-40px] bottom-[-30px] w-[650px] h-[720px] bg-[url('/figma/landing/assets/ded90afec8a34908.png')] bg-center bg-cover bg-no-repeat pointer-events-none" />
+            {/* Right Stacked Shawarma Image in Background */}
+            <div className="absolute right-[-100px] bottom-[-80px] w-[700px] h-[850px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-center bg-contain bg-no-repeat pointer-events-none" />
 
             {/* WhatsApp Bubble */}
             <a href="https://wa.me/447810007544" target="_blank" rel="noopener noreferrer" className="absolute left-[1709px] top-[747px] w-[125px] h-[125px] hover:scale-105 transition-transform z-20">
@@ -99,19 +99,19 @@ export default function LandingPage() {
             <Header activePage="home" />
 
             {/* Centered Hero Content */}
-            <div className="absolute left-1/2 top-[290px] -translate-x-1/2 w-[960px] flex flex-col items-center text-center gap-6 z-10">
-              <div className="font-nunito font-black text-[110px] leading-[95px] tracking-tight">
+            <div className="absolute left-1/2 top-[308px] -translate-x-1/2 w-[960px] flex flex-col items-center text-center gap-6 z-10">
+              <div className="font-nunito font-black text-[110px] leading-[100px] tracking-tight">
                 <span className="text-brand-yellow">Flavor </span>
                 <span className="text-brand-red">You’ll</span>
-                <div className="text-white mt-2">Crave Again</div>
+                <div className="text-white mt-1">Crave Again</div>
               </div>
 
-              <p className="max-w-[780px] font-nunito font-light italic text-[22px] leading-[32px] text-[#F4F1F1]">
+              <p className="max-w-[850px] font-nunito font-medium italic text-[22px] leading-[34px] text-[#F4F1F1] mt-2">
                 From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
               </p>
 
-              <div className="mt-2">
-                <RedButton onClick={handleMenuScroll} className="w-[200px] h-[58px]">
+              <div className="mt-4">
+                <RedButton onClick={handleMenuScroll} className="w-[192.27px] h-[61px] text-[18px]">
                   View Menu
                 </RedButton>
               </div>
@@ -420,6 +420,11 @@ export default function LandingPage() {
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/94addf636cfc5819.png')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/45" />
+
+          {/* Mobile Edge Decorative Images */}
+          <div className="absolute left-[-40px] bottom-[-20px] w-[200px] h-[300px] bg-[url('/figma/landing/assets/d57efd050bfddac0.png')] bg-center bg-contain bg-no-repeat pointer-events-none rotate-12 opacity-80" />
+          <div className="absolute right-[-40px] bottom-[-40px] w-[250px] h-[350px] bg-[url('/figma/landing/assets/d6b05c66dc1dea2e.png')] bg-center bg-contain bg-no-repeat pointer-events-none opacity-80" />
+
           <MobileHeader activePage="home" />
           <div className="relative px-6 md:px-12 pt-36 pb-20 flex flex-col items-center text-center gap-5">
             <h1 className="font-black text-[54px] md:text-[84px] leading-[0.92]">
@@ -427,10 +432,10 @@ export default function LandingPage() {
               <span className="text-brand-red">You’ll</span>
               <span className="block text-white mt-2">Crave Again</span>
             </h1>
-            <p className="max-w-md font-light italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
+            <p className="max-w-md font-light italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1] z-10 relative">
               From signature shawarmas to refreshing blends and satisfying meals, The Liquid Spot brings you flavor, comfort, and quality in every order.
             </p>
-            <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px]">
+            <RedButton onClick={handleMenuScroll} className="mt-2 w-[180px] z-10 relative">
               View Menu
             </RedButton>
           </div>
