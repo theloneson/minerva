@@ -345,12 +345,6 @@ const timelineImgs = [
   "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1400&q=80"
 ];
 
-const caterCards = [
-  { image: "/figma/catering/assets/1.jpeg", title: "Private Celebrations", desc: "Your special moments deserve exceptional food. We bring warmth, flavour, and a spread that makes your guests talk long after the event." },
-  { image: "/figma/catering/assets/2.jpeg", title: "Corporate Events", desc: "Professional, punctual, and perfectly presented. We handle the food so your team can focus on what matters — with great energy and full stomachs." },
-  { image: "/figma/catering/assets/3.jpeg", title: "Church & Community", desc: "Serving community means serving with heart. We cater for fellowships and gatherings where community and good food come together beautifully." },
-  { image: "/figma/catering/assets/4.jpeg", title: "Weddings & Showers", desc: "Intimate doesn't mean less special. Whether it's ten people or thirty, every gathering deserves food that brings people together and keeps them there." }
-];
 
 const offerings = [
   { label: "Main Course", title: "Signature Feasts", bg: "url('/shared/newimg.png') center / cover no-repeat", desc: "Delicious main meals and hearty dishes prepared with quality ingredients and authentic flavours to satisfy your guests.." },

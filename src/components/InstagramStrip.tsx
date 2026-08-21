@@ -38,10 +38,10 @@ function InstagramTile({ item, className }: { item: StripItem; className: string
     if (!vid) return;
     if (vid.requestFullscreen) {
       vid.requestFullscreen();
-    } else if ((vid as any).webkitRequestFullscreen) {
-      (vid as any).webkitRequestFullscreen();
-    } else if ((vid as any).mozRequestFullScreen) {
-      (vid as any).mozRequestFullScreen();
+    } else if ('webkitRequestFullscreen' in vid) {
+      (vid as HTMLVideoElement & { webkitRequestFullscreen: () => Promise<void> }).webkitRequestFullscreen();
+    } else if ('mozRequestFullScreen' in vid) {
+      (vid as HTMLVideoElement & { mozRequestFullScreen: () => Promise<void> }).mozRequestFullScreen();
     }
   };
 
