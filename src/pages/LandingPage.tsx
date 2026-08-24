@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
 import { RedButton, MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -318,15 +319,15 @@ export default function LandingPage() {
             <div className="absolute left-[960px] top-[480px] w-[963px] h-[480px] bg-[url('/figma/landing/assets/0df3bfdfbfaf75d0.png')] bg-center bg-[length:100%_100%] bg-no-repeat" />
             <div className="absolute inset-0 bg-black/55" />
             <div className="absolute left-[661px] top-0 w-[672px] h-[672px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-            <a href="/find-us#consultation-form" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+            <Link to="/find-us#consultation-form" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
               <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
               <span className="font-nunito font-bold text-[25px] leading-[25px] text-white">Book a Consultation</span>
-            </a>
+            </Link>
           </section>
 
           {/* ============ SIMPLE ORDERING ============ */}
           <section className="absolute left-[346px] w-[1314px] h-[535px]" style={{ top: simpleOrderingTop }}>
-            <span className="absolute left-[554px] top-[46px] font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">FOOD PROCESSING</span>
+            <span className="absolute left-[554px] top-[46px] font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">PROCESS</span>
             <span className="absolute left-[341px] top-[113px] w-[631px] font-nunito font-semibold text-[80px] leading-[81px] text-center text-[#212121]">Simple Ordering, Great Food.</span>
             <div className="absolute left-[112px] top-[439px] w-[1032px] h-[1px] bg-[url('/figma/landing/assets/458b114f296b901e.png')] bg-left-top bg-repeat-x" style={{ backgroundSize: '978px 1px' }} />
 
@@ -564,15 +565,15 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/55" />
           <div className="relative w-[200px] h-[200px] md:w-[280px] md:h-[280px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
-          <a href="/find-us#consultation-form-m" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
+          <Link to="/find-us#consultation-form-m" className="relative rounded-[12px] bg-brand-red px-10 py-5 flex items-center justify-center hover:brightness-110 shadow-[0_14px_28px_rgba(0,0,0,0.22)] transition-all">
             <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
             <span className="font-bold text-[20px] leading-[25px] text-white">Book a Consultation</span>
-          </a>
+          </Link>
         </section>
 
         {/* SIMPLE ORDERING */}
         <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-4 text-center">
-          <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[1px] text-brand-red">FOOD PROCESSING</span>
+          <span className="font-oswald font-bold text-[18px] md:text-[22px] tracking-[1px] text-brand-red">PROCESS</span>
           <h2 className="max-w-lg font-semibold text-[38px] md:text-[56px] leading-[1.05] text-[#212121]">Simple Ordering, Great Food.</h2>
           <div className="mt-6 w-full grid gap-6 md:grid-cols-3 items-stretch">
             <div className="flex flex-col items-center justify-center gap-2 px-6 py-8">
@@ -712,14 +713,42 @@ const menuGroups = [
 const drinkRows = [
   {
     cards: [
-      { title: "Creamy Tigernut Drink", price: "£5.00", bg: "/figma/landing/assets/tigernut.png", desc: "Smooth, naturally sweet tigernut drink.", ingr: "Ingredients: Tigernuts, water, spices", allergen: "Allergen advice: May contain traces of nuts" },
-      { title: "Blended Banana", price: "£6.99", bg: "/figma/landing/assets/banana.png", desc: "Fresh bananas blended into a smooth, refreshing drink.", ingr: "Ingredients: Bananas, milk, sweetener", allergen: "Allergen advice: Contains milk; may contain traces of nuts" },
-      { title: "Nosy Cinnamon", price: "£6.99", bg: "/figma/landing/assets/cinamon.png", desc: "Lightly spiced cinnamon drink with warm, comforting taste.", ingr: "Ingredients: Cinnamon, milk, sweetener", allergen: "Allergen advice: Contain traces of nuts" }
+      {
+        title: "Creamy Tigernut Drink",
+        price: "£5.99",
+        bg: "/figma/landing/assets/tigernut.png",
+        desc: "Smooth, naturally sweet tigernut drink.",
+        ingr: "Ingredients: Tigernuts, dates, coconut, ginger, water.",
+        allergen: "Allergen advice: May contain traces of nuts"
+      },
+      {
+        title: "Blended Banana",
+        price: "£6.99",
+        bg: "/figma/landing/assets/banana.png",
+        desc: "Fresh bananas blended into a smooth, refreshing drink.",
+        ingr: "Ingredients: Tigernuts, Banana, dates, coconut, ginger, water.",
+        allergen: "Allergen advice: May contain traces of nuts"
+      },
+      {
+        title: "Nosy Cinnamon",
+        price: "£6.99",
+        bg: "/figma/landing/assets/cinamon.png",
+        desc: "Lightly spiced cinnamon drink with warm, comforting taste.",
+        ingr: "Ingredients: Tigernuts, Banana, dates, coconut, ginger, water.",
+        allergen: "Allergen advice: May contain traces of nuts"
+      }
     ]
   },
   {
     cards: [
-      { title: "Zesty Zobo", price: "£3.99", bg: "/figma/landing/assets/zobo.png", desc: "Bold and refreshing hibiscus drink with a tangy finish.", ingr: "Ingredients: Hibiscus leaves, ginger, spices", allergen: "Allergen advice: May contain traces of nuts" }
+      {
+        title: "Zesty Zobo",
+        price: "£3.99",
+        bg: "/figma/landing/assets/zobo.png",
+        desc: "Bold and refreshing hibiscus drink with a tangy finish.",
+        ingr: "Ingredients: Hibiscus petals, pineapple juice and peels, ginger, cloves, cinnamon stick, oranges.",
+        allergen: "Allergen advice: May contain traces of nuts"
+      }
     ]
   }
 ];

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useScale } from '../hooks/useScale';
 import { MobileFollow } from '../components/Shared';
 import { Header, MobileHeader } from '../components/Header';
@@ -36,10 +37,10 @@ export default function CateringService() {
             <span className="absolute left-[160px] top-[660px] w-[750px] font-nunito font-bold italic text-[24px] leading-[36px] text-[#F4F1F1] text-balance">
               At TheLiquidSpot, we understand that every event is unique. Whether you are hosting a birthday celebration, wedding, corporate event, showers, church gathering, private party at home, or community event, we work closely with you to create a menu that perfectly suits your occasion and guests.
             </span>
-            <a href="/find-us#consultation-form" className="absolute left-[1331px] top-[708px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
+            <Link to="/find-us#consultation-form" className="absolute left-[1331px] top-[708px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
               <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
               <span className="font-nunito font-black text-[25px] text-white">Book a Consultation</span>
-            </a>
+            </Link>
           </section>
 
           {/* ============ EVERY MOMENT (hidden per client request — section removed from flow, everything below shifted up by 969px to close the gap) ============
@@ -99,7 +100,7 @@ export default function CateringService() {
           {/* ============ FOOD PROCESSING STEPS ============ */}
           <section className="absolute left-[203px] top-[1999px] w-[1544px] flex flex-col gap-[94px] items-center">
             <div className="w-[631px] flex flex-col gap-[39px] items-center">
-              <span className="font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">FOOD PROCESSING</span>
+              <span className="font-oswald font-bold text-[25px] leading-[28px] text-center whitespace-nowrap text-brand-red">PROCESS</span>
               <span className="font-nunito font-semibold text-[80px] leading-[81px] text-center text-[#212121]">Simple Ordering, Great Food.</span>
             </div>
             <div className="relative w-[1544px] h-[394px] rounded-[14px] bg-[#EE284B] bg-[url('/figma/catering/assets/6c040c306c132abd.png')] bg-[length:96.3%_80.964%] bg-[position:130.53%_0%] bg-no-repeat">
@@ -158,10 +159,10 @@ export default function CateringService() {
             <div className="absolute inset-0 bg-black/60" />
             <div className="absolute left-[661px] top-0 w-[672px] h-[672px] bg-[url('/figma/landing/assets/b213b544c9b50224.png')] bg-center bg-cover bg-no-repeat" />
             <span className="absolute left-[46px] top-[282px] w-[683px] font-nunito font-extrabold text-[80px] leading-[81px] text-center text-white">Ready to start planning?</span>
-            <a href="/find-us#consultation-form" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
+            <Link to="/find-us#consultation-form" className="absolute left-[1202px] top-[532px] w-[322px] h-[92px] rounded-[12px] bg-brand-red flex items-center justify-center hover:brightness-110 hover:-translate-y-[5px] shadow-2xl transition-all duration-300">
               <div className="absolute left-[27.85px] top-[-10px] w-[305.87px] h-[114.06px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
               <span className="font-nunito font-black text-[25px] leading-[25px] text-white">Book a Consultation</span>
-            </a>
+            </Link>
           </section>
 
           {/* ============ FOLLOW ============ */}
@@ -197,10 +198,10 @@ export default function CateringService() {
             <p className="max-w-xl font-semibold italic text-[15px] md:text-[18px] leading-relaxed text-[#F4F1F1]">
               From intimate gatherings to large celebrations, TheLiquidSpot creates thoughtfully curated food and drink experiences tailored to your guests, preferences, and occasion.
             </p>
-            <a href="/find-us#consultation-form-m" className="relative mt-2 rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
+            <Link to="/find-us#consultation-form-m" className="relative mt-2 rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
               <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
               <span className="font-black text-[18px] text-white">Book a Consultation</span>
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -266,7 +267,7 @@ export default function CateringService() {
         {/* FOOD PROCESSING STEPS */}
         <section className="px-6 md:px-12 py-14 flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-4 text-center">
-            <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-red">FOOD PROCESSING</span>
+            <span className="font-oswald font-bold text-[18px] md:text-[22px] text-brand-red">PROCESS</span>
             <h2 className="max-w-lg font-semibold text-[38px] md:text-[56px] leading-[1.05] text-[#212121]">Simple Ordering, Great Food.</h2>
           </div>
           <div className="w-full rounded-[14px] bg-[#EE284B] px-6 py-10 md:px-10 grid gap-10 md:grid-cols-2">
@@ -318,10 +319,10 @@ export default function CateringService() {
           <div className="absolute inset-0 bg-[url('/figma/landing/assets/c7bd7438b86fbdba.jpg')] bg-cover bg-center" />
           <div className="absolute inset-0 bg-black/60" />
           <h2 className="relative max-w-md font-extrabold text-[38px] md:text-[56px] leading-[1.05] text-white">Ready to start planning?</h2>
-          <a href="/find-us#consultation-form-m" className="relative rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
+          <Link to="/find-us#consultation-form-m" className="relative rounded-[12px] bg-brand-red px-8 py-4 flex items-center justify-center hover:brightness-110 shadow-2xl transition-all duration-300">
             <div className="absolute -inset-y-[8px] inset-x-[10px] rounded-[12px] shadow-[inset_0_0_0_3px_#F3274C] pointer-events-none" />
             <span className="font-black text-[18px] text-white">Book a Consultation</span>
-          </a>
+          </Link>
         </section>
 
         <MobileFollow />

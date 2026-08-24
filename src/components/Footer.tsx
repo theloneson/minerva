@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 interface FooterProps {
   top: number;
 }
@@ -33,10 +35,10 @@ export function Footer({ top }: FooterProps) {
         <div className="flex flex-col gap-[30px] items-center text-center flex-shrink-0">
           <span className="font-oswald font-semibold text-[20px] leading-[24px] text-brand-red">Quick Links</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[16px] leading-[32px]">
-            <a href="/" className="text-footer-gray hover:text-brand-yellow transition-colors">Home</a>
-            <a href="/catering" className="text-footer-gray hover:text-brand-yellow transition-colors">Catering Service</a>
-            <a href="/about-us" className="text-footer-gray hover:text-brand-yellow transition-colors">About Us</a>
-            <a href="/find-us" className="text-footer-gray hover:text-brand-yellow transition-colors">Find Us</a>
+            <Link to="/" className="text-footer-gray hover:text-brand-yellow transition-colors">Home</Link>
+            <Link to="/catering" className="text-footer-gray hover:text-brand-yellow transition-colors">Catering Service</Link>
+            <Link to="/about-us" className="text-footer-gray hover:text-brand-yellow transition-colors">About Us</Link>
+            <Link to="/find-us" className="text-footer-gray hover:text-brand-yellow transition-colors">Find Us</Link>
           </div>
         </div>
 
@@ -111,10 +113,10 @@ export function MobileFooter() {
         <div className="flex flex-col gap-[14px] items-center text-center">
           <span className="font-oswald font-semibold text-[18px] leading-[24px] text-brand-red">Quick Links</span>
           <div className="flex flex-col items-center font-nunito font-normal text-[14px] leading-[28px]">
-            <a href="/" className="text-footer-gray hover:text-brand-yellow transition-colors">Home</a>
-            <a href="/catering" className="text-footer-gray hover:text-brand-yellow transition-colors">Catering Service</a>
-            <a href="/about-us" className="text-footer-gray hover:text-brand-yellow transition-colors">About Us</a>
-            <a href="/find-us" className="text-footer-gray hover:text-brand-yellow transition-colors">Find Us</a>
+            <Link to="/" className="text-footer-gray hover:text-brand-yellow transition-colors">Home</Link>
+            <Link to="/catering" className="text-footer-gray hover:text-brand-yellow transition-colors">Catering Service</Link>
+            <Link to="/about-us" className="text-footer-gray hover:text-brand-yellow transition-colors">About Us</Link>
+            <Link to="/find-us" className="text-footer-gray hover:text-brand-yellow transition-colors">Find Us</Link>
           </div>
         </div>
         <div className="flex flex-col gap-[14px] items-center text-center">
