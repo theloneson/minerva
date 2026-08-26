@@ -106,12 +106,12 @@ export default function FindUs() {
 
     try {
       if (scriptUrl) {
-        // Send to Google Apps Script Web App
+        // Send to Google Apps Script Web App using text/plain (CORS-safelisted simple content type to prevent preflight block)
         await fetch(scriptUrl, {
           method: 'POST',
-          mode: 'no-cors', // standard for Google Apps Script to prevent browser CORS block
+          mode: 'no-cors',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'text/plain;charset=utf-8'
           },
           body: JSON.stringify(payload)
         });
